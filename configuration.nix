@@ -114,13 +114,13 @@
   speedtest-cli
   gh
   htop
+  lm_sensors
 
   pipx
   rustup
   cargo
   libgccjit
   nodejs_22
-
 
   usbutils
   toybox
