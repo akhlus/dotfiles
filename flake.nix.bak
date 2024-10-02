@@ -1,0 +1,18 @@
+{
+  description= "unstable";
+  inputs={
+    nixpkgs.url="nixpkgs/nixos-unstable";
+  };
+
+  outputs={self,nixpkgs,...}:
+    let
+      system = "x86_64-linux";
+    in{
+      nixosConfigurations = {
+      s340 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./configuration.nix];
+      };
+    };
+  };
+}
