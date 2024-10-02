@@ -108,29 +108,31 @@
   wget
   git
   python3
-  cargo
-  pipx 
-  speedtest-cli
-  htop
-  gh
-  usbutils
-  toybox
-  tio
   neofetch
   wireguard-tools
   tldr
+  speedtest-cli
+  gh
+  htop
+
+  pipx
   rustup
+  cargo
+  libgccjit
+  nodejs_22
+
+
+  usbutils
+  toybox
+  tio
+
   #apps
-  gnome-extension-manager 
-  #vscodium
+  gnome-extension-manager
   xournalpp
   spotify
-  unstable.kicad
   google-chrome
   protonvpn-gui
-  unstable.kicad
-  gnomeExtensions.caffeine
-  gnomeExtensions.blur-my-shell
+  kicad
   chromium
   gparted
   zed-editor
@@ -138,8 +140,14 @@
   calibre
   onlyoffice-bin_latest
   vlc
-  #hyprland
   gnome-tweaks
+  ungit
+
+  #extensions
+  gnomeExtensions.caffeine
+  gnomeExtensions.blur-my-shell
+  gnomeExtensions.dash-to-panel
+
   #typefaces
   inter
   source-code-pro
@@ -172,6 +180,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  
+
   nix.settings.experimental-features=["nix-command" "flakes"];
 }
