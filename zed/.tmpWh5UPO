@@ -1,0 +1,36 @@
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"App","operation":"open"}
+{"signed_in":false,"milliseconds_since_first_event":116,"type":"Setting","setting":"theme","value":"One Dark"}
+{"signed_in":false,"milliseconds_since_first_event":116,"type":"Setting","setting":"keymap","value":"VSCode"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Extension","extension_id":"csv","version":"0.0.2"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Extension","extension_id":"html","version":"0.1.2"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Extension","extension_id":"macos-classic","version":"0.1.0"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Extension","extension_id":"smooth","version":"1.0.0"}
+{"signed_in":false,"milliseconds_since_first_event":0,"type":"Extension","extension_id":"the-dark-side","version":"0.2.5"}
+{"signed_in":false,"milliseconds_since_first_event":4953,"type":"Editor","operation":"open","file_extension":"txt","vim_mode":false,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":true,"milliseconds_since_first_event":26598,"type":"Editor","operation":"open","file_extension":"json","vim_mode":false,"copilot_enabled":true,"copilot_enabled_for_language":true}
+{"signed_in":true,"milliseconds_since_first_event":34323,"type":"App","operation":"extensions page: open"}
+{"signed_in":true,"milliseconds_since_first_event":50145,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":55054,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":57080,"type":"Extension","extension_id":"toml","version":"0.1.1"}
+{"signed_in":true,"milliseconds_since_first_event":59158,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":61153,"type":"Extension","extension_id":"git-firefly","version":"0.0.3"}
+{"signed_in":true,"milliseconds_since_first_event":61153,"type":"Extension","extension_id":"sql","version":"1.1.2"}
+{"signed_in":true,"milliseconds_since_first_event":62682,"type":"Extension","extension_id":"sql","version":"1.1.2"}
+{"signed_in":true,"milliseconds_since_first_event":68615,"type":"Extension","extension_id":"sql","version":"1.1.2"}
+{"signed_in":true,"milliseconds_since_first_event":71339,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":73887,"type":"Extension","extension_id":"dockerfile","version":"0.0.4"}
+{"signed_in":true,"milliseconds_since_first_event":239886,"type":"Memory","memory_in_bytes":252186624,"virtual_memory_in_bytes":50079621120}
+{"signed_in":true,"milliseconds_since_first_event":239886,"type":"Cpu","usage_as_percentage":654.32416,"core_count":8}
+{"signed_in":true,"milliseconds_since_first_event":289540,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":293724,"type":"Extension","extension_id":"log","version":"0.0.6"}
+{"signed_in":true,"milliseconds_since_first_event":0,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":7949,"type":"Extension","extension_id":"latex","version":"0.0.7"}
+{"signed_in":true,"milliseconds_since_first_event":99047,"type":"Memory","memory_in_bytes":261885952,"virtual_memory_in_bytes":58679160832}
+{"signed_in":true,"milliseconds_since_first_event":99047,"type":"Cpu","usage_as_percentage":676.0571,"core_count":8}
+{"signed_in":true,"milliseconds_since_first_event":208452,"type":"App","operation":"extensions: uninstall extension"}
+{"signed_in":true,"milliseconds_since_first_event":219986,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":222998,"type":"Extension","extension_id":"csv","version":"0.0.2"}
+{"signed_in":true,"milliseconds_since_first_event":226059,"type":"Extension","extension_id":"csv","version":"0.0.2"}
+{"signed_in":true,"milliseconds_since_first_event":258008,"type":"App","operation":"extensions: install extension"}
+{"signed_in":true,"milliseconds_since_first_event":260469,"type":"Extension","extension_id":"nix","version":"0.1.0"}
+{"signed_in":true,"milliseconds_since_first_event":262532,"type":"Extension","extension_id":"nix","version":"0.1.0"}
