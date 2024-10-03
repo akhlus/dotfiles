@@ -89,6 +89,6 @@
     };
   };
   home.file.".config/xournalpp".source = ./xournalpp;
-  home.file."config/zed".source=./zed;
-  home.file."config/gh".source=./gh;
+  home.file.".config/zed".source=./zed;
+  home.file.".config/gh".source=./gh;
 }
