@@ -88,7 +88,10 @@
       ".."="cd ..";
     };
   };
-  home.file.".config/xournalpp".source = ./xournalpp;
-  home.file.".config/zed".source=./zed;
-  home.file.".config/gh".source=./gh;
+  home.file.".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
+  home.file.".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
+  home.file.".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
+  home.file.".config/zed/settings.json".source=./zed/settings.json;
+  home.file.".config/gh/config.yml".source=./gh/config.yml;
+  home.file.".config/gh/hosts.yml".source=./gh/hosts.yml;
 }
