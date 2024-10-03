@@ -79,7 +79,7 @@
     userEmail="samuellarcombe@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-    }; 
+    };
   };
   programs.bash={
     enable=true;
@@ -88,4 +88,5 @@
       ".."="cd ..";
     };
   };
+  home.file.".config/xournalpp".source = ./xournalpp;
 }
