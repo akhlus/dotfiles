@@ -12,7 +12,7 @@
       system = "x86_64-linux";
       pkgs=nixpkgs.legacyPackages.${system};
     in {
-      nixosConfigurations."s340" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."default" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
