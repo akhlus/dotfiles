@@ -94,4 +94,5 @@
   home.file.".config/zed/settings.json".source=./zed/settings.json;
   home.file.".config/gh/config.yml".source=./gh/config.yml;
   home.file.".config/gh/hosts.yml".source=./gh/hosts.yml;
+  home.file.".local/share/backgrounds/tignes.jpg".source=./backgrounds/tignes.jpg;
 }
