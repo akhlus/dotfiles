@@ -73,7 +73,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.file.".local/share/backgrounds".source=./tignes.jpg;
+  home.file.".local/share/backgrounds/tignes.jpg".source=./tignes.jpg;
   imports = [
     ./dconf.nix
   ];

@@ -22,8 +22,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/.local/share/backgrounds/2024-10-02-11-51-35-IMG-20240402-WA0038.jpg";
-      picture-uri-dark = "file:///home/sam/.local/share/backgrounds/2024-10-02-11-51-35-IMG-20240402-WA0038.jpg";
+      picture-uri = "file:///home/sam/.local/share/backgrounds/tignes.jpg";
+      picture-uri-dark = "file:///home/sam/.local/share/backgrounds/tignes.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -52,7 +52,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/.local/share/backgrounds/2024-10-02-11-51-35-IMG-20240402-WA0038.jpg";
+      picture-uri = "file:///home/sam/.local/share/backgrounds/tignes.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
