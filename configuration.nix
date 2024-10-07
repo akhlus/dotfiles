@@ -18,7 +18,7 @@
   users.defaultUserShell = pkgs.bash;
 
 
-  networking.hostName = "s340"; # Define your hostname.
+  networking.hostName = "hp"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -142,11 +142,14 @@
   vlc
   gnome-tweaks
   ungit
+  dconf-editor
 
   #extensions
   gnomeExtensions.caffeine
   gnomeExtensions.blur-my-shell
   gnomeExtensions.dash-to-panel
+  gnomeExtensions.dash-to-dock
+  gnomeExtensions.appindicator
 
   #typefaces
   inter
