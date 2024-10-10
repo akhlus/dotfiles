@@ -15,4 +15,30 @@
     "light": "One Dark",
     "dark": "One Dark",
   },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "lineLength": 80,
+        "lint": {
+          "extendSelect": ["I"],
+        }
+      }
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright","ruff"]
+    }
+  },
 }
