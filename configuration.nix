@@ -143,6 +143,7 @@
   gnome-tweaks
   ungit
   dconf-editor
+  popsicle
 
   #extensions
   gnomeExtensions.caffeine
