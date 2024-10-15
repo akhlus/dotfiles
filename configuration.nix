@@ -144,6 +144,8 @@
   ungit
   dconf-editor
   mediawriter
+  woeusb
+  ventoy-full
 
   #extensions
   gnomeExtensions.caffeine
