@@ -1,3 +1,4 @@
+#eduroam setup
 # open a shell whith all the dependencies needed
 nix-shell -p "python3.withPackages (ps: with ps; [ dbus-python ])"
 # execute the script

@@ -143,7 +143,7 @@
   gnome-tweaks
   ungit
   dconf-editor
-  popsicle
+  mediawriter
 
   #extensions
   gnomeExtensions.caffeine
