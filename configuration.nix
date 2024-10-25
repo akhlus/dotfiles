@@ -121,6 +121,8 @@
   cargo
   libgccjit
   nodejs_22
+  jdk22
+  nixd
 
   usbutils
   toybox
@@ -132,7 +134,7 @@
   spotify
   google-chrome
   protonvpn-gui
-  kicad
+  stable.kicad
   chromium
   gparted
   zed-editor
@@ -143,8 +145,6 @@
   gnome-tweaks
   ungit
   dconf-editor
-  mediawriter
-  woeusb
   ventoy-full
 
   #extensions
