@@ -8,23 +8,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager,... }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    ...
+  }:
     let
       system = "x86_64-linux";
       pkgs=nixpkgs.legacyPackages.${system};
-      overlay-stable = final: prev: {
-        stable= import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     in {
       nixosConfigurations."default" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
           ./configuration.nix
         ];
+        specialArgs = {
+          inherit pkgs-stable;
+        };
       };
       homeConfigurations={
         sam=home-manager.lib.homeManagerConfiguration{

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -90,7 +90,6 @@
     description = "sam";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
     ];
   };
 
@@ -102,7 +101,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+  (with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #cli tools
   wget
@@ -115,6 +115,7 @@
   gh
   htop
   lm_sensors
+  dconf2nix
 
   pipx
   rustup
@@ -134,7 +135,6 @@
   spotify
   google-chrome
   protonvpn-gui
-  stable.kicad
   chromium
   gparted
   zed-editor
@@ -158,7 +158,13 @@
   inter
   source-code-pro
   fira
-  ];
+  ])
+  ++
+  (with pkgs-stable; [
+  kicad
+  ]);
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
