@@ -298,11 +298,6 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-app-switch = false;
-      animate-appicon-hover-animation-extent = {
-        RIPPLE = 4;
-        PLANK = 4;
-        SIMPLE = 1;
-      };
       animate-window-launch = false;
       appicon-margin = 4;
       appicon-padding = 4;

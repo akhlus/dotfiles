@@ -83,6 +83,10 @@
     userEmail="samuellarcombe@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
+      push = {autoSetupRemote = true;};
     };
   };
   programs.bash={
@@ -92,11 +96,16 @@
       ".."="cd ..";
     };
   };
+  programs.gh={
+    enable=true;
+    settings={
+      git_protocol="ssh";
+      prompt="enabled";
+    };
+  };
   home.file.".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
   home.file.".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
   home.file.".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
   home.file.".config/zed/settings.json".source=./zed/settings.json;
-  home.file.".config/gh/config.yml".source=./gh/config.yml;
-  home.file.".config/gh/hosts.yml".source=./gh/hosts.yml;
 
 }
