@@ -121,13 +121,16 @@
   rustup
   cargo
   libgccjit
-  nodejs_22
-  jdk22
+  nodejs_latest
+  jdk
   nixd
 
   usbutils
   toybox
   tio
+  yt-dlp
+  spotdl
+  ffmpeg
 
   #apps
   gnome-extension-manager

@@ -10,4 +10,7 @@ sudo nixos-rebuild switch --flake .#default
 #rebuild homemanager
 home-manager switch --flake .#default
 
+#delete old gens
+sudo nix-collect-garbage --delete-older-than 5d
+
 
