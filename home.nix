@@ -96,6 +96,7 @@
       ".."="cd ..";
     };
   };
+
   programs.gh={
     enable=true;
     settings={
