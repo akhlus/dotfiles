@@ -11,7 +11,7 @@
   "ui_font_size": 14,
   "buffer_font_size": 14,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Ayu Dark",
     "dark": "Ayu Dark"
   },
@@ -38,7 +38,29 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff"]
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "Nix": {
+      "tab_size": 2
     }
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "nix": true,
+    "ruff": true,
+    "rainbow-csv": true
   }
 }
