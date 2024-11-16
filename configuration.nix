@@ -133,6 +133,7 @@
   ffmpeg
 
   #apps
+  anki
   gnome-extension-manager
   xournalpp
   spotify
