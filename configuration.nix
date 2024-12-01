@@ -117,6 +117,8 @@
   lm_sensors
   dconf2nix
 
+  ruff
+  ruff-lsp
   pipx
   rustup
   cargo
@@ -150,6 +152,8 @@
   ungit
   dconf-editor
   ventoy-full
+  kiwix
+  qbittorrent
 
   #extensions
   gnomeExtensions.caffeine
