@@ -13,4 +13,11 @@ home-manager switch --flake .#default
 #delete old gens
 sudo nix-collect-garbage --delete-older-than 5d
 
+#dump dconf to dconf.settings
+dconf dump / > dconf.settings
 
+#convert dconf file to nix module
+dconf2nix -i dconf.settings -o dconf.nix
+
+#get hardware-config for system
+nixos-generate-config --show-hardware-config  | cat > hardware-configuration.nix
