@@ -5,6 +5,15 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "apps/seahorse/listing" = {
+      keyrings-selected = [ "openssh:///home/sam/.ssh" ];
+    };
+
+    "apps/seahorse/windows/key-manager" = {
+      height = 476;
+      width = 600;
+    };
+
     "com/mattjakeman/ExtensionManager" = {
       last-used-version = "0.5.1";
     };
@@ -31,6 +40,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/baobab/ui" = {
+      active-chart = "rings";
       is-maximized = false;
       window-size = mkTuple [ 960 600 ];
     };
@@ -45,7 +55,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" = {
-      apps = [ "chromium-browser.desktop" "calibre-gui.desktop" "firefox.desktop" "com.mattjakeman.ExtensionManager.desktop" "onlyoffice-desktopeditors.desktop" "vlc.desktop" "code.desktop" "org.gnome.TextEditor.desktop" "protonvpn-app.desktop" "discord.desktop" "org.kicad.kicad.desktop" ];
+      apps = [ "chromium-browser.desktop" "calibre-gui.desktop" "firefox.desktop" "com.mattjakeman.ExtensionManager.desktop" "onlyoffice-desktopeditors.desktop" "vlc.desktop" "code.desktop" "org.gnome.TextEditor.desktop" "protonvpn-app.desktop" "discord.desktop" "org.kicad.kicad.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" ];
       name = "Apps";
       translate = false;
     };
@@ -98,7 +108,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "gnome-power-panel" "dev-zed-zed" "spotify" "google-chrome" "org-gnome-settings" "discord" "org-gnome-baobab" ];
+      application-children = [ "org-gnome-console" "gnome-power-panel" "dev-zed-zed" "spotify" "google-chrome" "org-gnome-settings" "discord" "org-gnome-baobab" "org-gnome-texteditor" ];
+    };
+
+    "org/gnome/desktop/notifications/application/anki" = {
+      application-id = "anki.desktop";
     };
 
     "org/gnome/desktop/notifications/application/dev-zed-zed" = {
@@ -125,8 +139,16 @@ with lib.hm.gvariant;
       application-id = "org.gnome.Console.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/org-gnome-nautilus" = {
+      application-id = "org.gnome.Nautilus.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-settings" = {
       application-id = "org.gnome.Settings.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-texteditor" = {
+      application-id = "org.gnome.TextEditor.desktop";
     };
 
     "org/gnome/desktop/notifications/application/spotify" = {
@@ -169,7 +191,7 @@ with lib.hm.gvariant;
 
     "org/gnome/file-roller/listing" = {
       list-mode = "as-folder";
-      name-column-width = 66;
+      name-column-width = 67;
       show-path = false;
       sort-method = "name";
       sort-type = "ascending";
@@ -182,7 +204,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/gnome-system-monitor" = {
-      current-tab = "resources";
+      current-tab = "processes";
       show-dependencies = false;
       show-whose-processes = "user";
     };
@@ -193,6 +215,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/gnome-system-monitor/proctree" = {
+      col-26-visible = false;
+      col-26-width = 0;
       columns-order = [ 0 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 ];
       sort-col = 8;
       sort-order = 0;
@@ -212,15 +236,16 @@ with lib.hm.gvariant;
 
     "org/gnome/nautilus/window-state" = {
       initial-size = mkTuple [ 890 550 ];
+      initial-size-file-chooser = mkTuple [ 890 550 ];
       maximized = true;
     };
 
     "org/gnome/portal/filechooser/chromium-browser" = {
-      last-folder-path = "/home/sam/Downloads/.xc/XCL/modded";
+      last-folder-path = "/home/sam/Downloads/.xc/XCL 0.21.3 Full Download/modded";
     };
 
     "org/gnome/portal/filechooser/google-chrome" = {
-      last-folder-path = "/home/sam/ii-nst/EM & Optics";
+      last-folder-path = "/home/sam/ii-nst/Relativity";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -233,14 +258,6 @@ with lib.hm.gvariant;
       binding = "<Super>t";
       command = "kgx";
       name = "terminal";
-    };
-
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "clipboard-indicator@tudmotu.com" "dash-to-panel@jderose9.github.com" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "spotify.desktop" "dev.zed.Zed.desktop" "com.github.xournalpp.xournalpp.desktop" ];
-      last-selected-power-profile = "power-saver";
-      welcome-dialog-last-shown-version = "46.2";
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {
@@ -271,9 +288,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/caffeine" = {
+      countdown-timer = 0;
       indicator-position-max = 2;
       show-notifications = false;
-      toggle-state = true;
+      toggle-state = false;
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -308,19 +326,19 @@ with lib.hm.gvariant;
       leftbox-padding = -1;
       multi-monitors = false;
       panel-anchors = ''
-        {"0":"MIDDLE","1":"MIDDLE"}
+        {"0":"MIDDLE","1":"MIDDLE"}\n
       '';
       panel-element-positions = ''
-        {"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+        {"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\n
       '';
       panel-lengths = ''
-        {"0":100,"1":100}
+        {"0":100,"1":100}\n
       '';
       panel-positions = ''
-        {"0":"TOP","1":"TOP"}
+        {"0":"TOP","1":"TOP"}\n
       '';
       panel-sizes = ''
-        {"0":24,"1":24}
+        {"0":24,"1":24}\n
       '';
       primary-monitor = 0;
       status-icon-padding = -1;
