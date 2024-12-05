@@ -12,6 +12,9 @@ last-used-version='0.5.1'
 last-window-maximised=false
 last-window-size=(1510, 829)
 
+[org/gnome/Extensions]
+window-maximized=true
+
 [org/gnome/Snapshot]
 capture-mode='video'
 is-maximized=false
@@ -192,7 +195,7 @@ maximized=true
 last-folder-path='/home/sam/Downloads/.xc/XCL 0.21.3 Full Download/modded'
 
 [org/gnome/portal/filechooser/google-chrome]
-last-folder-path='/home/sam/ii-nst/Relativity'
+last-folder-path='/home/sam/Downloads'
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
@@ -203,6 +206,13 @@ www=['<Super>b']
 binding='<Super>t'
 command='kgx'
 name='terminal'
+
+[org/gnome/shell]
+command-history=['restart', 'r', 'logout', 'exit']
+disabled-extensions=['dash-to-panel@jderose9.github.com']
+enabled-extensions=['clipboard-indicator@tudmotu.com', 'blur-my-shell@aunetx', 'dash-to-dock@micxgx.gmail.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'dev.zed.Zed.desktop', 'com.github.xournalpp.xournalpp.desktop', 'spotify.desktop']
+welcome-dialog-last-shown-version='47.1'
 
 [org/gnome/shell/extensions/blur-my-shell]
 settings-version=2
@@ -228,9 +238,8 @@ sigma=30
 
 [org/gnome/shell/extensions/caffeine]
 countdown-timer=0
-indicator-position-max=2
+indicator-position-max=1
 show-notifications=false
-toggle-state=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 autohide-in-fullscreen=true
@@ -263,11 +272,11 @@ dot-position='BOTTOM'
 hotkeys-overlay-combo='TEMPORARILY'
 leftbox-padding=-1
 multi-monitors=false
-panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}\n'
-panel-element-positions='{"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\n'
-panel-lengths='{"0":100,"1":100}\n'
-panel-positions='{"0":"TOP","1":"TOP"}\n'
-panel-sizes='{"0":24,"1":24}\n'
+panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}\\n\n'
+panel-element-positions='{"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\\n\n'
+panel-lengths='{"0":100,"1":100}\\n\n'
+panel-positions='{"0":"TOP","1":"TOP"}\\n\n'
+panel-sizes='{"0":24,"1":24}\\n\n'
 primary-monitor=0
 status-icon-padding=-1
 stockgs-keep-dash=true

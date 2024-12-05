@@ -23,6 +23,10 @@ with lib.hm.gvariant;
       last-window-size = mkTuple [ 1510 829 ];
     };
 
+    "org/gnome/Extensions" = {
+      window-maximized = true;
+    };
+
     "org/gnome/Snapshot" = {
       capture-mode = "video";
       is-maximized = false;
@@ -245,7 +249,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/portal/filechooser/google-chrome" = {
-      last-folder-path = "/home/sam/ii-nst/Relativity";
+      last-folder-path = "/home/sam/Downloads";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -258,6 +262,14 @@ with lib.hm.gvariant;
       binding = "<Super>t";
       command = "kgx";
       name = "terminal";
+    };
+
+    "org/gnome/shell" = {
+      command-history = [ "restart" "r" "logout" "exit" ];
+      disabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
+      enabled-extensions = [ "clipboard-indicator@tudmotu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "caffeine@patapon.info" "appindicatorsupport@rgcjonas.gmail.com" ];
+      favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "dev.zed.Zed.desktop" "com.github.xournalpp.xournalpp.desktop" "spotify.desktop" ];
+      welcome-dialog-last-shown-version = "47.1";
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {
@@ -289,9 +301,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/caffeine" = {
       countdown-timer = 0;
-      indicator-position-max = 2;
+      indicator-position-max = 1;
       show-notifications = false;
-      toggle-state = false;
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -326,19 +337,19 @@ with lib.hm.gvariant;
       leftbox-padding = -1;
       multi-monitors = false;
       panel-anchors = ''
-        {"0":"MIDDLE","1":"MIDDLE"}\n
+        {"0":"MIDDLE","1":"MIDDLE"}\\n\n
       '';
       panel-element-positions = ''
-        {"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\n
+        {"0":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\\n\n
       '';
       panel-lengths = ''
-        {"0":100,"1":100}\n
+        {"0":100,"1":100}\\n\n
       '';
       panel-positions = ''
-        {"0":"TOP","1":"TOP"}\n
+        {"0":"TOP","1":"TOP"}\\n\n
       '';
       panel-sizes = ''
-        {"0":24,"1":24}\n
+        {"0":24,"1":24}\\n\n
       '';
       primary-monitor = 0;
       status-icon-padding = -1;
