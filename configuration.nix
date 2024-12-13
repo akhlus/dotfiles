@@ -128,7 +128,8 @@
   nixd
 
   usbutils
-  toybox
+  pciutils
+  cope
   tio
   yt-dlp
   spotdl
@@ -136,7 +137,6 @@
 
   #apps
   anki
-  gnome-extension-manager
   xournalpp
   spotify
   google-chrome
