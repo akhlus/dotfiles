@@ -104,56 +104,54 @@
   environment.systemPackages =
   (with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #cli tools
-  wget
-  git
-  python3
-  neofetch
-  wireguard-tools
-  tldr
-  speedtest-cli
-  gh
-  htop
-  lm_sensors
-  dconf2nix
-
-  ruff
-  ruff-lsp
-  pipx
-  rustup
-  cargo
-  libgccjit
-  nodejs_latest
-  jdk
-  nixd
-
-  usbutils
-  pciutils
-  cope
-  tio
-  yt-dlp
-  spotdl
-  ffmpeg
-
   #apps
   anki
-  xournalpp
-  spotify
-  google-chrome
-  protonvpn-gui
-  chromium
-  gparted
-  zed-editor
-  vscode
   calibre
-  onlyoffice-bin_latest
-  vlc
-  gnome-tweaks
-  ungit
+  cargo
+  chromium
+  cope
+  dconf2nix
   dconf-editor
-  ventoy-full
+  ffmpeg
+  gh
+  git
+  gnome-tweaks
+  google-chrome
+  gparted
+  htop
+  jdk
   kiwix
+  libgcc
+  lm_sensors
+  neofetch
+  nixd
+  nodejs_latest
+  onlyoffice-bin_latest
+  pciutils
+  pipx
+  protonvpn-gui
+  python3Full
   qbittorrent
+  ruff
+  ruff-lsp
+  rustup
+  speedtest-cli
+  spotdl
+  spotify
+  tio
+  tldr
+  ungit
+  usbutils
+  ventoy-full
+  vlc
+  vscode-fhs
+  vscodium-fhs
+  wget
+  wireguard-tools
+  xournalpp
+  yt-dlg
+  yt-dlp
+  zed-editor
 
   #extensions
   gnomeExtensions.caffeine
