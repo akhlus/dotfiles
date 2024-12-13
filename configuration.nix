@@ -124,6 +124,7 @@
   libgcc
   lm_sensors
   neofetch
+  nil
   nixd
   nodejs_latest
   onlyoffice-bin_latest
@@ -168,6 +169,7 @@
   ++
   (with pkgs-stable; [
   kicad
+  gnome-extension-manager
   ]);
 
 

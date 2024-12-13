@@ -59,7 +59,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" = {
-      apps = [ "chromium-browser.desktop" "calibre-gui.desktop" "firefox.desktop" "com.mattjakeman.ExtensionManager.desktop" "onlyoffice-desktopeditors.desktop" "vlc.desktop" "code.desktop" "org.gnome.TextEditor.desktop" "protonvpn-app.desktop" "discord.desktop" "org.kicad.kicad.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" ];
+      apps = [ "chromium-browser.desktop" "calibre-gui.desktop" "firefox.desktop" "com.mattjakeman.ExtensionManager.desktop" "onlyoffice-desktopeditors.desktop" "vlc.desktop" "code.desktop" "org.gnome.TextEditor.desktop" "protonvpn-app.desktop" "discord.desktop" "org.kicad.kicad.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" "codium.desktop" "yt-dlg.desktop" ];
       name = "Apps";
       translate = false;
     };
@@ -161,6 +161,16 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "flat";
+    };
+
+    "org/gnome/desktop/peripherals/stylus/default-04f3:2cf1" = {
+      button-action = "default";
+      eraser-pressure-curve = [ 0 0 100 100 ];
+      pressure-curve = [ 0 0 100 100 ];
+    };
+
+    "org/gnome/desktop/peripherals/tablets/04f3:2cf1" = {
+      area = [ (-7.812529802322388e-4) (-1.3021379709243774e-3) (-3.3950582146644592e-3) (-1.5431791543960571e-3) ];
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -266,8 +276,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       command-history = [ "restart" "r" "logout" "exit" ];
-      disabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
-      enabled-extensions = [ "clipboard-indicator@tudmotu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "caffeine@patapon.info" "appindicatorsupport@rgcjonas.gmail.com" ];
+      disabled-extensions = [];
+      enabled-extensions = [ "clipboard-indicator@tudmotu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "caffeine@patapon.info" "appindicatorsupport@rgcjonas.gmail.com" "dash-to-panel@jderose9.github.com" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "google-chrome.desktop" "dev.zed.Zed.desktop" "com.github.xournalpp.xournalpp.desktop" "spotify.desktop" ];
       welcome-dialog-last-shown-version = "47.1";
     };
@@ -281,17 +291,49 @@ with lib.hm.gvariant;
       sigma = 30;
     };
 
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      blur = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
+      pipeline = "pipeline_default";
+    };
+
     "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
       blur = true;
       brightness = 0.6;
+      pipeline = "pipeline_default_rounded";
       sigma = 30;
       static-blur = true;
       style-dash-to-dock = 0;
     };
 
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-panel" = {
+      blur-original-panel = true;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
+      compatibility = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
+      pipeline = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      pipeline = "pipeline_default";
+    };
+
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      blur = true;
       brightness = 0.6;
+      pipeline = "pipeline_default";
       sigma = 30;
+      static-blur = true;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/window-list" = {
@@ -323,6 +365,43 @@ with lib.hm.gvariant;
       show-mounts = false;
       show-show-apps-button = true;
       show-trash = false;
+    };
+
+    "org/gnome/shell/extensions/dash-to-panel" = {
+      animate-app-switch = false;
+      animate-window-launch = false;
+      appicon-margin = 4;
+      appicon-padding = 4;
+      appicon-style = "NORMAL";
+      available-monitors = [ 0 ];
+      dot-position = "BOTTOM";
+      dot-style-focused = "DOTS";
+      dot-style-unfocused = "DOTS";
+      hotkeys-overlay-combo = "TEMPORARILY";
+      leftbox-padding = 1;
+      overview-click-to-exit = false;
+      panel-anchors = ''
+        {"0":"MIDDLE"}
+      '';
+      panel-element-positions = ''
+        {"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+      '';
+      panel-lengths = ''
+        {"0":100}
+      '';
+      panel-positions = ''
+        {"0":"TOP"}
+      '';
+      panel-sizes = ''
+        {"0":24}
+      '';
+      primary-monitor = 0;
+      progress-show-count = false;
+      status-icon-padding = 1;
+      stockgs-keep-dash = true;
+      trans-use-custom-bg = false;
+      tray-padding = 1;
+      window-preview-title-position = "TOP";
     };
 
     "org/gnome/shell/keybindings" = {
