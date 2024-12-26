@@ -1,4 +1,4 @@
-{lib, ...}:
+{ config, lib, pkgs, ...}:
 
 {
   hardware.graphics = {
@@ -9,5 +9,6 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
