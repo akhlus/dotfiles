@@ -129,7 +129,6 @@
   kiwix
   libgcc
   lm_sensors
-  neofetch
   nixd
   nodejs_latest
   onlyoffice-bin_latest

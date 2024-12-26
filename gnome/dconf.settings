@@ -130,7 +130,7 @@ eraser-pressure-curve=[0, 0, 100, 100]
 pressure-curve=[0, 0, 100, 100]
 
 [org/gnome/desktop/peripherals/tablets/04f3:2cf1]
-area=[-0.00078125298023223877, -0.0013021379709243774, -0.0033950582146644592, -0.0015431791543960571]
+area=[-0.00078100000000000001, -0.001302, -0.003395, -0.0015430000000000001]
 
 [org/gnome/desktop/peripherals/touchpad]
 accel-profile='flat'
@@ -199,11 +199,11 @@ initial-size=(890, 550)
 initial-size-file-chooser=(890, 550)
 maximized=true
 
-[org/gnome/portal/filechooser/chromium-browser]
-last-folder-path='/home/sam/Downloads/.xc/XCL 0.21.3 Full Download/modded'
-
 [org/gnome/portal/filechooser/google-chrome]
 last-folder-path='/home/sam/Downloads'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-schedule-automatic=false
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
@@ -216,7 +216,6 @@ command='kgx'
 name='terminal'
 
 [org/gnome/shell]
-command-history=['restart', 'r', 'logout', 'exit']
 disabled-extensions=@as []
 enabled-extensions=['clipboard-indicator@tudmotu.com', 'blur-my-shell@aunetx', 'dash-to-dock@micxgx.gmail.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-panel@jderose9.github.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'dev.zed.Zed.desktop', 'com.github.xournalpp.xournalpp.desktop', 'spotify.desktop']
@@ -273,18 +272,19 @@ sigma=30
 countdown-timer=0
 indicator-position-max=1
 show-notifications=false
+toggle-state=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 autohide-in-fullscreen=true
 background-opacity=0.80000000000000004
 custom-theme-shrink=true
-dash-max-icon-size=48
+dash-max-icon-size=40
 dock-position='BOTTOM'
 height-fraction=0.90000000000000002
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
 multi-monitor=true
 preferred-monitor=-2
-preferred-monitor-by-connector='eDP-1'
+preferred-monitor-by-connector='DP-1'
 running-indicator-style='DOTS'
 shortcut=['<Super>p']
 shortcut-text='<Super>p'
@@ -295,27 +295,33 @@ show-trash=false
 
 [org/gnome/shell/extensions/dash-to-panel]
 animate-app-switch=false
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
 animate-window-launch=false
 appicon-margin=4
 appicon-padding=4
 appicon-style='NORMAL'
-available-monitors=[0]
+available-monitors=[1, 0]
 dot-position='BOTTOM'
 dot-style-focused='DOTS'
 dot-style-unfocused='DOTS'
 hotkeys-overlay-combo='TEMPORARILY'
+intellihide=true
 leftbox-padding=1
+multi-monitors=true
 overview-click-to-exit=false
-panel-anchors='{"0":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
-panel-lengths='{"0":100}'
-panel-positions='{"0":"TOP"}'
-panel-sizes='{"0":24}'
-primary-monitor=0
+panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-element-positions-monitors-sync=true
+panel-lengths='{"0":100,"1":100}'
+panel-positions='{"0":"TOP","1":"TOP"}'
+panel-sizes='{"0":24,"1":24}'
+primary-monitor=1
 progress-show-count=false
 status-icon-padding=1
 stockgs-keep-dash=true
 trans-use-custom-bg=false
+trans-use-custom-opacity=true
+trans-use-dynamic-opacity=false
 tray-padding=1
 window-preview-title-position='TOP'
 

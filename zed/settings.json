@@ -40,6 +40,11 @@
           "extendSelect": ["I"]
         }
       }
+    },
+    "nixd": {
+      "binary": {
+        "path": "/run/current-system/sw/bin/nixd"
+      }
     }
   },
   "languages": {
@@ -60,7 +65,9 @@
       ]
     },
     "Nix": {
-      "tab_size": 2
+      "tab_size": 2,
+      "language_servers": ["nixd"],
+      "format_on_save": "off"
     }
   },
   "auto_install_extensions": {
