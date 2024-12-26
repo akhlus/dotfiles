@@ -1,23 +1,23 @@
-#eduroam setup
-# open a shell whith all the dependencies needed
+# eduroam setup
+## open a shell whith all the dependencies needed
 nix-shell -p "python3.withPackages (ps: with ps; [ dbus-python ])"
-# execute the script
+## execute the script
 python3 <your-eduroam.py>
 
-#rebuild from configuration
+# rebuild from configuration
 sudo nixos-rebuild switch --flake .#default
 
-#rebuild homemanager
+# rebuild homemanager
 home-manager switch --flake .#default
 
-#delete old gens
+# delete old gens
 sudo nix-collect-garbage --delete-older-than 5d
 
-#dump dconf to dconf.settings
+# dump dconf to dconf.settings
 dconf dump / > dconf.settings
 
-#convert dconf file to nix module
+# convert dconf file to nix module
 dconf2nix -i dconf.settings -o dconf.nix
 
-#get hardware-config for system
+# get hardware-config for system
 nixos-generate-config --show-hardware-config  | cat > hardware-configuration.nix

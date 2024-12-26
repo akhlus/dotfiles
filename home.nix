@@ -81,29 +81,16 @@
     enable=true;
     userName="akhlus";
     userEmail="samuellarcombe@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      credential.helper = "${
-        pkgs.git.override { withLibsecret = true; }
-      }/bin/git-credential-libsecret";
-      push = {autoSetupRemote = true;};
-    };
   };
   programs.bash={
     enable=true;
     shellAliases={
       ll="ls -l";
       ".."="cd ..";
+      lla="ls -la";
     };
   };
 
-  programs.gh={
-    enable=true;
-    settings={
-      git_protocol="ssh";
-      prompt="enabled";
-    };
-  };
   home.file.".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
   home.file.".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
   home.file.".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;

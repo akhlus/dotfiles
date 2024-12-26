@@ -17,6 +17,9 @@
   },
   "lsp": {
     "pyright": {
+      "binary": {
+        "path": "/run/current-system/sw/bin/pyright"
+      },
       "settings": {
         "python.analysis": {
           "diagnosticMode": "workspace",
@@ -28,6 +31,9 @@
       }
     },
     "ruff": {
+      "binary": {
+        "path": "/run/current-system/sw/bin/ruff-lsp"
+      },
       "initialization_options": {
         "lineLength": 80,
         "lint": {
