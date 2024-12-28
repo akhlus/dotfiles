@@ -127,6 +127,7 @@
   htop
   jdk
   kiwix
+  lapce
   libgcc
   lm_sensors
   nixd
@@ -136,6 +137,7 @@
   pipx
   protonvpn-gui
   python3Full
+  python3Packages.python-lsp-server
   qbittorrent
   ruff
   ruff-lsp
