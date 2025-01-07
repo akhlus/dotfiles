@@ -4,42 +4,59 @@
 
 { config, pkgs, pkgs-stable, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nvidia/nvidia.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    #./nvidia/nvidia.nix
+  ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
-
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      timeout = 0;
+    };
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "splash"
+      "quiet"
+      "boot.shell_on_fail"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+  };
 
   environment.shells = with pkgs; [ zsh bash fish ];
   users.defaultUserShell = pkgs.bash;
 
-
+  # Networking Settings
+  networking.networkmanager.enable = true;
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
 
+  # Configure console keymap
+  console.keyMap = "uk";
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
@@ -52,27 +69,21 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Enable the GNOME Desktop Environment.
+  services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "gb";
     variant = "";
   };
 
-  # Configure console keymap
-  console.keyMap = "uk";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -90,6 +101,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sam = {
     isNormalUser = true;
@@ -98,9 +112,6 @@
     packages = with pkgs; [
     ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -119,6 +130,8 @@
   dconf-editor
   fastfetch
   ffmpeg
+  firefox
+  fwupd
   gh
   git
   gnome-tweaks
@@ -126,10 +139,13 @@
   gparted
   htop
   jdk
+  kicad-small
   kiwix
   lapce
   libgcc
   lm_sensors
+  lshw
+  nil
   nixd
   nodejs_latest
   onlyoffice-bin_latest
@@ -139,7 +155,6 @@
   python3Full
   python3Packages.python-lsp-server
   qbittorrent
-  ruff
   ruff-lsp
   rustup
   speedtest-cli
@@ -175,11 +190,8 @@
   ])
   ++
   (with pkgs-stable; [
-  kicad
   gnome-extension-manager
   ]);
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -188,17 +200,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
