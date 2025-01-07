@@ -109,8 +109,7 @@
     isNormalUser = true;
     description = "sam";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    ];
+    #packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -174,6 +173,7 @@
   yt-dlg
   yt-dlp
   zed-editor
+
 
   #extensions
   gnomeExtensions.caffeine
