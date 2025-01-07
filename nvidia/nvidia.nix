@@ -5,11 +5,11 @@
     enable = true;
   };
   services.xserver.videoDrivers = ["nvidia"];
-  #powerManagement.enable = true;
+  powerManagement.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }

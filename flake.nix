@@ -29,6 +29,16 @@
           inherit pkgs-stable;
         };
       };
+      nixosConfigurations."nvidia" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+          ./nvidia/nvidia.nix
+        ];
+        specialArgs = {
+          inherit pkgs-stable;
+        };
+      };
       homeConfigurations={
         sam=home-manager.lib.homeManagerConfiguration{
           inherit pkgs;
