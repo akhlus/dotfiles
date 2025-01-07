@@ -13,23 +13,9 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Dark",
-    "dark": "Ayu Dark"
+    "dark": "Catppuccin Mocha"
   },
   "lsp": {
-    "pyright": {
-      "binary": {
-        "path": "/run/current-system/sw/bin/pyright"
-      },
-      "settings": {
-        "python.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "strict"
-        },
-        "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    },
     "ruff": {
       "binary": {
         "path": "/run/current-system/sw/bin/ruff-lsp"
@@ -49,7 +35,7 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff"],
+      "language_servers": ["pylsp", "!pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
@@ -74,6 +60,8 @@
     "html": true,
     "nix": true,
     "ruff": true,
-    "rainbow-csv": true
+    "rainbow-csv": true,
+    "pylsp": true,
+    "catppuccin": true
   }
 }
