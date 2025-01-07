@@ -8,9 +8,8 @@
       theme = {
           mode = "dark";
           light = "Ayu Dark";
-          dark = "Catpuccin Mocha";
+          dark = "Catppuccin Mocha";
       };
-      show_whitespaces = "all" ;
       ui_font_size = 14;
       buffer_font_size = 14;
       lsp = {
@@ -30,7 +29,7 @@
           language_servers = ["pylsp" "!pyright" "ruff"];
           format_on_save = "on";
           formatter = [
-            {code_actions.source.organizeImports.ruff = true;}
+            {code_actions."source.organizeImports.ruff" = true;}
             {language_server.name = "ruff";}
           ];
         };
