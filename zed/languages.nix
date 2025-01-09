@@ -9,7 +9,7 @@
   };
   "Nix" = {
     tab_size = 2;
-    language_servers = ["nil"];
+    language_servers = ["nixd"];
     format_on_save = "off";
   };
 }

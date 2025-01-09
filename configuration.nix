@@ -7,39 +7,16 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #./nvidia/nvidia.nix
+    ./boot/boot.nix
   ];
 
-  # Bootloader.
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      timeout = 0;
-    };
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
-    };
-    kernelPackages = pkgs.linuxPackages_latest;
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "splash"
-      "quiet"
-      "boot.shell_on_fail"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-  };
 
   environment.shells = with pkgs; [ zsh bash fish ];
   users.defaultUserShell = pkgs.bash;
 
   # Networking Settings
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
-  networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -78,7 +55,7 @@
     layout = "gb";
     variant = "";
   };
-
+  #
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -122,6 +99,7 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #apps
   anki
+  brave
   calibre
   cargo
   chromium
