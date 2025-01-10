@@ -1,12 +1,9 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, ... }:
-
-with lib.hm.gvariant;
-
-{
+{lib, ...}:
+with lib.hm.gvariant; {
   dconf.settings = {
     "apps/seahorse/listing" = {
-      keyrings-selected = [ "openssh:///home/sam/.ssh" ];
+      keyrings-selected = ["openssh:///home/sam/.ssh"];
     };
 
     "apps/seahorse/windows/key-manager" = {
@@ -14,14 +11,14 @@ with lib.hm.gvariant;
       width = 600;
     };
 
-    "com/mattjakeman/ExtensionManager" = { last-used-version = "0.5.1"; };
+    "com/mattjakeman/ExtensionManager" = {last-used-version = "0.5.1";};
 
     "org/gnome/Console" = {
       last-window-maximised = false;
-      last-window-size = mkTuple [ 1510 829 ];
+      last-window-size = mkTuple [1510 829];
     };
 
-    "org/gnome/Extensions" = { window-maximized = true; };
+    "org/gnome/Extensions" = {window-maximized = true;};
 
     "org/gnome/Snapshot" = {
       capture-mode = "video";
@@ -30,7 +27,7 @@ with lib.hm.gvariant;
       window-width = 800;
     };
 
-    "org/gnome/TextEditor" = { restore-session = false; };
+    "org/gnome/TextEditor" = {restore-session = false;};
 
     "org/gnome/Totem" = {
       active-plugins = [
@@ -54,45 +51,43 @@ with lib.hm.gvariant;
     "org/gnome/baobab/ui" = {
       active-chart = "rings";
       is-maximized = false;
-      window-size = mkTuple [ 960 600 ];
+      window-size = mkTuple [960 600];
     };
 
     "org/gnome/control-center" = {
       last-panel = "sound";
-      window-state = mkTuple [ 980 640 false ];
+      window-state = mkTuple [980 640 false];
     };
 
     "org/gnome/desktop/app-folders" = {
-      folder-children =
-        [ "Utilities" "YaST" "Pardus" "60d6a2f8-7774-4125-8d28-b157ec04dee7" ];
+      folder-children = ["Utilities" "YaST" "Pardus" "60d6a2f8-7774-4125-8d28-b157ec04dee7"];
     };
 
-    "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" =
-      {
-        apps = [
-          "chromium-browser.desktop"
-          "calibre-gui.desktop"
-          "firefox.desktop"
-          "com.mattjakeman.ExtensionManager.desktop"
-          "onlyoffice-desktopeditors.desktop"
-          "vlc.desktop"
-          "code.desktop"
-          "org.gnome.TextEditor.desktop"
-          "protonvpn-app.desktop"
-          "discord.desktop"
-          "org.kicad.kicad.desktop"
-          "anki.desktop"
-          "org.kiwix.desktop.desktop"
-          "org.qbittorrent.qBittorrent.desktop"
-          "codium.desktop"
-          "yt-dlg.desktop"
-        ];
-        name = "Apps";
-        translate = false;
-      };
+    "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" = {
+      apps = [
+        "chromium-browser.desktop"
+        "calibre-gui.desktop"
+        "firefox.desktop"
+        "com.mattjakeman.ExtensionManager.desktop"
+        "onlyoffice-desktopeditors.desktop"
+        "vlc.desktop"
+        "code.desktop"
+        "org.gnome.TextEditor.desktop"
+        "protonvpn-app.desktop"
+        "discord.desktop"
+        "org.kicad.kicad.desktop"
+        "anki.desktop"
+        "org.kiwix.desktop.desktop"
+        "org.qbittorrent.qBittorrent.desktop"
+        "codium.desktop"
+        "yt-dlg.desktop"
+      ];
+      name = "Apps";
+      translate = false;
+    };
 
     "org/gnome/desktop/app-folders/folders/Pardus" = {
-      categories = [ "X-Pardus-Apps" ];
+      categories = ["X-Pardus-Apps"];
       name = "X-Pardus-Apps.directory";
       translate = true;
     };
@@ -145,34 +140,33 @@ with lib.hm.gvariant;
         "calibre-ebook-viewer.desktop"
         "ca.desrt.dconf-editor.desktop"
       ];
-      categories = [ "X-GNOME-Utilities" ];
-      excluded-apps = [ "org.gnome.Console.desktop" ];
+      categories = ["X-GNOME-Utilities"];
+      excluded-apps = ["org.gnome.Console.desktop"];
       name = "X-GNOME-Utilities.directory";
       translate = true;
     };
 
     "org/gnome/desktop/app-folders/folders/YaST" = {
-      categories = [ "X-SuSE-YaST" ];
+      categories = ["X-SuSE-YaST"];
       name = "suse-yast.directory";
       translate = true;
     };
 
-    "org/gnome/desktop/app-folders/folders/e3009b03-4a6c-456c-ac33-e9e77f607f9b" =
-      {
-        apps = [
-          "firefox.desktop"
-          "org.gnome.TextEditor.desktop"
-          "onlyoffice-desktopeditors.desktop"
-          "org.kicad.kicad.desktop"
-          "calibre-gui.desktop"
-          "chromium-browser.desktop"
-          "protonvpn-app.desktop"
-          "code.desktop"
-          "vlc.desktop"
-        ];
-        name = "Apps";
-        translate = false;
-      };
+    "org/gnome/desktop/app-folders/folders/e3009b03-4a6c-456c-ac33-e9e77f607f9b" = {
+      apps = [
+        "firefox.desktop"
+        "org.gnome.TextEditor.desktop"
+        "onlyoffice-desktopeditors.desktop"
+        "org.kicad.kicad.desktop"
+        "calibre-gui.desktop"
+        "chromium-browser.desktop"
+        "protonvpn-app.desktop"
+        "code.desktop"
+        "vlc.desktop"
+      ];
+      name = "Apps";
+      translate = false;
+    };
 
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
@@ -184,8 +178,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "gb" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      sources = [(mkTuple ["xkb" "gb"])];
+      xkb-options = ["terminate:ctrl_alt_bksp"];
     };
 
     "org/gnome/desktop/interface" = {
@@ -253,16 +247,16 @@ with lib.hm.gvariant;
       application-id = "spotify.desktop";
     };
 
-    "org/gnome/desktop/peripherals/mouse" = { accel-profile = "flat"; };
+    "org/gnome/desktop/peripherals/mouse" = {accel-profile = "flat";};
 
     "org/gnome/desktop/peripherals/stylus/default-04f3:2cf1" = {
       button-action = "default";
-      eraser-pressure-curve = [ 0 0 100 100 ];
-      pressure-curve = [ 0 0 100 100 ];
+      eraser-pressure-curve = [0 0 100 100];
+      pressure-curve = [0 0 100 100];
     };
 
     "org/gnome/desktop/peripherals/tablets/04f3:2cf1" = {
-      area = [ (-7.81e-4) (-1.302e-3) (-3.395e-3) (-1.543e-3) ];
+      area = [(-7.81e-4) (-1.302e-3) (-3.395e-3) (-1.543e-3)];
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -298,13 +292,13 @@ with lib.hm.gvariant;
       ];
     };
 
-    "org/gnome/desktop/wm/keybindings" = { close = [ "<Super>q" ]; };
+    "org/gnome/desktop/wm/keybindings" = {close = ["<Super>q"];};
 
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,close";
     };
 
-    "org/gnome/evolution-data-server" = { migrated = true; };
+    "org/gnome/evolution-data-server" = {migrated = true;};
 
     "org/gnome/file-roller/listing" = {
       list-mode = "as-folder";
@@ -379,8 +373,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = mkTuple [ 890 550 ];
-      initial-size-file-chooser = mkTuple [ 890 550 ];
+      initial-size = mkTuple [890 550];
+      initial-size-file-chooser = mkTuple [890 550];
       maximized = true;
     };
 
@@ -396,19 +390,18 @@ with lib.hm.gvariant;
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
-      home = [ "<Super>f" ];
-      www = [ "<Super>b" ];
+      home = ["<Super>f"];
+      www = ["<Super>b"];
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
-      {
-        binding = "<Super>t";
-        command = "kgx";
-        name = "terminal";
-      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>t";
+      command = "kgx";
+      name = "terminal";
+    };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ ];
+      disabled-extensions = [];
       enabled-extensions = [
         "clipboard-indicator@tudmotu.com"
         "blur-my-shell@aunetx"
@@ -427,14 +420,14 @@ with lib.hm.gvariant;
       welcome-dialog-last-shown-version = "47.1";
     };
 
-    "org/gnome/shell/extensions/blur-my-shell" = { settings-version = 2; };
+    "org/gnome/shell/extensions/blur-my-shell" = {settings-version = 2;};
 
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       brightness = 0.6;
       sigma = 30;
     };
 
-    "org/gnome/shell/extensions/blur-my-shell/applications" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {blur = false;};
 
     "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
       pipeline = "pipeline_default";
@@ -501,7 +494,7 @@ with lib.hm.gvariant;
       preferred-monitor = -2;
       preferred-monitor-by-connector = "DP-1";
       running-indicator-style = "DOTS";
-      shortcut = [ "<Super>p" ];
+      shortcut = ["<Super>p"];
       shortcut-text = "<Super>p";
       show-icons-notifications-counter = false;
       show-mounts = false;
@@ -515,7 +508,7 @@ with lib.hm.gvariant;
       appicon-margin = 4;
       appicon-padding = 4;
       appicon-style = "NORMAL";
-      available-monitors = [ 1 0 ];
+      available-monitors = [1 0];
       dot-position = "BOTTOM";
       dot-style-focused = "DOTS";
       dot-style-unfocused = "DOTS";
@@ -552,13 +545,13 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/keybindings" = {
-      screenshot = [ "Print" ];
-      show-screenshot-ui = [ "<Shift><Super>s" ];
+      screenshot = ["Print"];
+      show-screenshot-ui = ["<Shift><Super>s"];
     };
 
-    "org/gnome/shell/world-clocks" = { locations = [ ]; };
+    "org/gnome/shell/world-clocks" = {locations = [];};
 
-    "org/gnome/tweaks" = { show-extensions-notice = false; };
+    "org/gnome/tweaks" = {show-extensions-notice = false;};
 
     "org/gtk/gtk4/settings/file-chooser" = {
       date-format = "regular";
@@ -570,7 +563,7 @@ with lib.hm.gvariant;
       sort-order = "ascending";
       type-format = "category";
       view-type = "list";
-      window-size = mkTuple [ 867 372 ];
+      window-size = mkTuple [867 372];
     };
 
     "org/gtk/settings/file-chooser" = {
@@ -584,9 +577,8 @@ with lib.hm.gvariant;
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = mkTuple [ 26 23 ];
-      window-size = mkTuple [ 1231 900 ];
+      window-position = mkTuple [26 23];
+      window-size = mkTuple [1231 900];
     };
-
   };
 }

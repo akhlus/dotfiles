@@ -1,6 +1,10 @@
-{ config, pkgs, userSettings, ... }:
-
 {
+  config,
+  pkgs,
+  userSettings,
+  systemSettings,
+  ...
+}: {
   programs.home-manager.enable = true;
 
   home.username = "sam";
@@ -12,7 +16,7 @@
   ];
 
   home.file = {
-    ".local/share/backgrounds/tignes.jpg".source=./tignes.jpg;
+    ".local/share/backgrounds/tignes.jpg".source = ./tignes.jpg;
     ".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
     ".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
@@ -23,23 +27,27 @@
   };
 
   imports = [
-    ./de/gnome/dconf.nix
+    (
+      if systemSettings.de == "gnome"
+      then ./de/gnome/dconf.nix
+      else null
+    )
     ./zed/zed.nix
   ];
-  programs.git={
-    enable=true;
-    userName=userSettings.username;
-    userEmail=userSettings.email;
-    extraConfig ={
+  programs.git = {
+    enable = true;
+    userName = userSettings.username;
+    userEmail = userSettings.email;
+    extraConfig = {
       init.defaultBranch = "main";
     };
   };
-  programs.bash={
-    enable=true;
-    shellAliases={
-      ll="ls -l";
-      ".."="cd ..";
-      lla="ls -la";
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -l";
+      ".." = "cd ..";
+      lla = "ls -la";
     };
   };
 }
