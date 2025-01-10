@@ -15,13 +15,18 @@
   }:
     let
       systemSettings = {
-        system = "x86_64-linux";
         hostname = "desktop";
+        gpu = "nvidia"; #nvidia or other for now
+        system = "x86_64-linux";
         timezone = "Europe/London";
         locale = "en_GB.UTF-8";
-        gpu = "amd";
       };
-      gpu = (if (systemSettings.gpu == "nvidia") then ./gpu/nvidia.nix else ./gpu/other.nix);
+      userSettings = {
+        name = "sam"; #for account
+        username = "akhlus"; #for git
+        email = "samuellarcombe@gmail.com";
+        de = "gnome";
+      };
       pkgs=nixpkgs.legacyPackages.${systemSettings.system};
       pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
       lib=nixpkgs.lib;
@@ -30,13 +35,16 @@
         system = systemSettings.system;
         modules = [
           ./configuration.nix
-        ]++gpu;
+          (./gpu + "/${systemSettings.gpu}.nix")
+        ];
         specialArgs = {
           inherit pkgs-stable;
+          inherit systemSettings;
+          inherit userSettings;
         };
       };
       homeConfigurations={
-        sam=home-manager.lib.homeManagerConfiguration{
+        user=home-manager.lib.homeManagerConfiguration{
           inherit pkgs;
           modules=[./home.nix];
         };
