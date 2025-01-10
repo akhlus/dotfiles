@@ -1,4 +1,7 @@
 { config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
+let
+  extensions = (if systemSettings.de == "gnome" then (import ./extensions.nix) else []);
+in
 {
   environment.systemPackages =
   (with pkgs; [
@@ -58,21 +61,14 @@
   yt-dlp
   zed-editor
 
-
-
-  #extensions
-  gnomeExtensions.caffeine
-  gnomeExtensions.blur-my-shell
-  gnomeExtensions.dash-to-panel
-  gnomeExtensions.dash-to-dock
-  gnomeExtensions.appindicator
-  gnomeExtensions.clipboard-indicator
-
   #typefaces
   inter
   source-code-pro
   fira
-  ])
+  ]
+  ++
+  (with gnomeExtensions; extensions)
+  )
   ++
   (with pkgs-stable; [
   gnome-extension-manager
