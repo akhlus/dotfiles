@@ -6,4 +6,10 @@
       lint = {extendSelect=["I"];};
     };
   };
+  nil = {
+    binary = {path_lookup = true;};
+    settings = {
+      diagnostics.ignored = ["unused_binding"];
+    };
+  };
 }
