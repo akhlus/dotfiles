@@ -1,7 +1,7 @@
 { config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware-configuration-${systemSettings.hostname}.nix
     ./bootloader/boot.nix
     ./packages/packages.nix
   ];

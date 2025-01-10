@@ -15,8 +15,8 @@
   }:
     let
       systemSettings = {
-        hostname = "desktop";
-        gpu = "nvidia"; #nvidia or other for now
+        hostname = "hp";
+        gpu = "other"; #nvidia or other for now
         system = "x86_64-linux";
         timezone = "Europe/London";
         locale = "en_GB.UTF-8";
@@ -31,7 +31,7 @@
       pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
       lib=nixpkgs.lib;
     in {
-      nixosConfigurations."def" = lib.nixosSystem {
+      nixosConfigurations."system" = lib.nixosSystem {
         system = systemSettings.system;
         modules = [
           ./configuration.nix
