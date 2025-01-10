@@ -1,8 +1,6 @@
 { config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
-let
-  extensions = (if systemSettings.de == "gnome" then (import ./extensions.nix) else []);
-in
 {
+  imports = [(if userSettings.de=="gnome" then ./gnome.nix else null)];
   environment.systemPackages =
   (with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -65,12 +63,5 @@ in
   inter
   source-code-pro
   fira
-  ]
-  ++
-  (with gnomeExtensions; extensions)
-  )
-  ++
-  (with pkgs-stable; [
-  gnome-extension-manager
-  ]);
+  ])
 }
