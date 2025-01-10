@@ -23,7 +23,7 @@
   };
 
   imports = [
-    ./gnome/dconf.nix
+    ./de/gnome/dconf.nix
     ./zed/zed.nix
   ];
   programs.git={

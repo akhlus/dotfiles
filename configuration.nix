@@ -1,12 +1,13 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, pkgs-stable, systemSettings, userSettings, ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ./bootloader/boot.nix
+    ./packages/packages.nix
   ];
 
   # Networking Settings
-  networking.hostName = "desktop";
+  networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -18,22 +19,22 @@
   # networking.firewall.enable = false;
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = systemSettings.timezone;
 
   # Configure console keymap
   console.keyMap = "uk";
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.defaultLocale = systemSettings.locale;
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+    LC_ADDRESS = systemSettings.locale;
+    LC_IDENTIFICATION = systemSettings.locale;
+    LC_MEASUREMENT = systemSettings.locale;
+    LC_MONETARY = systemSettings.locale;
+    LC_NAME = systemSettings.locale;
+    LC_NUMERIC = systemSettings.locale;
+    LC_PAPER = systemSettings.locale;
+    LC_TELEPHONE = systemSettings.locale;
+    LC_TIME = systemSettings.locale;
   };
 
   # Enable the GNOME Desktop Environment.
@@ -72,94 +73,15 @@
   services.openssh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.sam = {
+  users.users.${userSettings.name} = {
     isNormalUser = true;
-    description = "sam";
+    description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" ];
     #packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages =
-  (with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #apps
-  anki
-  brave
-  calibre
-  cargo
-  chromium
-  dconf2nix
-  dconf-editor
-  fastfetch
-  ffmpeg
-  firefox
-  fwupd
-  gh
-  git
-  gnome-tweaks
-  google-chrome
-  gparted
-  htop
-  jdk
-  kicad-small
-  kiwix
-  lapce
-  libgcc
-  lm_sensors
-  lshw
-  nil
-  nixd
-  nodejs_latest
-  onlyoffice-bin_latest
-  pciutils
-  pipx
-  protonvpn-gui
-  python3Full
-  python3Packages.python-lsp-server
-  qbittorrent
-  ruff-lsp
-  rustup
-  speedtest-cli
-  spotdl
-  spotify
-  tio
-  tldr
-  ungit
-  usbutils
-  ventoy-full
-  vlc
-  vscode-fhs
-  vscodium-fhs
-  wget
-  wireguard-tools
-  xournalpp
-  yt-dlg
-  yt-dlp
-  zed-editor
-
-
-  #extensions
-  gnomeExtensions.caffeine
-  gnomeExtensions.blur-my-shell
-  gnomeExtensions.dash-to-panel
-  gnomeExtensions.dash-to-dock
-  gnomeExtensions.appindicator
-  gnomeExtensions.clipboard-indicator
-
-  #typefaces
-  inter
-  source-code-pro
-  fira
-  ])
-  ++
-  (with pkgs-stable; [
-  gnome-extension-manager
-  ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
