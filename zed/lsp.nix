@@ -6,7 +6,4 @@
       lint = {extendSelect=["I"];};
     };
   };
-  nixd = {
-    binary = {path_lookup = true;};
-  };
 }
