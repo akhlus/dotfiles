@@ -20,6 +20,7 @@
         system = "x86_64-linux";
         timezone = "Europe/London";
         locale = "en_GB.UTF-8";
+        use = "game"; #game or work
       };
       userSettings = {
         name = "sam"; #for account

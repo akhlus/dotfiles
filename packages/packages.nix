@@ -3,6 +3,7 @@
   imports = [
     (if userSettings.de=="gnome" then ./gnome.nix else null)
     ./cli.nix
+    (if systemSettings.use=="game" then ./game.nix else null)
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
