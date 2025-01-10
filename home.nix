@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -28,8 +28,11 @@
   ];
   programs.git={
     enable=true;
-    userName="akhlus";
-    userEmail="samuellarcombe@gmail.com";
+    userName=userSettings.username;
+    userEmail=userSettings.email;
+    extraConfig ={
+      init.defaultBranch = "main";
+    };
   };
   programs.bash={
     enable=true;

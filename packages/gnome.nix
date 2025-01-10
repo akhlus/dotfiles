@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-stable ...}:
+{config, pkgs, pkgs-stable, ...}:
 {
   # Enable the GNOME Desktop Environment.
   services.xserver.enable = true;
@@ -11,6 +11,7 @@
     nautilus
     nautilus-open-any-terminal
   ])
+  ++
   (with pkgs.gnomeExtensions;[
     appindicator
     blur-my-shell
