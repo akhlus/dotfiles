@@ -72,17 +72,6 @@
           (./gpu + "/${systemSettings.gpu}.nix")
         ];
     };
-    homeConfigurations = {
-      user = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./home.nix];
-        extraSpecialArgs = {
-          inherit systemSettings;
-          inherit userSettings;
-          inherit pkgs-stable;
-        };
-      };
-    };
   };
   inputs = {
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";

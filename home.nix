@@ -19,7 +19,6 @@
     ".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
     ".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
-    #".config/zed/settings.json".source=./zed/settings.json;
   };
 
   home.sessionVariables = {
