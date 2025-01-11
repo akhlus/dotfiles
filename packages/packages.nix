@@ -8,17 +8,9 @@
 }:
 {
   imports = [
-    (
-      if systemSettings.de == "gnome"
-      then ./gnome.nix
-      else null
-    )
+    ./${systemSettings.de}.nix
     ./cli.nix
-    (
-      if systemSettings.use == "game"
-      then ./game.nix
-      else null
-    )
+    ./${systemSettings.use}.nix
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

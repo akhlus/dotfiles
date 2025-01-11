@@ -1,6 +1,9 @@
 {
   config,
   pkgs,
+  pkgs-stable,
+  systemSettings,
+  userSettings,
   ...
 }: {
   programs.steam = {

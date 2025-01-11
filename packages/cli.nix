@@ -25,7 +25,7 @@
     pipx
     python3Full
     python3Packages.python-lsp-server
-    ruff-lsp
+    ruff
     speedtest-cli
     spotdl
     tldr
