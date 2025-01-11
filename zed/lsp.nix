@@ -12,15 +12,21 @@
         lint = {extendSelect = ["I"];};
       };
     };
+    pylsp = {
+      binary = {path_lookup = true;};
+    };
     nixd = {
+      binary = {path_lookup = true;};
       settings = {
-        diagnostic.suppress = ["unused_binding"];
         formatting.command = ["alejandra" "--quiet"];
+        /*
+           doesn't seem to work
         options = {
           home-manager.expr = "(builtins.getFlake \"${userSettings.flakePath}\").homeConfigurations.user.options";
           flake-parts.expr = "(builtins.getFlake \"${userSettings.flakePath}\").currentSystem.options";
           nixos.expr = "(builtins.getFlake \"${userSettings.flakePath}\").nixosConfigurations.system.options";
         };
+        */
       };
     };
     nil = {
