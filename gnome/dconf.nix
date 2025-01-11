@@ -167,15 +167,16 @@ with lib.hm.gvariant; {
       name = "Apps";
       translate = false;
     };
-
+  /*
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/.local/share/backgrounds/tignes.jpg";
-      picture-uri-dark = "file:///home/sam/.local/share/backgrounds/tignes.jpg";
+      picture-uri = lib.mkDefault "file:///home/sam/.local/share/backgrounds/tignes.jpg";
+      picture-uri-dark = lib.mkDefault "file:///home/sam/.local/share/backgrounds/tignes.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
+    */
 
     "org/gnome/desktop/input-sources" = {
       sources = [(mkTuple ["xkb" "gb"])];
@@ -183,10 +184,10 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      document-font-name = "Inter Variable 11";
+      color-scheme = lib.mkDefault "prefer-dark";
+      document-font-name = lib.mkForce "Inter Variable 11";
       enable-hot-corners = false;
-      font-name = "Inter Variable 11";
+      font-name = lib.mkForce "Inter Variable 11";
     };
 
     "org/gnome/desktop/notifications" = {
