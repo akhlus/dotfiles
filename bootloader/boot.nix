@@ -8,7 +8,7 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      timeout = 0;
+      timeout = 1;
     };
     plymouth = {
       enable = true;
@@ -25,6 +25,6 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
-    #kernelModules = [ "cpufreq_powersave" ];
+    kernelModules = [ "cpufreq_powersave" ];
   };
 }
