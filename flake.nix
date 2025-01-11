@@ -48,7 +48,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            users.${systemSettings.name}.imports= [./home.nix];
+            users.${userSettings.name}.imports= [./home.nix];
             extraSpecialArgs = specialArgs;
           };
         }

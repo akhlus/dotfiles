@@ -4,10 +4,10 @@
   userSettings,
   systemSettings,
   ...
-}: {
+}:{
 
-  home.username = "sam";
-  home.homeDirectory = "/home/sam";
+  home.username = "${userSettings.name}";
+  home.homeDirectory = "/home/${userSettings.name}";
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
@@ -26,11 +26,7 @@
   };
 
   imports = [
-    (
-      if systemSettings.de == "gnome"
-      then ./de/gnome/dconf.nix
-      else null
-    )
+    ./${systemSettings.de}/${systemSettings.de}.nix
     ./zed/zed.nix
   ];
   programs.git = {
