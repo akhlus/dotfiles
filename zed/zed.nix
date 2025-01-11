@@ -3,14 +3,11 @@
   lib,
   userSettings,
   ...
-}: let
-  extensions = import ./extensions.nix;
-  languages = import ./languages.nix;
-in {
+}: {
   imports = [./lsp.nix];
   programs.zed-editor = {
     enable = true;
-    extensions = extensions;
+    extensions = import ./extensions.nix;
     userSettings = {
       base_keymap = "VSCode";
       theme = {
@@ -20,7 +17,7 @@ in {
       };
       ui_font_size = 14;
       buffer_font_size = 14;
-      languages = languages;
+      languages = import ./languages.nix;
       terminal= import ./terminal.nix;
     };
   };
