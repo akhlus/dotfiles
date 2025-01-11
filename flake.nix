@@ -1,22 +1,18 @@
 {
   description = "NixOS configuration";
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  };
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     nixpkgs-stable,
+    nixpkgs-cosmic,
+    nixos-cosmic,
     home-manager,
     ...
   }: let
     systemSettings = {
       hostname = "s340";
       gpu = "other"; #nvidia or other for now
-      de = "gnome";
+      de = "gnome"; #gnome or cosmic - default: gnome
       use = "work"; #game or work
       system = "x86_64-linux";
       timezone = "Europe/London";
@@ -28,29 +24,53 @@
       email = "samuellarcombe@gmail.com";
       flakePath = "/home/${name}/.dotfiles";
     };
-    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+    nixpkgs-de =
+      if systemSettings.de == "gnome"
+      then nixpkgs-cosmic
+      else nixpkgs;
+    pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
-    lib = nixpkgs.lib;
+    lib = nixpkgs-de.lib;
     specialArgs = {
       inherit pkgs-stable;
       inherit systemSettings;
       inherit userSettings;
     };
+    cosmicModules = [
+      {
+        nix.settings = {
+          substituters = ["https://cosmic.cachix.org/"];
+          trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+        };
+      }
+      nixos-cosmic.nixosModules.default
+      ./de/cosmic.nix
+    ];
+    homeManagerModule = [
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          users.${userSettings.name}.imports = [./home.nix];
+          extraSpecialArgs = specialArgs;
+        };
+      }
+    ];
+    deModules = (
+      if systemSettings.de == "cosmic"
+      then cosmicModules
+      else [./de/gnome.nix]
+    );
   in {
     nixosConfigurations."system" = lib.nixosSystem {
       system = systemSettings.system;
       specialArgs = specialArgs;
-      modules = [
-        ./configuration.nix
-        (./gpu + "/${systemSettings.gpu}.nix")
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            users.${userSettings.name}.imports= [./home.nix];
-            extraSpecialArgs = specialArgs;
-          };
-        }
-      ];
+      modules =
+        deModules
+        ++ homeManagerModule
+        ++ [
+          ./configuration.nix
+          (./gpu + "/${systemSettings.gpu}.nix")
+        ];
     };
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
@@ -63,5 +83,13 @@
         };
       };
     };
+  };
+  inputs = {
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
