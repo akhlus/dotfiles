@@ -8,7 +8,6 @@
 }:
 {
   imports = [
-    ./${systemSettings.de}.nix
     ./cli.nix
     ./${systemSettings.use}.nix
   ];

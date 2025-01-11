@@ -26,7 +26,6 @@
   };
 
   imports = [
-    ./${systemSettings.de}/${systemSettings.de}.nix
     ./zed/zed.nix
   ];
   programs.git = {

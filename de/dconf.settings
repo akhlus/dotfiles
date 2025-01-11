@@ -33,15 +33,20 @@ active-chart='rings'
 is-maximized=false
 window-size=(960, 600)
 
+[org/gnome/calendar]
+active-view='month'
+window-maximized=true
+window-size=(768, 600)
+
 [org/gnome/control-center]
-last-panel='sound'
-window-state=(980, 640, false)
+last-panel='system'
+window-state=(980, 715, false)
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'YaST', 'Pardus', '60d6a2f8-7774-4125-8d28-b157ec04dee7']
 
 [org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7]
-apps=['chromium-browser.desktop', 'calibre-gui.desktop', 'firefox.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'onlyoffice-desktopeditors.desktop', 'vlc.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'protonvpn-app.desktop', 'discord.desktop', 'org.kicad.kicad.desktop', 'anki.desktop', 'org.kiwix.desktop.desktop', 'org.qbittorrent.qBittorrent.desktop', 'codium.desktop', 'yt-dlg.desktop']
+apps=['onlyoffice-desktopeditors.desktop', 'calibre-gui.desktop', 'google-chrome.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'code.desktop', 'vlc.desktop', 'org.gnome.TextEditor.desktop', 'org.kicad.kicad.desktop', 'chromium-browser.desktop', 'firefox.desktop', 'protonvpn-app.desktop', 'anki.desktop', 'org.kiwix.desktop.desktop', 'org.qbittorrent.qBittorrent.desktop', 'codium.desktop', 'yt-dlg.desktop', 'com.mitchellh.ghostty.desktop']
 name='Apps'
 translate=false
 
@@ -80,16 +85,21 @@ sources=[('xkb', 'gb')]
 xkb-options=['terminate:ctrl_alt_bksp']
 
 [org/gnome/desktop/interface]
+accent-color='blue'
 color-scheme='prefer-dark'
 document-font-name='Inter Variable 11'
 enable-hot-corners=false
 font-name='Inter Variable 11'
+icon-theme='Adwaita'
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-console', 'gnome-power-panel', 'dev-zed-zed', 'spotify', 'google-chrome', 'org-gnome-settings', 'discord', 'org-gnome-baobab', 'org-gnome-texteditor']
 
 [org/gnome/desktop/notifications/application/anki]
 application-id='anki.desktop'
+
+[org/gnome/desktop/notifications/application/brave-browser]
+application-id='brave-browser.desktop'
 
 [org/gnome/desktop/notifications/application/dev-zed-zed]
 application-id='dev.zed.Zed.desktop'
@@ -145,13 +155,16 @@ secondary-color='#000000000000'
 
 [org/gnome/desktop/search-providers]
 disabled=['org.gnome.Contacts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop']
-sort-order=['org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.seahorse.Application.desktop']
+sort-order=['org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Epiphany.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Weather.desktop']
 
 [org/gnome/desktop/wm/keybindings]
 close=['<Super>q']
 
 [org/gnome/desktop/wm/preferences]
 button-layout='appmenu:minimize,close'
+
+[org/gnome/epiphany]
+ask-for-default=false
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -199,6 +212,9 @@ initial-size=(890, 550)
 initial-size-file-chooser=(890, 550)
 maximized=true
 
+[org/gnome/portal/filechooser/brave-browser]
+last-folder-path='/home/sam/.dotfiles'
+
 [org/gnome/portal/filechooser/google-chrome]
 last-folder-path='/home/sam/Downloads'
 
@@ -218,7 +234,7 @@ name='terminal'
 [org/gnome/shell]
 disabled-extensions=@as []
 enabled-extensions=['clipboard-indicator@tudmotu.com', 'blur-my-shell@aunetx', 'dash-to-dock@micxgx.gmail.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-panel@jderose9.github.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'dev.zed.Zed.desktop', 'com.github.xournalpp.xournalpp.desktop', 'spotify.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'brave-browser.desktop', 'dev.zed.Zed.desktop', 'com.github.xournalpp.xournalpp.desktop', 'spotify.desktop']
 welcome-dialog-last-shown-version='47.1'
 
 [org/gnome/shell/extensions/blur-my-shell]
@@ -272,7 +288,6 @@ sigma=30
 countdown-timer=0
 indicator-position-max=1
 show-notifications=false
-toggle-state=false
 
 [org/gnome/shell/extensions/dash-to-dock]
 autohide-in-fullscreen=true
@@ -295,12 +310,11 @@ show-trash=false
 
 [org/gnome/shell/extensions/dash-to-panel]
 animate-app-switch=false
-animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
 animate-window-launch=false
 appicon-margin=4
 appicon-padding=4
 appicon-style='NORMAL'
-available-monitors=[1, 0]
+available-monitors=[0]
 dot-position='BOTTOM'
 dot-style-focused='DOTS'
 dot-style-unfocused='DOTS'
@@ -309,13 +323,13 @@ intellihide=true
 leftbox-padding=1
 multi-monitors=true
 overview-click-to-exit=false
-panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}\n'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}\n'
 panel-element-positions-monitors-sync=true
-panel-lengths='{"0":100,"1":100}'
-panel-positions='{"0":"TOP","1":"TOP"}'
-panel-sizes='{"0":24,"1":24}'
-primary-monitor=1
+panel-lengths='{"0":100,"1":100}\n'
+panel-positions='{"0":"TOP","1":"TOP"}\n'
+panel-sizes='{"0":24,"1":24}\n'
+primary-monitor=0
 progress-show-count=false
 status-icon-padding=1
 stockgs-keep-dash=true
