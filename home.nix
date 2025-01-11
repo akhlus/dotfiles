@@ -5,7 +5,6 @@
   systemSettings,
   ...
 }: {
-  programs.home-manager.enable = true;
 
   home.username = "sam";
   home.homeDirectory = "/home/sam";
@@ -48,6 +47,7 @@
       ll = "ls -l";
       ".." = "cd ..";
       lla = "ls -la";
+      sam = "echo $TERM";
     };
   };
 }
