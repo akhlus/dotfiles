@@ -4,6 +4,8 @@
   pkgs-stable,
   systemSettings,
   userSettings,
+  stylix,
+  lib,
   ...
 }: {
   imports = [

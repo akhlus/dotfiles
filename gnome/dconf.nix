@@ -167,7 +167,7 @@ with lib.hm.gvariant; {
       name = "Apps";
       translate = false;
     };
-  /*
+
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
@@ -176,7 +176,7 @@ with lib.hm.gvariant; {
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
-    */
+
 
     "org/gnome/desktop/input-sources" = {
       sources = [(mkTuple ["xkb" "gb"])];
