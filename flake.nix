@@ -25,7 +25,7 @@
       locale = "en_GB.UTF-8";
     };
     userSettings = rec {
-      name = "samtee"; #for account
+      name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com";
       flakePath = "/home/${name}/.dotfiles";
