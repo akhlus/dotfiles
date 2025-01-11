@@ -43,7 +43,6 @@
       ll = "ls -l";
       ".." = "cd ..";
       lla = "ls -la";
-      sam = "echo $TERM";
     };
   };
 }
