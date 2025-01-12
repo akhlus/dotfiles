@@ -43,4 +43,5 @@
       lla = "ls -la";
     };
   };
+  stylix.targets.zed.enable = false;
 }

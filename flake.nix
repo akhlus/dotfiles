@@ -23,8 +23,8 @@
       name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com";
-      flakePath = "/home/${name}/.dotfiles";
-      theme = "catpuccin mocha"; #stylix theme to use - set to "none" to disable
+      flakePath = "/home/${name}/.dotfiles"; #full path
+      theme = "catppuccin-mocha"; #stylix theme to use - set to "none" to disable
     };
     nixpkgs-de =
       if systemSettings.de == "cosmic"
