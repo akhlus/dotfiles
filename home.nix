@@ -38,9 +38,10 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      ll = "ls -l";
+      "ll" = "ls -l";
       ".." = "cd ..";
-      lla = "ls -la";
+      "lla" = "ls -la";
+      "rebuild" = "sudo nixos-rebuild --flake ${userSettings.flakePath}#system";
     };
   };
   stylix.targets.zed.enable = false;
