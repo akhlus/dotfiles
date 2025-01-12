@@ -7,13 +7,14 @@
     nixpkgs-cosmic,
     nixos-cosmic,
     home-manager,
+    stylix,
     ...
   }: let
     systemSettings = {
-      hostname = "s340";
-      gpu = "other"; #nvidia or other for now
-      de = "cosmic"; #gnome or cosmic - default: gnome
-      use = "work"; #game or work
+      hostname = "desktop";
+      gpu = "nvidia"; #nvidia or other for now
+      de = "gnome"; #gnome or cosmic - default: gnome
+      use = "game"; #game or work
       system = "x86_64-linux";
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
@@ -23,6 +24,7 @@
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com";
       flakePath = "/home/${name}/.dotfiles";
+      theme = "catpuccin mocha"; #stylix theme to use - set to "none" to disable
     };
     nixpkgs-de =
       if systemSettings.de == "cosmic"
@@ -68,6 +70,7 @@
         deModules
         ++ homeManagerModule
         ++ [
+          stylix.nixosModules.stylix
           ./configuration.nix
           (./gpu + "/${systemSettings.gpu}.nix")
         ];
@@ -80,5 +83,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
   };
 }

@@ -5,8 +5,7 @@
   systemSettings,
   userSettings,
   ...
-}:
-{
+}: {
   imports = [
     ./cli.nix
     ./${systemSettings.use}.nix
@@ -23,13 +22,15 @@
     dconf-editor
     firefox
     ghostty
-    gnome-tweaks
     google-chrome
+    gparted
+    gnome-keyring
     kicad-small
     kiwix
     onlyoffice-bin_latest
     protonvpn-gui
     qbittorrent
+    seahorse
     spotify
     vlc
     vscode-fhs

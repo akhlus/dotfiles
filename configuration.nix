@@ -5,12 +5,14 @@
   systemSettings,
   userSettings,
   lib,
+  stylix,
   ...
 }: {
   imports = [
     ./hardware/hardware-configuration-${systemSettings.hostname}.nix
     ./bootloader/boot.nix
     ./packages/packages.nix
+    ./stylix/stylix.nix
   ];
 
   # Networking Settings

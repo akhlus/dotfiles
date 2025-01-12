@@ -15,7 +15,7 @@
   ];
 
   home.file = {
-    ".local/share/backgrounds/tignes.jpg".source = ./tignes.jpg;
+    ".local/share/backgrounds/tignes.jpg".source = ./stylix/tignes.jpg;
     ".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
     ".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;

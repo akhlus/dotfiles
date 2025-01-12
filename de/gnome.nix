@@ -10,13 +10,13 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   #enable dconf config
-  home-manager.users.${userSettings.name}.imports = [./../gnome/dconf.nix];
+  home-manager.users.${userSettings.name}.imports = [./../de/dconf.nix];
 
   environment.systemPackages =
     (with pkgs; [
-      gparted
       nautilus
       nautilus-open-any-terminal
+      gnome-tweaks
     ])
     ++ (with pkgs.gnomeExtensions; [
       appindicator
