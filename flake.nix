@@ -12,7 +12,7 @@
     systemSettings = {
       hostname = "s340";
       gpu = "other"; #nvidia or other for now
-      de = "gnome"; #gnome or cosmic - default: gnome
+      de = "cosmic"; #gnome or cosmic - default: gnome
       use = "work"; #game or work
       system = "x86_64-linux";
       timezone = "Europe/London";
@@ -25,7 +25,7 @@
       flakePath = "/home/${name}/.dotfiles";
     };
     nixpkgs-de =
-      if systemSettings.de == "gnome"
+      if systemSettings.de == "cosmic"
       then nixpkgs-cosmic
       else nixpkgs;
     pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
