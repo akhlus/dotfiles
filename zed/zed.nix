@@ -18,7 +18,7 @@
       ui_font_size = 14;
       buffer_font_size = 14;
       languages = import ./languages.nix;
-      terminal= import ./terminal.nix;
+      terminal = import ./terminal.nix;
     };
   };
 }

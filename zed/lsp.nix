@@ -6,17 +6,17 @@
 }: {
   programs.zed-editor.userSettings.lsp = {
     ruff = {
-      binary = {path_lookup = true;};
+      binary.path = "/run/current-system/sw/bin/ruff-lsp";
       initialization_options = {
         lineLength = 80;
         lint = {extendSelect = ["I"];};
       };
     };
     pylsp = {
-      binary = {path_lookup = true;};
+      binary.path = "/run/current-system/sw/bin/pylsp";
     };
     nixd = {
-      binary = {path_lookup = true;};
+      binary.path = "/run/current-system/sw/bin/nixd";
       settings = {
         formatting.command = ["alejandra" "--quiet"];
         /*
@@ -27,12 +27,6 @@
           nixos.expr = "(builtins.getFlake \"${userSettings.flakePath}\").nixosConfigurations.system.options";
         };
         */
-      };
-    };
-    nil = {
-      binary = {path_lookup = true;};
-      settings = {
-        diagnostics.ignored = ["unused_binding"];
       };
     };
   };

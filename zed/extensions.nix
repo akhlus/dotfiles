@@ -1,7 +1,7 @@
 [
   "nix"
   "html"
-  "ruff"
+  #"ruff"
   "rainbow-csv"
   "pylsp"
   "catppuccin"

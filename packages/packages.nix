@@ -12,6 +12,11 @@
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  fonts.packages = with pkgs; [
+    fira-code-symbols
+    fira-math
+    nerd-fonts.fira-code
+  ];
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #apps
@@ -38,10 +43,5 @@
     xournalpp
     yt-dlg
     zed-editor
-
-    #typefaces
-    fira
-    inter
-    source-code-pro
   ];
 }
