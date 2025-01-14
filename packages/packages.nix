@@ -37,6 +37,7 @@
     qbittorrent
     seahorse
     spotify
+    vial
     vlc
     vscode-fhs
     vscodium-fhs
