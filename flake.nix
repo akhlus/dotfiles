@@ -11,10 +11,10 @@
     ...
   }: let
     systemSettings = {
-      hostname = "desktop";
-      gpu = "nvidia"; #nvidia or other for now
+      hostname = "hp";
+      gpu = "other"; #nvidia or other for now
       de = "gnome"; #gnome or cosmic - default: gnome
-      use = "game"; #game or work
+      use = "work"; #game or work
       system = "x86_64-linux";
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";

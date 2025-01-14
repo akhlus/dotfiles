@@ -11,7 +11,7 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" = {
-      apps = ["onlyoffice-desktopeditors.desktop" "calibre-gui.desktop" "google-chrome.desktop" "com.mattjakeman.ExtensionManager.desktop" "code.desktop" "vlc.desktop" "org.gnome.TextEditor.desktop" "org.kicad.kicad.desktop" "chromium-browser.desktop" "firefox.desktop" "protonvpn-app.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" "codium.desktop" "yt-dlg.desktop" "com.mitchellh.ghostty.desktop"];
+      apps = ["onlyoffice-desktopeditors.desktop" "calibre-gui.desktop" "google-chrome.desktop" "com.mattjakeman.ExtensionManager.desktop" "code.desktop" "vlc.desktop" "org.gnome.TextEditor.desktop" "org.kicad.kicad.desktop" "chromium-browser.desktop" "firefox.desktop" "protonvpn-app.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" "codium.desktop" "yt-dlg.desktop" "com.mitchellh.ghostty.desktop" "Vial.desktop"];
       name = "Apps";
       translate = false;
     };
@@ -110,9 +110,10 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = ["dash-to-panel@jderose9.github.com"];
-      enabled-extensions = ["clipboard-indicator@tudmotu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "caffeine@patapon.info" "appindicatorsupport@rgcjonas.gmail.com"];
+      disabled-extensions = [];
+      enabled-extensions = ["clipboard-indicator@tudmotu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "caffeine@patapon.info" "appindicatorsupport@rgcjonas.gmail.com" "dash-to-panel@jderose9.github.com"];
       favorite-apps = ["org.gnome.Nautilus.desktop" "brave-browser.desktop" "dev.zed.Zed.desktop" "com.github.xournalpp.xournalpp.desktop" "spotify.desktop"];
+      last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "47.1";
     };
 
@@ -189,21 +190,44 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-app-switch = false;
+      animate-appicon-hover-animation-extent = {
+        RIPPLE = 4;
+        PLANK = 4;
+        SIMPLE = 1;
+      };
       animate-window-launch = false;
-      appicon-margin = 4;
-      appicon-padding = 4;
+      appicon-margin = 2;
+      appicon-padding = 2;
       appicon-style = "NORMAL";
+      available-monitors = [0];
       dot-position = "BOTTOM";
       dot-style-focused = "DOTS";
       dot-style-unfocused = "DOTS";
       hotkeys-overlay-combo = "TEMPORARILY";
-      intellihide = true;
+      intellihide = false;
       leftbox-padding = 1;
       multi-monitors = true;
       overview-click-to-exit = false;
+      panel-anchors = ''
+        {"0":"MIDDLE"}
+      '';
+      panel-element-positions = ''
+        {"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+      '';
+      panel-lengths = ''
+        {"0":100}
+      '';
+      panel-positions = ''
+        {"0":"TOP"}
+      '';
+      panel-sizes = ''
+        {"0":24}
+      '';
+      primary-monitor = 0;
       progress-show-count = false;
       status-icon-padding = 1;
       stockgs-keep-dash = true;
+      taskbar-locked = false;
       trans-use-custom-bg = false;
       trans-use-custom-opacity = true;
       trans-use-dynamic-opacity = false;
