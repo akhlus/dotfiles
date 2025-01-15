@@ -190,11 +190,6 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-app-switch = false;
-      animate-appicon-hover-animation-extent = {
-        RIPPLE = 4;
-        PLANK = 4;
-        SIMPLE = 1;
-      };
       animate-window-launch = false;
       appicon-margin = 2;
       appicon-padding = 2;
@@ -207,22 +202,11 @@ with lib.hm.gvariant; {
       intellihide = false;
       leftbox-padding = 1;
       multi-monitors = true;
-      overview-click-to-exit = false;
-      panel-anchors = ''
-        {"0":"MIDDLE"}
-      '';
-      panel-element-positions = ''
-        {"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
-      '';
-      panel-lengths = ''
-        {"0":100}
-      '';
-      panel-positions = ''
-        {"0":"TOP"}
-      '';
-      panel-sizes = ''
-        {"0":24}
-      '';
+      panel-anchors = ''{"0":"MIDDLE"}'';
+      panel-element-positions = ''{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'';
+      panel-lengths = ''{"0":100}'';
+      panel-positions = ''{"0":"TOP"}'';
+      panel-sizes = ''{"0":24}'';
       primary-monitor = 0;
       progress-show-count = false;
       status-icon-padding = 1;
