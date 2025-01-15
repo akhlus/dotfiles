@@ -11,7 +11,7 @@
     ...
   }: let
     systemSettings = {
-      hostname = "hp";
+      hostname = "s340";
       gpu = "other"; #nvidia or other for now
       de = "gnome"; #gnome or cosmic - default: gnome
       use = "work"; #game or work

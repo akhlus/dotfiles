@@ -23,6 +23,7 @@
     pandoc
     pciutils
     pipx
+    powertop
     python3Full
     python3Packages.python-lsp-server
     qmk
