@@ -194,14 +194,13 @@ with lib.hm.gvariant; {
       appicon-margin = 2;
       appicon-padding = 2;
       appicon-style = "NORMAL";
-      available-monitors = [0];
       dot-position = "BOTTOM";
       dot-style-focused = "DOTS";
       dot-style-unfocused = "DOTS";
       hotkeys-overlay-combo = "TEMPORARILY";
-      intellihide = false;
+      intellihide = true;
       leftbox-padding = 1;
-      multi-monitors = true;
+      multi-monitors = false;
       panel-anchors = ''{"0":"MIDDLE"}'';
       panel-element-positions = ''{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'';
       panel-lengths = ''{"0":100}'';
