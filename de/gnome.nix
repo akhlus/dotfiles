@@ -12,10 +12,12 @@
   #enable dconf config
   home-manager.users.${userSettings.name}.imports = [./../de/dconf.nix];
 
+  programs.nautilus-open-any-terminal.enable = true;
+  programs.nautilus-open-any-terminal.terminal = "ghostty";
+
   environment.systemPackages =
     (with pkgs; [
       nautilus
-      nautilus-open-any-terminal
       gnome-tweaks
     ])
     ++ (with pkgs.gnomeExtensions; [

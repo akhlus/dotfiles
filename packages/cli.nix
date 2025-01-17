@@ -27,7 +27,7 @@
     python3Full
     python3Packages.python-lsp-server
     qmk
-    ruff-lsp
+    ruff
     speedtest-cli
     spotdl
     tldr
