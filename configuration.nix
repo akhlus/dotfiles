@@ -54,10 +54,6 @@
 
   services.xserver.enable = true;
 
-  services.tlp.enable = true;
-
-  powerManagement.powertop.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
