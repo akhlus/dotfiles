@@ -11,10 +11,10 @@
     ...
   }: let
     systemSettings = {
-      hostname = "desktop";
-      gpu = "nvidia"; #nvidia or other for now
-      de = "gnome"; #gnome or cosmic - default: gnome
-      use = "game"; #game or work
+      hostname = "hp";
+      gpu = "other"; #nvidia or other for now
+      de = "gnome"; # [*gnome*,kde,cosmic]
+      use = "work"; #game or work
       system = "x86_64-linux";
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
@@ -60,7 +60,7 @@
     deModules = (
       if systemSettings.de == "cosmic"
       then cosmicModules
-      else [./de/gnome.nix]
+      else [./de/${systemSettings.de}.nix]
     );
   in {
     nixosConfigurations."system" = lib.nixosSystem {
