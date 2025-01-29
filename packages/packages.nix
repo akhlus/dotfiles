@@ -14,7 +14,6 @@
   nixpkgs.config.allowUnfree = true;
   fonts.packages = with pkgs; [
     fira-code-symbols
-    fira-math
     nerd-fonts.fira-code
   ];
   environment.systemPackages = with pkgs; [
