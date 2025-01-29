@@ -198,7 +198,7 @@ with lib.hm.gvariant; {
       dot-style-focused = "DOTS";
       dot-style-unfocused = "DOTS";
       hotkeys-overlay-combo = "TEMPORARILY";
-      intellihide = true;
+      intellihide = false;
       leftbox-padding = 1;
       multi-monitors = false;
       panel-anchors = ''{"0":"MIDDLE"}'';

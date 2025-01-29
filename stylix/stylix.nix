@@ -33,6 +33,6 @@
       name = "Afterglow-Recolored-Catppuccin-Macchiato";
       size = 20;
     };
-    targets.plymouth.enable=false;
+    #targets.plymouth.enable=false;
   };
 }
