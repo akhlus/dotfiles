@@ -79,6 +79,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.solaar.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.name} = {
     isNormalUser = true;

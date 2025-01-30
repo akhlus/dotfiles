@@ -2,17 +2,11 @@
   description = "NixOS configuration";
   outputs = inputs @ {
     self,
-    nixpkgs,
-    nixpkgs-stable,
-    nixpkgs-cosmic,
-    nixos-cosmic,
-    home-manager,
-    stylix,
     ...
   }: let
     systemSettings = {
       hostname = "hp";
-      gpu = "other"; #nvidia or other for now
+      gpu = "other"; # [nvidia,other]
       de = "gnome"; # [*gnome*,kde,cosmic]
       use = "work"; #game or work
       system = "x86_64-linux";
@@ -28,10 +22,10 @@
     };
     nixpkgs-de =
       if systemSettings.de == "cosmic"
-      then nixpkgs-cosmic
-      else nixpkgs;
+      then inputs.nixpkgs-cosmic
+      else inputs.nixpkgs;
     pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
-    pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
+    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${systemSettings.system};
     lib = nixpkgs-de.lib;
     specialArgs = {
       inherit pkgs-stable;
@@ -45,11 +39,11 @@
           trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
         };
       }
-      nixos-cosmic.nixosModules.default
+      inputs.nixos-cosmic.nixosModules.default
       ./de/cosmic.nix
     ];
     homeManagerModule = [
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
           users.${userSettings.name}.imports = [./home.nix];
@@ -70,7 +64,8 @@
         deModules
         ++ homeManagerModule
         ++ [
-          stylix.nixosModules.stylix
+          inputs.stylix.nixosModules.stylix
+          inputs.solaar.nixosModules.default
           ./configuration.nix
           (./gpu + "/${systemSettings.gpu}.nix")
         ];
@@ -84,5 +79,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
+    solaar.url = "github:Svenum/Solaar-Flake/main";
+    solaar.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
