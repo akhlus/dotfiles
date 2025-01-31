@@ -70,8 +70,7 @@
           (./gpu + "/${systemSettings.gpu}.nix")
         ];
     };
-    homeConfigurations."sam" = home-manager.lib.homeManagerConfiguration {
-      inherit inputs;
+    homeConfigurations."sam" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ ./home/home.nix ];
       extraSpecialArgs = specialArgs;

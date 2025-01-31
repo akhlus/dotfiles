@@ -23,7 +23,7 @@
 
   imports = [
     ./zed/zed.nix
-    if systemSettings.hostname == "penguin" then ./chrome.nix else ./nixos.nix
+    (if systemSettings.hostname == "penguin" then ./chrome.nix else ./nixos.nix)
   ];
   programs.git = {
     enable = true;
@@ -41,7 +41,7 @@
       ".." = "cd ..";
       "lla" = "ls -la";
       "rebuild" = "sudo nixos-rebuild --flake ${userSettings.flakePath}#system";
-      "home" = "home-manager --flake ${userSettings.flakePath}"
+      "home" = "home-manager --flake ${userSettings.flakePath}";
     };
   };
 }
