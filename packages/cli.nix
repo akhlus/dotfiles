@@ -20,6 +20,7 @@
     lshw
     nil
     nixd
+    nix-search-cli
     pandoc
     pciutils
     pipx
@@ -27,6 +28,7 @@
     python3Full
     python3Packages.python-lsp-server
     qmk
+    quarto
     ruff
     speedtest-cli
     spotdl

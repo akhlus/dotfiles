@@ -5,11 +5,11 @@
     ...
   }: let
     systemSettings = {
-      hostname = "penguin";
+      hostname = "hp";
       gpu = "other"; # [nvidia,other]
       de = "gnome"; # [*gnome*,kde,cosmic]
       use = "work"; #game or work
-      system = "aarch64-linux"; # [x86_64-linux, aarch64-linux]
+      system = "x86_64-linux"; # [x86_64-linux, aarch64-linux]
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
     };
@@ -46,7 +46,7 @@
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
-          users.${userSettings.name}.imports = [./home.nix];
+          users.${userSettings.name}.imports = [./home/home.nix];
           extraSpecialArgs = specialArgs;
         };
       }
