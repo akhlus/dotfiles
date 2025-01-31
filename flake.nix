@@ -5,11 +5,11 @@
     ...
   }: let
     systemSettings = {
-      hostname = "hp";
+      hostname = "penguin";
       gpu = "other"; # [nvidia,other]
       de = "gnome"; # [*gnome*,kde,cosmic]
       use = "work"; #game or work
-      system = "x86_64-linux";
+      system = "aarch64-linux"; # [x86_64-linux, aarch64-linux]
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
     };
@@ -69,6 +69,12 @@
           ./configuration.nix
           (./gpu + "/${systemSettings.gpu}.nix")
         ];
+    };
+    homeConfigurations."sam" = home-manager.lib.homeManagerConfiguration {
+      inherit inputs;
+      inherit pkgs;
+      modules = [ ./home/home.nix ];
+      extraSpecialArgs = specialArgs;
     };
   };
   inputs = {
