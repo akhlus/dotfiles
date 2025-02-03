@@ -4,8 +4,7 @@
   userSettings,
   systemSettings,
   ...
-}:{
-
+}: {
   home.username = "${userSettings.name}";
   home.homeDirectory = "/home/${userSettings.name}";
 
@@ -19,11 +18,16 @@
   };
 
   home.sessionVariables = {
+    FLAKE_PATH = "${userSettings.flakePath}";
   };
 
   imports = [
     ./zed/zed.nix
-    (if systemSettings.hostname == "penguin" then ./chrome.nix else ./nixos.nix)
+    (
+      if systemSettings.hostname == "penguin"
+      then ./chrome.nix
+      else ./nixos.nix
+    )
   ];
   programs.git = {
     enable = true;

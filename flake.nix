@@ -1,9 +1,6 @@
 {
   description = "NixOS configuration";
-  outputs = inputs @ {
-    self,
-    ...
-  }: let
+  outputs = inputs @ {self, ...}: let
     systemSettings = {
       hostname = "hp";
       gpu = "other"; # [nvidia,other]
@@ -72,7 +69,7 @@
     };
     homeConfigurations."sam" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home/home.nix ];
+      modules = [./home/home.nix];
       extraSpecialArgs = specialArgs;
     };
   };
