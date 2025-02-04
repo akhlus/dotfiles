@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.home-manager.enable = true;
 
   nixpkgs.config = {
@@ -13,6 +12,7 @@
   '';
 
   home.packages = with pkgs; [
+    alejandra
     brave
     firefox
     gh
@@ -27,7 +27,6 @@
     unzip
     vlc
     xournalpp
-    zed-editor
   ];
 
   programs.vscode = {

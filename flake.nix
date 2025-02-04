@@ -1,9 +1,6 @@
 {
   description = "NixOS configuration";
-  outputs = inputs @ {
-    self,
-    ...
-  }: let
+  outputs = inputs @ {self, ...}: let
     systemSettings = {
       hostname = "penguin";
       gpu = "other"; # [nvidia,other]

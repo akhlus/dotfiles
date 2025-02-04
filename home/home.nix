@@ -18,13 +18,14 @@
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
   };
 
-  home.sessionVariables = {
-  };
-
   imports = [
     ./zed/zed.nix
     ./../stylix/stylix.nix
-    (if systemSettings.hostname == "penguin" then ./chrome.nix else ./nixos.nix)
+    (
+      if systemSettings.hostname == "penguin"
+      then ./chrome.nix
+      else ./nixos.nix
+    )
   ];
   programs.git = {
     enable = true;
