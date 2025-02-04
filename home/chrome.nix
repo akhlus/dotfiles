@@ -17,13 +17,23 @@
     firefox
     gh
     git
+    gnome-console
     nano
+    nautilus
+    nixgl.nixGLMesa
+    nixgl.nixVulkanMesa
     tldr
     ungit
     unzip
     vlc
-    vscode-fhs
     xournalpp
     zed-editor
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
+
+  stylix.targets.vscode.enable = false;
 }
