@@ -3,8 +3,9 @@
   pkgs,
   userSettings,
   systemSettings,
+  stylix,
   ...
-}: {
+}:{
   home.username = "${userSettings.name}";
   home.homeDirectory = "/home/${userSettings.name}";
 
@@ -19,6 +20,7 @@
 
   imports = [
     ./zed/zed.nix
+    ./../stylix/stylix.nix
     (
       if systemSettings.hostname == "penguin"
       then ./chrome.nix
@@ -44,4 +46,6 @@
       "home" = "home-manager --flake ${userSettings.flakePath}";
     };
   };
+
+  stylix.targets.zed.enable = false;
 }

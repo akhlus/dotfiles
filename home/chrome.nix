@@ -17,12 +17,15 @@
     firefox
     gh
     git
+    gnome-console
     nano
+    nautilus
+    nixgl.nixGLMesa
+    nixgl.nixVulkanMesa
     tldr
     ungit
     unzip
     vlc
-    vscode-fhs
     xournalpp
   ];
 
