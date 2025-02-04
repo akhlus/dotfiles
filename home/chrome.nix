@@ -12,6 +12,7 @@
   '';
 
   home.packages = with pkgs; [
+    alejandra
     brave
     firefox
     gh
@@ -23,6 +24,12 @@
     vlc
     vscode-fhs
     xournalpp
-    zed-editor
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
+
+  stylix.targets.vscode.enable = false;
 }
