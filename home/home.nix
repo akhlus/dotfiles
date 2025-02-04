@@ -17,10 +17,6 @@
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
   };
 
-  home.sessionVariables = {
-    FLAKE_PATH = "${userSettings.flakePath}";
-  };
-
   imports = [
     ./zed/zed.nix
     (

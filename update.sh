@@ -3,11 +3,8 @@
 # A rebuild script that commits on a successful build
 set -e
 
-# Edit your config
-$EDITOR configuration.nix
-
 # cd to your config dir
-pushd ~/.dotfiles/
+pushd $FLAKE_PATH
 
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet '*.nix'; then
@@ -36,6 +33,3 @@ git commit -am "$current"
 
 # Back to where you were
 popd
-
-# Notify all OK!
-notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
