@@ -15,7 +15,7 @@
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com";
       flakePath = "/home/${name}/.dotfiles"; #full path
-      theme = "mellow-purple"; #stylix theme to use - set to "none" to disable
+      theme = "windows-10"; #stylix theme to use - set to "none" to disable
     };
     nixpkgs-de =
       if systemSettings.de == "cosmic"
