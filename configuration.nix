@@ -98,7 +98,7 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [pkgs.python3Packages.numpy];
+  programs.nix-ld.libraries = [pkgs.python3Packages.venvShellHook];
 
   environment.variables = {FLAKE_PATH = "${userSettings.flakePath}";};
 
