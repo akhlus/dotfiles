@@ -5,7 +5,7 @@
   systemSettings,
   stylix,
   ...
-}:{
+}: {
   home.username = "${userSettings.name}";
   home.homeDirectory = "/home/${userSettings.name}";
 

@@ -2,11 +2,11 @@
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
     systemSettings = {
-      hostname = "penguin";
+      hostname = "hp";
       gpu = "other"; # [nvidia,other]
       de = "gnome"; # [*gnome*,kde,cosmic]
       use = "work"; #game or work
-      system = "aarch64-linux"; # [x86_64-linux, aarch64-linux]
+      system = "x86_64-linux"; # [x86_64-linux, aarch64-linux]
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
     };
@@ -24,7 +24,7 @@
     #pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
     pkgs = import nixpkgs-de {
       system = systemSettings.system;
-      overlays = [ inputs.nixgl.overlay ];
+      overlays = [inputs.nixgl.overlay];
     };
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${systemSettings.system};
     lib = nixpkgs-de.lib;
@@ -73,9 +73,9 @@
     };
     homeConfigurations."sam" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ 
+      modules = [
         inputs.stylix.homeManagerModules.stylix
-        ./home/home.nix 
+        ./home/home.nix
       ];
       extraSpecialArgs = specialArgs;
     };
@@ -90,6 +90,6 @@
     stylix.url = "github:danth/stylix";
     solaar.url = "github:Svenum/Solaar-Flake/main";
     solaar.inputs.nixpkgs.follows = "nixpkgs";
-    nixgl.url="github:nix-community/nixGL";
+    nixgl.url = "github:nix-community/nixGL";
   };
 }

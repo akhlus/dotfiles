@@ -97,8 +97,8 @@
     enableSSHSupport = true;
   };
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  #programs.nix-ld.enable = true;
+  #programs.nix-ld.libraries = [];
 
   environment.variables = {FLAKE_PATH = "${userSettings.flakePath}";};
 
