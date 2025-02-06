@@ -1,3 +1,3 @@
 {...}: {
-  stylix.targets.zed.enable = false;
+  #stylix.targets.zed.enable = false;
 }
