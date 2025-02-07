@@ -1,11 +1,7 @@
 {
-  config,
   pkgs,
-  pkgs-stable,
   systemSettings,
   userSettings,
-  lib,
-  stylix,
   ...
 }: {
   imports = [

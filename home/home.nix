@@ -1,9 +1,6 @@
 {
-  config,
-  pkgs,
   userSettings,
   systemSettings,
-  stylix,
   ...
 }: {
   home.username = "${userSettings.name}";
