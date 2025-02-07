@@ -15,7 +15,7 @@
   fonts.packages = with pkgs; [
     fira-code-symbols
     nerd-fonts.fira-code
-    source-code-pro
+    nerd-fonts.zed-mono
   ];
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.

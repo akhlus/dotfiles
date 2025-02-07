@@ -17,6 +17,9 @@ fi
 alejandra . &>/dev/null \
   || ( alejandra . ; echo "formatting failed!" && exit 1)
 
+# Add all changes
+git add *
+
 # Shows your changes
 git diff -U0 '*.nix'
 

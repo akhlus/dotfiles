@@ -1,6 +1,7 @@
 {
   pkgs,
   userSettings,
+  lib,
   ...
 }: {
   stylix = {
@@ -25,10 +26,14 @@
         package = pkgs.inter;
       };
       monospace = {
-        name = "Zed Mono";
-        package = pkgs.nerd-fonts.zed-mono;
+        name = "Source Code Pro";
+        package = pkgs.source-code-pro;
       };
-      sizes.terminal = 10;
+    };
+    cursor = lib.mkDefault {
+      package = pkgs.afterglow-cursors-recolored;
+      name = "Afterglow-Recolored-Catppuccin-Macchiato";
+      size = 20;
     };
   };
 }
