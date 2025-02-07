@@ -15,7 +15,7 @@
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com";
       flakePath = "/home/${name}/.dotfiles"; #full path
-      theme = "tokyo-city-terminal-dark"; #stylix theme to use - set to "none" to disable
+      theme = "local"; #stylix theme - [base16scheme, local, none ]
     };
     nixpkgs-de =
       if systemSettings.de == "cosmic"
