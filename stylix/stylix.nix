@@ -14,7 +14,7 @@
     polarity = "dark";
     base16Scheme =
       if userSettings.theme == "none" || userSettings.theme == "local"
-      then "./theme.yaml"
+      then ./theme.yaml
       else "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
     fonts = {
       serif = {
