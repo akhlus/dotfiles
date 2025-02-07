@@ -4,7 +4,7 @@
     systemSettings = {
       hostname = "hp";
       gpu = "other"; # [nvidia,other]
-      de = "gnome"; # [*gnome*,kde,cosmic]
+      de = "gnome"; # [*gnome*, kde,cosmic]
       use = "work"; #game or work
       system = "x86_64-linux"; # [x86_64-linux, aarch64-linux]
       timezone = "Europe/London";

@@ -31,10 +31,5 @@
       };
       sizes.terminal = 10;
     };
-    #cursor = {
-    #  package = pkgs.afterglow-cursors-recolored;
-    #  name = "Afterglow-Recolored-Catppuccin-Macchiato";
-    #  size = 20;
-    #};
   };
 }

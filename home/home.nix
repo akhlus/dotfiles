@@ -13,8 +13,8 @@
 
   home.file = {
     ".local/share/backgrounds/tignes.jpg".source = ./../stylix/tignes.jpg;
+    ".config/zed/themes/akhlus.json".source = ./zed/akhlus.json;
     ".config/xournalpp/palette.gpl".source = ./xournalpp/palette.gpl;
-    ".config/xournalpp/settings.xml".source = ./xournalpp/settings.xml;
     ".config/xournalpp/toolbar.ini".source = ./xournalpp/toolbar.ini;
   };
 
@@ -47,5 +47,5 @@
     };
   };
 
-  #stylix.targets.zed.enable = false;
+  stylix.targets.zed.enable = false;
 }
