@@ -1,3 +1,5 @@
-{...}: {
-  #stylix.targets.zed.enable = false;
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    #nixgl.nixGLMesa
+  ];
 }

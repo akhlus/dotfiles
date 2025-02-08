@@ -24,7 +24,7 @@
     #pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
     pkgs = import nixpkgs-de {
       system = systemSettings.system;
-      overlays = [inputs.nixgl.overlay];
+      overlays = [inputs.nixgl.overlay import ./overlay.nix];
     };
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${systemSettings.system};
     lib = nixpkgs-de.lib;
@@ -79,6 +79,7 @@
       ];
       extraSpecialArgs = specialArgs;
     };
+    overlays = import ./overlay.nix {inherit inputs;};
   };
   inputs = {
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
