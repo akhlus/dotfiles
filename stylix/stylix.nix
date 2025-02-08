@@ -30,10 +30,10 @@
         package = pkgs.source-code-pro;
       };
     };
-    cursor = lib.mkDefault {
+    cursor = {
       package = pkgs.afterglow-cursors-recolored;
       name = "Afterglow-Recolored-Catppuccin-Macchiato";
-      size = 20;
+      size = 18;
     };
   };
 }

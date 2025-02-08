@@ -27,3 +27,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/{key_name} -C "key comment"
 
 # start ssh-agent on chrome
 eval `ssh-agent -s`
+
+# get python shells working
+nix shell github:GuillaumeDesforges/fix-python
+fix-python --venv .venv

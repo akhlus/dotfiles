@@ -94,9 +94,15 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [pkgs.python3Packages.venvShellHook];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    zlib
+  ];
 
-  environment.variables = {FLAKE_PATH = "${userSettings.flakePath}";};
+  environment.variables = {
+    FLAKE_PATH = "${userSettings.flakePath}";
+    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

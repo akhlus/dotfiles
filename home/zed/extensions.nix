@@ -1,8 +1,9 @@
 [
-  "nix"
   "html"
-  #"ruff"
-  "rainbow-csv"
+  "latex"
+  "nix"
   "pylsp"
-  "catppuccin"
+  "rainbow-csv"
+  #"ruff"
+  "toml"
 ]
