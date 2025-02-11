@@ -1,5 +1,5 @@
 {
-  userSettings,
+  settings,
   specialArgs,
   ...
 }: {
@@ -8,7 +8,7 @@
     ./hardware-hp.nix
   ];
   home-manager = {
-    users.${userSettings.name}.imports = [
+    users.${settings.name}.imports = [
       ./../common/home.nix
       ./../../programs/linux.nix
     ];

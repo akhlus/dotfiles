@@ -1,18 +1,17 @@
 {
   pkgs,
-  systemSettings,
-  userSettings,
+  settings,
   ...
 }: {
   imports = [
     ./../../bootloader/boot.nix
     ./../../programs/system.nix
     ./../../programs/stylix.nix
-    ./../../de/${systemSettings.de}.nix
+    ./../../de/${settings.de}.nix
   ];
 
   # Networking Settings
-  networking.hostName = systemSettings.hostname;
+  networking.hostName = settings.hostname;
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -24,22 +23,22 @@
   # networking.firewall.enable = false;
 
   # Set your time zone.
-  time.timeZone = systemSettings.timezone;
+  time.timeZone = settings.timezone;
 
   # Configure console keymap
   console.keyMap = "uk";
   # Select internationalisation properties.
-  i18n.defaultLocale = systemSettings.locale;
+  i18n.defaultLocale = settings.locale;
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = systemSettings.locale;
-    LC_IDENTIFICATION = systemSettings.locale;
-    LC_MEASUREMENT = systemSettings.locale;
-    LC_MONETARY = systemSettings.locale;
-    LC_NAME = systemSettings.locale;
-    LC_NUMERIC = systemSettings.locale;
-    LC_PAPER = systemSettings.locale;
-    LC_TELEPHONE = systemSettings.locale;
-    LC_TIME = systemSettings.locale;
+    LC_ADDRESS = settings.locale;
+    LC_IDENTIFICATION = settings.locale;
+    LC_MEASUREMENT = settings.locale;
+    LC_MONETARY = settings.locale;
+    LC_NAME = settings.locale;
+    LC_NUMERIC = settings.locale;
+    LC_PAPER = settings.locale;
+    LC_TELEPHONE = settings.locale;
+    LC_TIME = settings.locale;
   };
 
   # Configure keymap in X11
@@ -71,15 +70,15 @@
   services.openssh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${userSettings.name} = {
+  users.users.${settings.name} = {
     isNormalUser = true;
-    description = userSettings.name;
+    description = settings.name;
     extraGroups = ["networkmanager" "wheel"];
     #packages = with pkgs; [];
   };
 
   environment.variables = {
-    FLAKE_PATH = "${userSettings.flakePath}";
+    FLAKE_PATH = "${settings.flakePath}";
     LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
   };
 

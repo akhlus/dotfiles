@@ -1,5 +1,5 @@
 {
-  systemSettings,
+  settings,
   pkgs,
   config,
   ...
@@ -11,8 +11,7 @@
   };
 
   programs.zed-editor = {
-    enable = if systemSettings.hostname == "penguin" then false else true;
-    package = pkgs.zed-editor;
+    enable = true;
     extensions = [
       "html"
       "latex"

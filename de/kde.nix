@@ -1,8 +1,5 @@
 {
-  config,
-  pkgs,
-  pkgs-stable,
-  userSettings,
+
   ...
 }: {
   services.displayManager.sddm.enable = true;

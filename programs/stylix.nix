@@ -1,20 +1,20 @@
 {
   pkgs,
-  userSettings,
+  settings,
   ...
 }: {
   stylix = {
     enable =
-      if userSettings.theme == "none"
+      if settings.theme == "none"
       then false
       else true;
     autoEnable = true;
     image = ./files/tignes.jpg;
     polarity = "dark";
     base16Scheme =
-      if userSettings.theme == "none" || userSettings.theme == "local"
+      if settings.theme == "none" || settings.theme == "local"
       then ./files/theme.yaml
-      else "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
+      else "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
     fonts = {
       serif = {
         name = "Inter Variable";

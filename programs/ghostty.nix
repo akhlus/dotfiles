@@ -1,7 +1,6 @@
 {
-  config,
   pkgs,
-  systemSettings,
+  settings,
   inputs,
   ...
 }: {
@@ -17,9 +16,5 @@
       font-size = 12;
       theme = "akhlus";
     };
-    package =
-      if systemSettings.hostname == "penguin"
-      then (config.lib.nixGL.wrappers.mesa pkgs.ghostty)
-      else pkgs.ghostty;
   };
 }

@@ -1,7 +1,7 @@
 {
   pkgs,
   pkgs-stable,
-  userSettings,
+  settings,
   ...
 }: {
   # Enable the GNOME Desktop Environment.
@@ -10,7 +10,7 @@
   services.power-profiles-daemon.enable = true;
 
   #enable dconf config
-  home-manager.users.${userSettings.name}.imports = [./dconf.nix];
+  home-manager.users.${settings.name}.imports = [./dconf.nix];
 
   environment.systemPackages =
     [pkgs.gnome-tweaks]

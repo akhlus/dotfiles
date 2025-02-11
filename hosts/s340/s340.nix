@@ -1,5 +1,5 @@
 {
-  userSettings,
+  settings,
   specialArgs,
   ...
 }: {
@@ -8,7 +8,7 @@
     ./hardware-s340.nix
   ];
   home-manager = {
-    users.${userSettings.name}.imports = [
+    users.${settings.name}.imports = [
       ./../common/home.nix
     ];
     extraSpecialArgs = specialArgs;

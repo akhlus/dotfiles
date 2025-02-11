@@ -1,93 +1,76 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    systemSettings = {
-      hostname = "hp";
-      de = "cosmic"; # [gnome, kde, cosmic]
-      system = "x86_64-linux";
-      timezone = "Europe/London";
-      locale = "en_GB.UTF-8";
-    };
-    #change these for home-manager too
-    userSettings = rec {
+    #three options i change most split into own section
+    machine = "penguin"; # one of the options in systems variable below
+    deskEnv = "chrome"; # [gnome,kde,cosmic,chrome]
+    stylixTheme = "local"; #stylix theme - [base16scheme, local, none] - none disables stylix
+    
+    settings = rec {
       name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com"; #for git
       flakePath = "/home/${name}/.dotfiles"; #full path
-      theme = "local"; #stylix theme - [base16scheme, local, none] - none disables stylix
+      de = deskEnv;
+      hostname = systems.${machine}.hostname;
+      system = systems.${machine}.system;
+      theme = stylixTheme; 
+      locale = "en_GB.UTF-8";
+      timezone = "Europe/London";
     };
-
+    
+    systems = {
+      hp = {
+        hostname = "hp";
+        system = "x86_64-linux";
+      };
+      s340 = {
+        hostname = "s340";
+        system = "x86_64-linux";
+      };
+      desktop = {
+        hostname = "desktop";
+        system = "x86_64-linux";
+      };
+      penguin = {
+        hostname = "penguin";
+        system = "aarch64-linux";
+      };
+    };
+    
     nixpkgs-de =
-      if systemSettings.de == "cosmic"
+      if settings.de == "cosmic"
       then inputs.nixpkgs-cosmic
       else inputs.nixpkgs;
 
-    pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
+    pkgs = nixpkgs-de.legacyPackages.${settings.system};
 
-    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${systemSettings.system};
-    lib = nixpkgs-de.lib;
+    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
+    
     specialArgs = {
       inherit pkgs-stable;
-      inherit systemSettings;
-      inherit userSettings;
+      inherit settings;
     };
-    /*
-    pkgs = import nixpkgs-de {
-      system = systemSettings.system;
-      overlays = [inputs.nixgl.overlay];
-    };
-    cosmicModules = [
-      {
-        nix.settings = {
-          substituters = ["https://cosmic.cachix.org/"];
-          trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-        };
-      }
-      inputs.nixos-cosmic.nixosModules.default
-      ./de/cosmic.nix
-    ];
-    */
-    homeManagerModule = [
-      inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          users.${userSettings.name}.imports = [./home/home.nix];
-          extraSpecialArgs = specialArgs;
-        };
-      }
-    ];
-    /*
-    deModules = (
-      if systemSettings.de == "cosmic"
-      then cosmicModules
-      else [./de/${systemSettings.de}.nix]
-    );
-    */
   in {
-    nixosConfigurations."system" = lib.nixosSystem {
-      system = systemSettings.system;
+    nixosConfigurations."system" = nixpkgs-de.lib.nixosSystem {
+      system = settings.system;
       specialArgs = specialArgs;
       modules =
-        #deModules
-        #++ homeManagerModule ++
         [
           inputs.nixos-cosmic.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.home-manager.nixosModules.home-manager
-          ./hosts/${systemSettings.hostname}/${systemSettings.hostname}.nix
+          ./hosts/${settings.hostname}/${settings.hostname}.nix
         ];
     };
-    homeConfigurations."penguin" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = import inputs.nixpkgs {
-        system = "aarch64-linux";
-        #overlays = [inputs.nixgl.overlay];
+    homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          inputs.stylix.homeManagerModules.stylix
+          ./hosts/${settings.hostname}/${settings.hostname}.nix
+        ];
+        extraSpecialArgs = specialArgs;
       };
-      modules = [
-        inputs.stylix.homeManagerModules.stylix
-        ./hosts/penguin/penguin.nix
-      ];
-      extraSpecialArgs = {inherit userSettings; systemSettings.hostname = "penguin"; inherit inputs;};
-    };
   };
   inputs = {
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
@@ -97,6 +80,5 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    nixgl.url = "github:nix-community/nixGL";
   };
 }
