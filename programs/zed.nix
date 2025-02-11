@@ -1,4 +1,9 @@
-{...}: {
+{
+  systemSettings,
+  pkgs,
+  config,
+  ...
+}: {
   stylix.targets.zed.enable = false;
 
   home.file = {
@@ -6,7 +11,8 @@
   };
 
   programs.zed-editor = {
-    enable = true;
+    enable = if systemSettings.hostname == "penguin" then false else true;
+    package = pkgs.zed-editor;
     extensions = [
       "html"
       "latex"

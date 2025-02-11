@@ -1,7 +1,6 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    # only matter for nixos configs
     systemSettings = {
       hostname = "hp";
       de = "cosmic"; # [gnome, kde, cosmic]
@@ -81,13 +80,13 @@
     homeConfigurations."penguin" = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import inputs.nixpkgs {
         system = "aarch64-linux";
-        overlays = [inputs.nixgl.overlay];
+        #overlays = [inputs.nixgl.overlay];
       };
       modules = [
         inputs.stylix.homeManagerModules.stylix
         ./hosts/penguin/penguin.nix
       ];
-      extraSpecialArgs = userSettings;
+      extraSpecialArgs = {inherit userSettings; systemSettings.hostname = "penguin"; inherit inputs;};
     };
   };
   inputs = {

@@ -1,4 +1,10 @@
-{...}:{
+{
+  config,
+  pkgs,
+  systemSettings,
+  inputs,
+  ...
+}: {
   stylix.targets.ghostty.enable = false;
   home.file = {
     ".config/ghostty/themes/akhlus".source = ./files/ghostty.theme;
@@ -11,5 +17,9 @@
       font-size = 12;
       theme = "akhlus";
     };
+    package =
+      if systemSettings.hostname == "penguin"
+      then (config.lib.nixGL.wrap pkgs.ghostty)
+      else pkgs.ghostty;
   };
 }
