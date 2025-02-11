@@ -8,7 +8,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nixGL.packages = inputs.nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
 
   xdg.configFile."systemd/user/cros-garcon.service.d/override.conf".text = ''
     [Service]
@@ -30,8 +29,6 @@
   home.packages = with pkgs; [
     gnome-text-editor
     kgx
-    inter
     nautilus
-    nerd-fonts.zed-mono
   ];
 }

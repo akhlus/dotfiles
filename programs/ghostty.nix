@@ -19,7 +19,7 @@
     };
     package =
       if systemSettings.hostname == "penguin"
-      then (config.lib.nixGL.wrap pkgs.ghostty)
+      then (config.lib.nixGL.wrappers.mesa pkgs.ghostty)
       else pkgs.ghostty;
   };
 }
