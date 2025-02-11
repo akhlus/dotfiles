@@ -5,10 +5,10 @@
   ...
 }: {
   imports = [
-    #./hardware/hardware-configuration-${systemSettings.hostname}.nix
-    ./bootloader/boot.nix
-    ./packages/packages.nix
-    ./stylix/stylix.nix
+    ./../../bootloader/boot.nix
+    ./../../programs/system.nix
+    ./../../programs/stylix.nix
+    ./../../de/${systemSettings.de}.nix
   ];
 
   # Networking Settings
@@ -47,10 +47,8 @@
     enable = true;
     xkb.layout = "gb";
     xkb.variant = "";
-    excludePackages = [ pkgs.xterm ];
+    excludePackages = [pkgs.xterm];
   };
-
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -63,7 +61,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    #jack.enable = true;
   };
 
   # Input Settings
@@ -71,8 +69,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  services.solaar.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.name} = {
@@ -82,27 +78,15 @@
     #packages = with pkgs; [];
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc.lib
-    zlib
-  ];
-
   environment.variables = {
     FLAKE_PATH = "${userSettings.flakePath}";
     LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
   };
 
-
   system.stateVersion = "24.05";
 
+  home-manager.backupFileExtension = "bak";
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
 }

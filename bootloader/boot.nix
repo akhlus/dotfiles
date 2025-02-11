@@ -1,11 +1,13 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   boot = {
     loader = {
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
       efi.canTouchEfiVariables = true;
       timeout = 1;
     };
@@ -24,5 +26,7 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 }

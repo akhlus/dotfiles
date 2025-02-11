@@ -105,7 +105,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>t";
-      command = "kgx";
+      command = "ghostty";
       name = "terminal";
     };
 

@@ -1,37 +1,41 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
+    # only matter for nixos configs
     systemSettings = {
       hostname = "hp";
-      gpu = "other"; # [nvidia,other]
-      de = "gnome"; # [*gnome*, kde,cosmic]
-      use = "work"; #game or work
-      system = "x86_64-linux"; # [x86_64-linux, aarch64-linux]
+      de = "cosmic"; # [gnome, kde, cosmic]
+      system = "x86_64-linux";
       timezone = "Europe/London";
       locale = "en_GB.UTF-8";
     };
+    #change these for home-manager too
     userSettings = rec {
       name = "sam"; #for account
       username = "akhlus"; #for git
-      email = "samuellarcombe@gmail.com";
+      email = "samuellarcombe@gmail.com"; #for git
       flakePath = "/home/${name}/.dotfiles"; #full path
-      theme = "local"; #stylix theme - [base16scheme, local, none]
+      theme = "local"; #stylix theme - [base16scheme, local, none] - none disables stylix
     };
+
     nixpkgs-de =
       if systemSettings.de == "cosmic"
       then inputs.nixpkgs-cosmic
       else inputs.nixpkgs;
-    #pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
-    pkgs = import nixpkgs-de {
-      system = systemSettings.system;
-      overlays = [inputs.nixgl.overlay import ./overlay.nix];
-    };
+
+    pkgs = nixpkgs-de.legacyPackages.${systemSettings.system};
+
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${systemSettings.system};
     lib = nixpkgs-de.lib;
     specialArgs = {
       inherit pkgs-stable;
       inherit systemSettings;
       inherit userSettings;
+    };
+    /*
+    pkgs = import nixpkgs-de {
+      system = systemSettings.system;
+      overlays = [inputs.nixgl.overlay];
     };
     cosmicModules = [
       {
@@ -43,6 +47,7 @@
       inputs.nixos-cosmic.nixosModules.default
       ./de/cosmic.nix
     ];
+    */
     homeManagerModule = [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -52,34 +57,38 @@
         };
       }
     ];
+    /*
     deModules = (
       if systemSettings.de == "cosmic"
       then cosmicModules
       else [./de/${systemSettings.de}.nix]
     );
+    */
   in {
     nixosConfigurations."system" = lib.nixosSystem {
       system = systemSettings.system;
       specialArgs = specialArgs;
       modules =
-        deModules
-        ++ homeManagerModule
-        ++ [
+        #deModules
+        #++ homeManagerModule ++
+        [
+          inputs.nixos-cosmic.nixosModules.default
           inputs.stylix.nixosModules.stylix
-          inputs.solaar.nixosModules.default
-          ./configuration.nix
-          (./gpu + "/${systemSettings.gpu}.nix")
+          inputs.home-manager.nixosModules.home-manager
+          ./hosts/${systemSettings.hostname}/${systemSettings.hostname}.nix
         ];
     };
-    homeConfigurations."sam" = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    homeConfigurations."penguin" = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = import inputs.nixpkgs {
+        system = "aarch64-linux";
+        overlays = [inputs.nixgl.overlay];
+      };
       modules = [
         inputs.stylix.homeManagerModules.stylix
-        ./home/home.nix
+        ./hosts/penguin/penguin.nix
       ];
-      extraSpecialArgs = specialArgs;
+      extraSpecialArgs = userSettings;
     };
-    overlays = import ./overlay.nix {inherit inputs;};
   };
   inputs = {
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
@@ -89,8 +98,6 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    solaar.url = "github:Svenum/Solaar-Flake/main";
-    solaar.inputs.nixpkgs.follows = "nixpkgs";
     nixgl.url = "github:nix-community/nixGL";
   };
 }

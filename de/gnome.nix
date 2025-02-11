@@ -10,16 +10,10 @@
   services.power-profiles-daemon.enable = true;
 
   #enable dconf config
-  home-manager.users.${userSettings.name}.imports = [./../de/dconf.nix];
-
-  programs.nautilus-open-any-terminal.enable = true;
-  programs.nautilus-open-any-terminal.terminal = "ghostty";
+  home-manager.users.${userSettings.name}.imports = [./dconf.nix];
 
   environment.systemPackages =
-    (with pkgs; [
-      nautilus
-      gnome-tweaks
-    ])
+    [pkgs.gnome-tweaks]
     ++ (with pkgs.gnomeExtensions; [
       appindicator
       blur-my-shell

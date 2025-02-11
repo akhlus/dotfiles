@@ -24,25 +24,4 @@
       else ./nixos.nix
     )
   ];
-  programs.git = {
-    enable = true;
-    userName = userSettings.username;
-    userEmail = userSettings.email;
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      "ll" = "ls -l";
-      ".." = "cd ..";
-      "lla" = "ls -la";
-      "rebuild" = "sudo nixos-rebuild --flake ${userSettings.flakePath}#system";
-      "home" = "home-manager --flake ${userSettings.flakePath}";
-    };
-  };
-
-  stylix.targets.zed.enable = false;
 }

@@ -8,7 +8,6 @@
     gh
     git
     home-manager
-    htop
     hwinfo
     jdk
     libgcc
