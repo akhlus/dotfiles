@@ -1,9 +1,0 @@
-[
-  "html"
-  "latex"
-  "nix"
-  "pylsp"
-  "rainbow-csv"
-  #"ruff"
-  "toml"
-]
