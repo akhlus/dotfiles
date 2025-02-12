@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [inputs.spicetify-nix.homeManagerModules.default];
-  stylix.targets.zed.enable = false;
+  stylix.targets.spicetify.enable = false;
 
   programs.spicetify = {
     enable = true;
