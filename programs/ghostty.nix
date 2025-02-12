@@ -9,7 +9,10 @@
     ".config/ghostty/themes/akhlus".source = ./files/ghostty.theme;
   };
   programs.ghostty = {
-    enable = true;
+    enable =
+      if settings.hostname == "penguin"
+      then false
+      else true;
     settings = {
       background-opacity = 1.000000;
       font-family = "Source Code Pro";

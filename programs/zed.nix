@@ -11,7 +11,10 @@
   };
 
   programs.zed-editor = {
-    enable = true;
+    enable =
+      if settings.hostname == "penguin"
+      then false
+      else true;
     extensions = [
       "html"
       "latex"

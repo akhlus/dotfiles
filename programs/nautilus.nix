@@ -1,7 +1,7 @@
-{pkgs, ...}:{
+{pkgs, ...}: {
   programs.nautilus-open-any-terminal = {
     enable = true;
     terminal = "ghostty";
   };
-  environment.systemPackages = [ pkgs.nautilus];
+  environment.systemPackages = [pkgs.nautilus];
 }

@@ -1,4 +1,4 @@
-{...}:{
+{...}: {
   stylix.targets.btop.enable = false;
   home.file = {
     ".config/btop/themes/akhlus.theme".source = ./files/btop.theme;

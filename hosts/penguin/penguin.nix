@@ -1,4 +1,8 @@
-{pkgs, settings, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   programs.home-manager.enable = true;
 
   imports = [
