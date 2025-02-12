@@ -69,7 +69,7 @@
       inherit pkgs;
       modules = [
         inputs.stylix.homeManagerModules.stylix
-        ./hosts/${settings.hostname}/${settings.hostname}.nix
+        ./hosts/${settings.hostname}/${settings.hostname}-home.nix
       ];
       extraSpecialArgs = specialArgs;
     };
