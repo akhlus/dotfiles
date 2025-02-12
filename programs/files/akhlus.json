@@ -45,7 +45,7 @@
         "tab_bar.background": "#161622ff",
         "tab.inactive_background": "#161622ff",
         "tab.active_background": "#1a1a2bff",
-        "search.match_background": "#94e2d533",
+        "search.match_background": "#72e9c533",
         "panel.background": "#161622",
         "panel.focused_border": "#dadae7",
         "panel.indent_guide": "#1a1a2b99",
@@ -82,18 +82,18 @@
         "terminal.ansi.black": "#454569",
         "terminal.ansi.red": "#ff5964",
         "terminal.ansi.green": "#06d6a0",
-        "terminal.ansi.yellow": "#f8d353a0",
+        "terminal.ansi.yellow": "#f8d353",
         "terminal.ansi.blue": "#5ea0fc",
         "terminal.ansi.magenta": "#9e72e9",
-        "terminal.ansi.cyan": "#94e2d5",
-        "terminal.ansi.white": "#cddd6f4",
+        "terminal.ansi.cyan": "#72e9c5",
+        "terminal.ansi.white": "#COLOUR5_",
         "terminal.ansi.bright_black": "#5c5c8d",
         "terminal.ansi.bright_red": "#ff5964",
         "terminal.ansi.bright_green": "#06d6a0",
         "terminal.ansi.bright_yellow": "#f8d353",
         "terminal.ansi.bright_blue": "#5ea0fc",
         "terminal.ansi.bright_magenta": "#9e72e9",
-        "terminal.ansi.bright_cyan": "#94e2d5",
+        "terminal.ansi.bright_cyan": "#72e9c5",
         "terminal.ansi.bright_white": "#dadae7",
         "terminal.ansi.dim_black": "#454569",
         "terminal.ansi.dim_red": "#ff5964",
@@ -101,7 +101,7 @@
         "terminal.ansi.dim_yellow": "#f8d353",
         "terminal.ansi.dim_blue": "#5ea0fc",
         "terminal.ansi.dim_magenta": "#9e72e9",
-        "terminal.ansi.dim_cyan": "#94e2d5",
+        "terminal.ansi.dim_cyan": "#72e9c5",
         "terminal.ansi.dim_white": "#dadae7",
         "link_text.hover": "#5ea0fc",
         "conflict": "#f8d353",
@@ -131,8 +131,8 @@
         "renamed": "#5ea0fc",
         "renamed.border": "#5ea0fc",
         "renamed.background": "#161622",
-        "info": "#94e2d5",
-        "info.border": "#94e2d5",
+        "info": "#72e9c5",
+        "info.border": "#72e9c5",
         "info.background": "#dadae733",
         "warning": "#f8d353",
         "warning.border": "#f8d353",
@@ -245,7 +245,7 @@
             "font_weight": null
           },
           "string.documentation": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -280,7 +280,7 @@
             "font_weight": null
           },
           "character": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -295,12 +295,12 @@
             "font_weight": null
           },
           "number": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
           "number.float": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -355,7 +355,7 @@
             "font_weight": null
           },
           "function.macro": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -485,7 +485,7 @@
             "font_weight": null
           },
           "punctuation.list_marker": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -550,7 +550,7 @@
             "font_weight": null
           },
           "tag.delimiter": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },
@@ -615,7 +615,7 @@
             "font_weight": null
           },
           "enum": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": 700
           },
@@ -670,7 +670,7 @@
             "font_weight": null
           },
           "string.doc": {
-            "color": "#94e2d5",
+            "color": "#72e9c5",
             "font_style": null,
             "font_weight": null
           },

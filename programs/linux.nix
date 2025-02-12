@@ -32,7 +32,7 @@
     seahorse
     speedtest-cli
     spotdl
-    spotify
+    #spotify
     tlp
     ventoy
     vial

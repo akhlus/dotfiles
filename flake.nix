@@ -22,7 +22,7 @@
       hp = {
         hostname = "hp";
         system = "x86_64-linux";
-        de = "cosmic";
+        de = "gnome";
       };
       s340 = {
         hostname = "s340";
@@ -53,13 +53,13 @@
     specialArgs = {
       inherit pkgs-stable;
       inherit settings;
+      inherit inputs;
     };
   in {
     nixosConfigurations."system" = nixpkgs-de.lib.nixosSystem {
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
-        inputs.nixos-cosmic.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         ./hosts/${settings.hostname}/${settings.hostname}.nix
@@ -75,12 +75,14 @@
     };
   };
   inputs = {
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
   };
 }
