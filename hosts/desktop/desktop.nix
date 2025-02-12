@@ -7,12 +7,12 @@
     ./../common/configuration.nix
     ./hardware-desktop.nix
     ./../common/nvidia.nix
-    ./../../programs/steam.nix
+    #./../../programs/steam.nix
   ];
   home-manager = {
     backupFileExtension = "bak";
     users.${settings.name}.imports = [
-      ./../common/home.nix
+      ./desktop-home.nix
     ];
     extraSpecialArgs = specialArgs;
   };

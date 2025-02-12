@@ -10,8 +10,7 @@
   home-manager = {
     backupFileExtension = "bak";
     users.${settings.name}.imports = [
-      ./../common/home.nix
-      ./../../programs/linux.nix
+      ./hp-home.nix
     ];
     extraSpecialArgs = specialArgs;
   };

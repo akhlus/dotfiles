@@ -10,7 +10,7 @@
   home-manager = {
     backupFileExtension = "bak";
     users.${settings.name}.imports = [
-      ./../common/home.nix
+      ./s340-home.nix
     ];
     extraSpecialArgs = specialArgs;
   };
