@@ -6,12 +6,14 @@ set -e
 # cd to your config dir
 pushd $FLAKE_PATH
 
+<<comment
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet '*.nix'; then
     echo "No changes detected, exiting."
     popd
     exit 0
 fi
+comment
 
 # Autoformat your nix files
 alejandra . &>/dev/null \
