@@ -7,7 +7,7 @@
     ./../common/configuration.nix
     ./hardware-desktop.nix
     ./../common/nvidia.nix
-    #./../../programs/steam.nix
+    ./../../programs/steam.nix
   ];
   home-manager = {
     backupFileExtension = "bak";
