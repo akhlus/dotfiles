@@ -1,8 +1,8 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    #options i change most split into own section
-    machine = "penguin"; # one of the options in systems variable below
+    # options I change most split into own section
+    machine = "hp"; # one of the options in systems variable below
     stylixTheme = "local"; #stylix theme - [base16scheme, local, none] - none disables stylix
 
     settings = rec {

@@ -1,33 +1,9 @@
 warning: Git tree '/home/sam/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sam/.dotfiles' is dirty
-evaluation warning: sam profile: stylix: qt: `config.stylix.targets.qt.platform` other than 'qtct' are currently unsupported: gnome. Support may be added in the future.
-evaluation warning: sam profile: The value `gnome` for option `qt.platformTheme.name` is deprecated. Use `adwaita` instead.
 activating the configuration...
 setting up /etc...
 reloading user units for sam...
 restarting sysinit-reactivation.target
 the following new units were started: NetworkManager-dispatcher.service
-warning: the following units failed: home-manager-sam.service
-× home-manager-sam.service - Home Manager environment for sam
-     Loaded: loaded (/etc/systemd/system/home-manager-sam.service; enabled; preset: ignored)
-     Active: failed (Result: exit-code) since Sat 2025-02-08 21:21:26 GMT; 261ms ago
- Invocation: 9aa2845551d24cd285ba83cad4599f1c
-    Process: 23723 ExecStart=/nix/store/f983xlbpicjz04hw5zjmx6ip646l3r3a-hm-setup-env /nix/store/58mz9n0h4n60wp7392ldbngj3amzcb5v-home-manager-generation (code=exited, status=1/FAILURE)
-   Main PID: 23723 (code=exited, status=1/FAILURE)
-         IP: 0B in, 0B out
-         IO: 0B read, 0B written
-   Mem peak: 5.2M
-        CPU: 147ms
-
-Feb 08 21:21:26 hp hm-activate-sam[23836]: Please do one of the following:
-Feb 08 21:21:26 hp hm-activate-sam[23836]: - Move or remove the above files and try again.
-Feb 08 21:21:26 hp hm-activate-sam[23836]: - In standalone mode, use 'home-manager switch -b backup' to back up
-Feb 08 21:21:26 hp hm-activate-sam[23836]:   files automatically.
-Feb 08 21:21:26 hp hm-activate-sam[23836]: - When used as a NixOS or nix-darwin module, set
-Feb 08 21:21:26 hp hm-activate-sam[23836]:     'home-manager.backupFileExtension'
-Feb 08 21:21:26 hp hm-activate-sam[23836]:   to, for example, 'backup' and rebuild.
-Feb 08 21:21:26 hp systemd[1]: home-manager-sam.service: Main process exited, code=exited, status=1/FAILURE
-Feb 08 21:21:26 hp systemd[1]: home-manager-sam.service: Failed with result 'exit-code'.
-Feb 08 21:21:26 hp systemd[1]: Failed to start Home Manager environment for sam.
-warning: error(s) occurred while switching to the new configuration
+Done. The new configuration is /nix/store/0s4pgx6wrzxp520vhn6gr45d39c9c5v1-nixos-system-hp-25.05.20250210.64e75cd

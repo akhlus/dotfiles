@@ -10,6 +10,7 @@
     ./../../programs/steam.nix
   ];
   home-manager = {
+    backupFileExtension = "bak";
     users.${settings.name}.imports = [
       ./../common/home.nix
     ];
