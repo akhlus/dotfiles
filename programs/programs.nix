@@ -4,7 +4,6 @@
     ./btop.nix
     ./ghostty.nix
     ./git.nix
-    ./spicetify.nix
     ./vscode.nix
     ./xournalpp.nix
     ./zed.nix
