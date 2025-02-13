@@ -13,8 +13,17 @@
     fira-code-symbols
     inter
     nerd-fonts.fira-code
+    nerd-fonts.zed-mono
     source-code-pro
   ]);
+
+  fontconfig = {
+    defaultFonts = {
+      serif = [  "Inter Variable" ];
+      sansSerif = [ "Inter Variable" ];
+      monospace = [ "Source Code Pro" ];
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     gcc
