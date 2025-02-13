@@ -28,7 +28,7 @@ def update(path, sys_type, format, mode):
     push = str(input('Push to github? [y]/n'))
     if push=='n':
         pass
-    else:
+    elif push=='y' or push=='':
         os.system('git push')
 
 
