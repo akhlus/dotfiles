@@ -6,21 +6,22 @@ set -e
 # cd to your config dir
 pushd $FLAKE_PATH
 
-<<comment
-# Early return if no changes were detected (thanks @singiamtel!)
+<<com
+# TODO - change this to give option to rebuild anyway
+# Only runs if no changes
 if git diff --quiet '*.nix'; then
     echo "No changes detected, exiting."
     popd
     exit 0
 fi
-comment
+com
 
 # Autoformat your nix files
 alejandra . &>/dev/null \
   || ( alejandra . ; echo "formatting failed!" && exit 1)
 
 # Add all changes
-git add *
+git add .
 
 # Shows your changes
 git diff -U0 '*.nix'
