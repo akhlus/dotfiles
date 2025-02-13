@@ -12,14 +12,14 @@ def update(path, sys_type, format, mode):
         if cont == 'n':
             return
     if format:
-        os.system('alejandra .')
+        os.system('alejandra . --quiet')
     os.system('git add .')
     os.system('git diff -U0')
     print('Rebuilding...')
     if sys_type == 'home':
         name='home'
     elif sys_type == 'nixos':
-        sys_type = 'sudo nixos'
+        sys_type = 'sudo nixos-rebuild'
         name = 'system'
     os.system(f'{sys_type} {mode} --flake {path}#{name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)')
     date = datetime.now().strftime('%Y-%m-%d-%H-%M')
