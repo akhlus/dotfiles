@@ -17,11 +17,11 @@
     source-code-pro
   ]);
 
-  fontconfig = {
+  fonts.fontconfig = {
     defaultFonts = {
-      serif = [  "Inter Variable" ];
-      sansSerif = [ "Inter Variable" ];
-      monospace = [ "Source Code Pro" ];
+      serif = ["Inter Variable"];
+      sansSerif = ["Inter Variable"];
+      monospace = ["Source Code Pro"];
     };
   };
 
