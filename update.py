@@ -21,7 +21,7 @@ def update(path, sys_type, format, mode):
     elif sys_type == 'nixos':
         sys_type = 'sudo nixos'
         name = 'system'
-    os.system(f'{sys_type} {mode} --flake {path}#{name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1')
+    os.system(f'{sys_type} {mode} --flake {path}#{name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)')
     date = datetime.now().strftime('%Y-%m-%d-%H-%M')
     commit_message = date + str(input('Git commit message: '))
     os.system(f'git commit -am {commit_message}')
