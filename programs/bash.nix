@@ -5,8 +5,10 @@
       "ll" = "ls -l";
       ".." = "cd ..";
       "lla" = "ls -la";
-      "rebuild" = "sudo nixos-rebuild --flake ${settings.flakePath}#system";
-      "home" = "home-manager --flake ${settings.flakePath}#home";
+      "rebuild" = "python ${settings.flakePath}/update.py nixos True";
+      "nrbs" = "python ${settings.flakePath}/update.py nixos True switch";
+      "home" = "python ${settings.flakePath}/update.py home True";
+      "hs" = "python ${settings.flakePath}/update.py home True switch";
     };
   };
 }
