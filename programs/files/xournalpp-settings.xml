@@ -48,13 +48,15 @@
   <property name="eraserVisibility" value="always"/>
   <!--The icon theme, allowed values are "iconsColor", "iconsLucide"-->
   <property name="iconTheme" value="iconsColor"/>
+  <!--Dark/light mode, allowed values are "useSystem", "forceLight", "forceDark"-->
+  <property name="themeVariant" value="forceDark"/>
   <property name="highlightPosition" value="false"/>
   <property name="cursorHighlightColor" value="2164260608"/>
   <property name="cursorHighlightBorderColor" value="2147483903"/>
   <property name="cursorHighlightRadius" value="30"/>
   <property name="cursorHighlightBorderWidth" value="0"/>
   <property name="darkTheme" value="true"/>
-  <property name="useStockIcons" value="true"/>
+  <property name="useStockIcons" value="false"/>
   <property name="disableScrollbarFadeout" value="false"/>
   <property name="disableAudio" value="false"/>
   <!--Hides scroolbars in the main window, allowed values: "none", "horizontal", "vertical", "both"-->
