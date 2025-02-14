@@ -19,7 +19,7 @@
       font-size = 12;
       theme = "akhlus";
       window-theme = "ghostty";
-      window-titlebar-background = "#32324d";
+      window-titlebar-background = "#1a1a2b";
       window-titlebar-foreground = "#dadae7";
     };
   };
