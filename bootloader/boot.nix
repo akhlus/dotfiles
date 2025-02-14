@@ -13,7 +13,7 @@
     };
     plymouth = {
       enable = true;
-      theme = lib.mkDefault "bgrt";
+      theme = lib.mkDefault "breeze";
     };
     kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;

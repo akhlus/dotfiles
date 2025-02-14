@@ -9,11 +9,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  stylix.targets.plymouth = {
-    enable = true;
-    logoAnimated = false;
-  };
-
   fonts.packages = lib.mkDefault (with pkgs; [
     inter
     source-code-pro
