@@ -14,13 +14,12 @@
       then false
       else true;
     settings = {
-      background-opacity = 1.000000;
+      background-opacity = 0.95;
+      config-file = "?user-config";
       font-family = "Source Code Pro";
       font-size = 12;
       theme = "akhlus";
       window-theme = "ghostty";
-      window-titlebar-background = "#1a1a2b";
-      window-titlebar-foreground = "#dadae7";
     };
   };
 }
