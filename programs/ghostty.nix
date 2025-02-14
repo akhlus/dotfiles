@@ -18,6 +18,9 @@
       font-family = "Source Code Pro";
       font-size = 12;
       theme = "akhlus";
+      window-theme = "ghostty";
+      window-titlebar-background = "#32324d";
+      window-titlebar-foreground = "#dadae7";
     };
   };
 }
