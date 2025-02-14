@@ -15,7 +15,7 @@ def update(path, sys_type, format, mode):
     if format:
         os.system('alejandra . --quiet')
     os.system('git add .')
-    os.system('git diff') # doesn't work
+    os.system('git diff')  # doesn't work
     print('Rebuilding...')
     if sys_type == 'home':
         name = 'home'
@@ -26,16 +26,22 @@ def update(path, sys_type, format, mode):
     else:
         print('error with sys_type')
         return
-    os.system(f'{command} {mode} --flake {path}#{
-              name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)')
+    try:
+        subprocess.run(f'{command} {mode} --flake {path}#{
+            name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error >&2 && exit 1)', shell=True, check=True, capture_output=True, text=True)
+    except subprocess.CalledProcessError as e:
+        print(e.stderr)
+        return
     date = str(datetime.now().strftime('%Y-%m-%d-%H-%M'))
+    commit = input('Commit to git? [y]/n')
+    if commit == 'n':
+        return
     commit_message = date + ' ' + str(input('Git commit message: '))
     os.system(f'git commit -am "{commit_message}"')
     push = str(input('Push to github? [y]/n'))
     if push == 'n':
-        pass
-    elif push == 'y' or push == '':
-        os.system('git push')
+        return
+    os.system('git push')
 
 
 if __name__ == '__main__':
