@@ -8,7 +8,7 @@
       if settings.theme == "none"
       then false
       else true;
-    autoEnable = true;
+    autoEnable = false;
     image = ./files/tignes.jpg;
     polarity = "dark";
     base16Scheme =

@@ -3,7 +3,7 @@
   outputs = inputs @ {self, ...}: let
     # options I change most split into own section
     machine = "hp"; # one of the options in systems variable below
-    stylixTheme = "none"; #stylix theme - [base16scheme, local, none] - none disables stylix
+    stylixTheme = "local"; #stylix theme - [base16scheme, local, none] - none disables stylix
 
     settings = rec {
       name = "sam"; #for account

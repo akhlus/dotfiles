@@ -1,10 +1,4 @@
-{
-  pkgs,
-  settings,
-  inputs,
-  ...
-}: {
-  stylix.targets.ghostty.enable = false;
+{settings, ...}: {
   home.file = {
     ".config/ghostty/themes/akhlus".source = ./files/ghostty.theme;
   };

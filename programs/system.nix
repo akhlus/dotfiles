@@ -9,11 +9,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  stylix.targets.plymouth = {
+    enable = true;
+    logoAnimated = false;
+  };
+
   fonts.packages = lib.mkDefault (with pkgs; [
-    fira-code-symbols
     inter
-    nerd-fonts.fira-code
-    nerd-fonts.zed-mono
     source-code-pro
   ]);
 

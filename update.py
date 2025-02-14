@@ -15,17 +15,18 @@ def update(path, sys_type, format, mode):
     if format:
         os.system('alejandra . --quiet')
     os.system('git add .')
-    os.system('git diff')
+    os.system('git diff') # doesn't work
     print('Rebuilding...')
     if sys_type == 'home':
         name = 'home'
+        command = 'home-manager'
     elif sys_type == 'nixos':
-        sys_type = 'sudo nixos-rebuild'
+        command = 'sudo nixos-rebuild'
         name = 'system'
     else:
         print('error with sys_type')
         return
-    os.system(f'{sys_type} {mode} --flake {path}#{
+    os.system(f'{command} {mode} --flake {path}#{
               name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)')
     date = str(datetime.now().strftime('%Y-%m-%d-%H-%M'))
     commit_message = date + ' ' + str(input('Git commit message: '))
