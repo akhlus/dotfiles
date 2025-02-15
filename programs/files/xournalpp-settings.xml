@@ -19,7 +19,7 @@
   <property name="maximized" value="true"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
-  <property name="sidebarWidth" value="150"/>
+  <property name="sidebarWidth" value="50"/>
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
@@ -55,7 +55,6 @@
   <property name="cursorHighlightBorderColor" value="2147483903"/>
   <property name="cursorHighlightRadius" value="30"/>
   <property name="cursorHighlightBorderWidth" value="0"/>
-  <property name="darkTheme" value="true"/>
   <property name="useStockIcons" value="false"/>
   <property name="disableScrollbarFadeout" value="false"/>
   <property name="disableAudio" value="false"/>
@@ -66,7 +65,7 @@
   <property name="defaultSaveName" value="%F-Note-%H-%M"/>
   <property name="defaultPdfExportName" value="%{name}_annotated"/>
   <property name="autosaveEnabled" value="true"/>
-  <property name="autosaveTimeout" value="2"/>
+  <property name="autosaveTimeout" value="4"/>
   <property name="addHorizontalSpace" value="false"/>
   <property name="addHorizontalSpaceAmount" value="150"/>
   <property name="addVerticalSpace" value="false"/>
@@ -181,7 +180,7 @@
     </data>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="pen"/>
+    <attribute name="current" type="string" value="eraser"/>
     <data name="drawArrow">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
@@ -219,9 +218,9 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="000000"/>
+      <attribute name="color" type="hex" value="ff5964"/>
       <attribute name="drawingType" type="string" value="default"/>
-      <attribute name="fill" type="int" value="0"/>
+      <attribute name="fill" type="int" value="1"/>
       <attribute name="fillAlpha" type="int" value="128"/>
       <attribute name="size" type="string" value="MEDIUM"/>
       <attribute name="style" type="string" value="plain"/>

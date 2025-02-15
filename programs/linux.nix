@@ -15,11 +15,13 @@
     jdk
     kicad-small
     kiwix
+    lshw
     nil
     nixd
     nix-search-cli
     onlyoffice-bin_latest
     pandoc
+    pciutils
     pipx
     powertop
     protonvpn-gui
@@ -34,6 +36,7 @@
     spotdl
     spotify
     tlp
+    usbutils
     ventoy
     vial
     wireguard-tools
