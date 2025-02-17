@@ -3,8 +3,6 @@
   config,
   ...
 }: {
-  stylix.targets.zed.enable = false;
-
   home.file = {
     ".config/zed/themes/akhlus.json".source = ./files/akhlus.json;
     ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${settings.flakePath}/programs/files/zed-settings.json";

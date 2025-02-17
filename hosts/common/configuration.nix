@@ -7,7 +7,7 @@
     ./boot.nix
     ./de/${settings.de}.nix
     ./../../programs/system.nix
-    ./../../programs/stylix.nix
+    #./../../programs/stylix.nix
   ];
 
   # Networking Settings

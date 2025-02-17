@@ -42,7 +42,7 @@ with lib.hm.gvariant; {
       translate = false;
     };
 
-    "/org/gnome/desktop/background" = {
+    "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
       picture-uri = "file://home/sam/.local/share/backgrounds/background.jpg";

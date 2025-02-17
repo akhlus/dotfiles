@@ -60,7 +60,7 @@
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
-        inputs.stylix.nixosModules.stylix
+        #inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         ./hosts/${settings.hostname}/${settings.hostname}.nix
       ];
@@ -68,7 +68,7 @@
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        inputs.stylix.homeManagerModules.stylix
+        #inputs.stylix.homeManagerModules.stylix
         ./hosts/${settings.hostname}/${settings.hostname}-home.nix
       ];
       extraSpecialArgs = specialArgs;
@@ -81,6 +81,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
-    stylix.url = "github:danth/stylix";
+    #stylix.url = "github:danth/stylix";
   };
 }
