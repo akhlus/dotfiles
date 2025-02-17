@@ -16,6 +16,7 @@
     kicad-small
     kiwix
     lshw
+    nil
     nixd
     nix-search-cli
     onlyoffice-bin_latest
