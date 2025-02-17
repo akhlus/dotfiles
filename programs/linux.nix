@@ -16,7 +16,6 @@
     kicad-small
     kiwix
     lshw
-    nil
     nixd
     nix-search-cli
     onlyoffice-bin_latest
@@ -43,4 +42,13 @@
     yt-dlp
     yt-dlg
   ];
+
+  #cursor config for linux systems
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };
 }

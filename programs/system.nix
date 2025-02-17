@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -9,16 +10,18 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = lib.mkDefault (with pkgs; [
-    inter
-    source-code-pro
-  ]);
-
-  fonts.fontconfig = {
-    defaultFonts = {
-      serif = ["Inter Variable"];
-      sansSerif = ["Inter Variable"];
-      monospace = ["Source Code Pro"];
+  fonts = {
+    packages = with pkgs; [
+      inter
+      source-code-pro
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Inter Variable"];
+        sansSerif = ["Inter Variable"];
+        monospace = ["Source Code Pro"];
+      };
     };
   };
 

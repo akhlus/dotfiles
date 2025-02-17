@@ -1,0 +1,63 @@
+{
+  "auto_install_extensions": {
+    "html": true,
+    "latex": true,
+    "nix": true,
+    "pylsp": true,
+    "rainbow-csv": true,
+    "toml": true
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_size": 14,
+  "languages": {
+    "Nix": {
+      "format_on_save": "off",
+      "language_servers": ["nixd", "!nil"],
+      "tab_size": 2
+    },
+    "Python": {
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ],
+      "language_servers": ["pylsp", "!pyright", "ruff"]
+    }
+  },
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "formatting": {
+          "command": ["alejandra", "--quiet"]
+        },
+        "options": {
+          "home-manager": {
+            "expr": "(builtins.getFlake \"/home/sam/.dotfiles\").homeConfigurations.home.options"
+          },
+          "nixos": {
+            "expr": "(builtins.getFlake \"/home/sam/.dotfiles\").nixosConfigurations.system.options"
+          }
+        }
+      }
+    }
+  },
+  "terminal": {
+    "dock": "bottom",
+    "env": {
+      "TERM": "ghostty"
+    },
+    "working_directory": "current_project_directory"
+  },
+  "theme": "akhlus",
+  "ui_font_family": "Zed Plex Sans",
+  "ui_font_size": 14
+}
