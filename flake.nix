@@ -16,8 +16,6 @@
       theme = stylixTheme;
       locale = "en_GB.UTF-8";
       timezone = "Europe/London";
-      #gpu = systems.${machine}.gpu;
-      game = false; #enables steam
     };
 
     systems = {
@@ -25,25 +23,21 @@
         hostname = "hp";
         system = "x86_64-linux";
         de = "gnome";
-        gpu = "intel";
       };
       s340 = {
         hostname = "s340";
         system = "x86_64-linux";
         de = "gnome";
-        gpu = "amd";
       };
       desktop = {
         hostname = "desktop";
         system = "x86_64-linux";
         de = "gnome";
-        gpu = "nvidia";
       };
       penguin = {
         hostname = "penguin";
         system = "aarch64-linux";
         de = "chrome";
-        gpu = "arm";
       };
     };
 

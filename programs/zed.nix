@@ -3,7 +3,16 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  zed-fhs = pkgs.buildFHSUserEnv {
+    name = "zed";
+    tarketPkgs = pkgs:
+      with pkgs; [
+        zed-editor
+      ];
+    runScript = "zed";
+  };
+in {
   stylix.targets.zed.enable = false;
 
   home.file = {
