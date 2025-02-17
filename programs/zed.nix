@@ -2,7 +2,7 @@
   settings,
   config,
   ...
-}:{
+}: {
   stylix.targets.zed.enable = false;
 
   home.file = {

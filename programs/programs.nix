@@ -9,6 +9,8 @@
     ./zed.nix
   ];
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     alejandra
     brave
@@ -16,8 +18,10 @@
     firefox
     gh
     gnome-keyring
+    inter
     nano
     seahorse
+    source-code-pro
     tldr
     ungit
     unzip

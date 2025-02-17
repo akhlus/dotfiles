@@ -25,4 +25,9 @@
     ++ (with pkgs-stable; [
       gnome-extension-manager
     ]);
+
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-backgrounds
+    totem #video player
+  ];
 }

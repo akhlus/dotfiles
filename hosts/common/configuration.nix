@@ -5,9 +5,9 @@
 }: {
   imports = [
     ./boot.nix
+    ./de/${settings.de}.nix
     ./../../programs/system.nix
     ./../../programs/stylix.nix
-    ./de/${settings.de}.nix
   ];
 
   # Networking Settings

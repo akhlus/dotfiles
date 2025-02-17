@@ -25,8 +25,6 @@
     };
   };
 
-  #environment.variables.XCURSOR_SIZE = 16;
-
   environment.systemPackages = with pkgs; [
     gcc
     libgcc
