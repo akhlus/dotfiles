@@ -1,7 +1,6 @@
 {settings, ...}: {
   imports = [
     ./../../programs/programs.nix
-    #./../../programs/stylix.nix
   ];
   nixpkgs.config.allowUnfree = true;
   home.username = "${settings.name}";
