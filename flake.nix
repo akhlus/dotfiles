@@ -22,7 +22,7 @@
       hp = {
         hostname = "hp";
         system = "x86_64-linux";
-        de = "gnome";
+        de = "kde";
       };
       s340 = {
         hostname = "s340";
