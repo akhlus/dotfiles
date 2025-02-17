@@ -30,7 +30,6 @@
     qmk
     quarto
     ruff
-    seahorse
     speedtest-cli
     spotdl
     spotify

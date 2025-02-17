@@ -8,6 +8,7 @@
     ./xournalpp.nix
     ./zed.nix
   ];
+  services.gnome-keyring.enable = true;
 
   fonts.fontconfig.enable = true;
 
