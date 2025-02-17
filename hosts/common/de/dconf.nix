@@ -42,15 +42,16 @@ with lib.hm.gvariant; {
       translate = false;
     };
 
-    "/org/gnome/desktop/background" = {
+    "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file://home/sam/.local/share/backgrounds/background.jpg";
-      picture-uri-dark = "file://home/sam/.local/share/backgrounds/background.jpg";
+      picture-uri = "file:///home/sam/Pictures/background.jpg";
+      picture-uri-dark = "file:///home/sam/Pictures/background.jpg";
     };
 
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
+      cursor-theme = "Bibata-Modern-Classic";
       color-scheme = "prefer-dark";
       document-font-name = "Inter Variable 12";
       enable-hot-corners = false;
@@ -72,7 +73,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/.local/share/backgrounds/background.jpg";
+      picture-uri = "file:///home/sam/Pictures/background.jpg";
+      picture-uri-dark = "file:///home/sam/Pictures/background.jpg";
     };
 
     "org/gnome/desktop/search-providers" = {

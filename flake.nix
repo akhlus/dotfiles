@@ -3,7 +3,6 @@
   outputs = inputs @ {self, ...}: let
     # options I change most split into own section
     machine = "hp"; # one of the options in systems variable below
-    stylixTheme = "none"; #stylix theme - [base16scheme, local, none] - none disables stylix
 
     settings = rec {
       name = "sam"; #for account
@@ -13,7 +12,6 @@
       de = systems.${machine}.de;
       hostname = systems.${machine}.hostname;
       system = systems.${machine}.system;
-      theme = stylixTheme;
       locale = "en_GB.UTF-8";
       timezone = "Europe/London";
     };
@@ -60,7 +58,6 @@
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
-        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
         ./hosts/${settings.hostname}/${settings.hostname}.nix
       ];
@@ -68,7 +65,6 @@
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        inputs.stylix.homeManagerModules.stylix
         ./hosts/${settings.hostname}/${settings.hostname}-home.nix
       ];
       extraSpecialArgs = specialArgs;
@@ -81,6 +77,5 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
-    stylix.url = "github:danth/stylix";
   };
 }
