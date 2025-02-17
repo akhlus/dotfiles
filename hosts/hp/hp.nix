@@ -2,7 +2,9 @@
   settings,
   specialArgs,
   ...
-}: {
+}: let
+  settings.gpu = "intel";
+in {
   imports = [
     ./../common/configuration.nix
     ./hardware-hp.nix

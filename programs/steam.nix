@@ -1,4 +1,8 @@
-{...}: {
+{
+  lib,
+  settings,
+  ...
+}: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

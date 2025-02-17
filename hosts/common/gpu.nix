@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  settings,
+  ...
+}:
+lib.mkIf (settings.gpu == "nvidia") {
   hardware.graphics = {
     enable = true;
   };

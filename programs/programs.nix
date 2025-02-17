@@ -7,6 +7,7 @@
     ./vscode.nix
     ./xournalpp.nix
     ./zed.nix
+    ./steam.nix
   ];
 
   home.packages = with pkgs; [

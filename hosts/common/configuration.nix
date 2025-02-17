@@ -4,10 +4,11 @@
   ...
 }: {
   imports = [
-    ./../../bootloader/boot.nix
+    ./boot.nix
     ./../../programs/system.nix
     ./../../programs/stylix.nix
-    ./../../de/${settings.de}.nix
+    ./de/${settings.de}.nix
+    ./gpu.nix
   ];
 
   # Networking Settings
