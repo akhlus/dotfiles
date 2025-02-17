@@ -57,10 +57,10 @@
         };
         */
         pylsp = {
-          binary.path = "/run/current-system/sw/bin/pylsp";
+          binary.path = "~/.nix-profile/bin/pylsp";
         };
         nixd = {
-          binary.path = "/run/current-system/sw/bin/nixd";
+          binary.path = "~/.nix-profile/bin/nixd";
           settings = {
             formatting.command = ["alejandra" "--quiet"];
             /*
