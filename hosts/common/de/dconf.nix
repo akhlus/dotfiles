@@ -45,8 +45,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file://home/sam/.local/share/backgrounds/background.jpg";
-      picture-uri-dark = "file://home/sam/.local/share/backgrounds/background.jpg";
+      picture-uri = "file:///home/sam/Pictures/background.jpg";
+      picture-uri-dark = "file:///home/sam/Pictures/background.jpg";
     };
 
     "org/gnome/desktop/interface" = {
@@ -72,7 +72,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/.local/share/backgrounds/background.jpg";
+      picture-uri = "file:///home/sam/Pictures/background.jpg";
+      picture-uri-dark = "file:///home/sam/Pictures/background.jpg";
     };
 
     "org/gnome/desktop/search-providers" = {
