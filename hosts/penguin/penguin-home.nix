@@ -27,8 +27,13 @@
       ExecStart = "/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
     };
     Install = {
-      WantedBy = "default.target";
+      WantedBy = ["default.target"];
     };
+  };
+
+  services.gnome-keyring = {
+    enable = true;
+    components = ["ssh"];
   };
 
   home.sessionVariables = {
