@@ -27,8 +27,7 @@ def update(path, sys_type, format, mode):
         print('error with sys_type')
         return
     try:
-        subprocess.run(f'{command} {mode} --flake {path}#{
-            name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error >&2 && exit 1)', shell=True, check=True, capture_output=True, text=True)
+        subprocess.run(f'{command} {mode} --flake {path}#{name} &>nixos-switch.log || (cat nixos-switch.log | grep --color error >&2 && exit 1)', shell=True, check=True, capture_output=True, text=True)
     except subprocess.CalledProcessError as e:
         print(e.stderr)
         return

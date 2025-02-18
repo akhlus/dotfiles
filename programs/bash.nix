@@ -5,10 +5,10 @@
       "ll" = "ls -l";
       ".." = "cd ..";
       "lla" = "ls -la";
-      "rebuild" = "python ${settings.flakePath}/update.py nixos True";
-      "nrbs" = "python ${settings.flakePath}/update.py nixos True switch";
-      "home" = "python ${settings.flakePath}/update.py home True";
-      "hs" = "python ${settings.flakePath}/update.py home True switch";
+      "rebuild" = "python3 ${settings.flakePath}/update.py nixos True";
+      "nrbs" = "python3 ${settings.flakePath}/update.py nixos True switch";
+      "home" = "python3 ${settings.flakePath}/update.py home True";
+      "hs" = "python3 ${settings.flakePath}/update.py home True switch";
     };
   };
 }

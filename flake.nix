@@ -1,8 +1,7 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    # options I change most split into own section
-    machine = "hp"; # one of the options in systems variable below
+    machine = "penguin"; # one of the options in systems variable below
 
     settings = rec {
       name = "sam"; #for account
