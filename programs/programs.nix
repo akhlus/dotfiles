@@ -9,6 +9,8 @@
     ./zed.nix
   ];
   services.gnome-keyring.enable = true;
+  services.ssh-agent.enable = true;
+  programs.ssh.enable = true;
 
   fonts.fontconfig.enable = true;
 
