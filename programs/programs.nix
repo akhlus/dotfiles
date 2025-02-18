@@ -8,9 +8,6 @@
     ./xournalpp.nix
     ./zed.nix
   ];
-  services.gnome-keyring.enable = true;
-  services.ssh-agent.enable = true;
-  programs.ssh.enable = true;
 
   fonts.fontconfig.enable = true;
 
@@ -20,10 +17,8 @@
     fastfetch
     firefox
     gh
-    gnome-keyring
     inter
     nano
-    seahorse
     source-code-pro
     tldr
     ungit
