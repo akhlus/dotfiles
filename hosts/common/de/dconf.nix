@@ -51,7 +51,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
-      cursor-theme = "Bibata-Modern-Classic";
+      cursor-theme = "Afterglow-Recolored-Catppuccin-Macchiato";
       color-scheme = "prefer-dark";
       document-font-name = "Inter Variable 12";
       enable-hot-corners = false;
