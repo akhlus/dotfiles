@@ -1,7 +1,7 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    machine = "penguin"; # one of the options in systems variable below
+    machine = "hp"; # one of the options in systems variable below
 
     settings = rec {
       name = "sam"; #for account
