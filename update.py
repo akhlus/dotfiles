@@ -15,7 +15,7 @@ def update(path, sys_type, format, mode):
     if format:
         os.system('alejandra . --quiet')
     os.system('git add .')
-    os.system('git diff')  # doesn't work
+    os.system('git diff --staged -U0')  # doesn't work
     print('Rebuilding...')
     if sys_type == 'home':
         name = 'home'

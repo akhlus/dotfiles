@@ -3,6 +3,7 @@
     ./../../programs/programs.nix
   ];
   nixpkgs.config.allowUnfree = true;
+
   home.username = "${settings.name}";
   home.homeDirectory = "/home/${settings.name}";
 
