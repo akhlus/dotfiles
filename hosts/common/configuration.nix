@@ -1,6 +1,7 @@
 {
   pkgs,
   settings,
+  specialArgs,
   ...
 }: {
   imports = [
@@ -8,6 +9,14 @@
     ./de/${settings.de}.nix
     ./../../programs/system.nix
   ];
+
+  home-manager = {
+    backupFileExtension = "bak";
+    users.${settings.name}.imports = [
+      ../${settings.hostname}/${settings.hostname}-home.nix
+    ];
+    extraSpecialArgs = specialArgs;
+  };
 
   # Networking Settings
   networking.hostName = settings.hostname;
@@ -82,8 +91,6 @@
   };
 
   system.stateVersion = "24.05";
-
-  home-manager.backupFileExtension = "bak";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;

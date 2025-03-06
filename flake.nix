@@ -36,6 +36,11 @@
         system = "aarch64-linux";
         de = "chrome";
       };
+      mba = {
+        hostname = "mba";
+        system = "aarch64-darwin";
+        de = "apple";
+      };
     };
 
     nixpkgs-de =
@@ -48,9 +53,7 @@
     pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
 
     specialArgs = {
-      inherit pkgs-stable;
-      inherit settings;
-      inherit inputs;
+      inherit pkgs-stable settings inputs;
     };
   in {
     nixosConfigurations."system" = nixpkgs-de.lib.nixosSystem {
@@ -68,6 +71,15 @@
       ];
       extraSpecialArgs = specialArgs;
     };
+    darwinConfigurations."apple" = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = specialArgs;
+      system = settings.system;
+      modules = [
+        inputs.home-manager.darwinModules.home-manager
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+        ./hosts/${settings.hostname}/${settings.hostname}.nix
+      ];
+    };
   };
   inputs = {
     home-manager.url = "github:nix-community/home-manager/master";
@@ -76,5 +88,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
+    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 }
