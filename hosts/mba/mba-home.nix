@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./../common/home.nix
-    ./../../programs/linux.nix
+    ../../programs/darwin.nix
   ];
   home.sessionPath = [
     "/opt/homebrew/bin"

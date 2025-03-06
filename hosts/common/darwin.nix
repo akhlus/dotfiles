@@ -3,10 +3,6 @@
   settings,
   ...
 }: {
-  imports = [
-    ../../programs/darwin.nix
-  ];
-
   nix-homebrew = {
     enable = true;
     enableRosetta = true;
