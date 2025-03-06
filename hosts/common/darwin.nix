@@ -17,7 +17,16 @@
 
   homebrew = {
     enable = true;
-    casks = [];
+    casks = [
+      "anki"
+      "brave-browser"
+      "calibre"
+      "kicad"
+      "ghostty"
+      "google-chrome"
+      "spotify"
+      "zed"
+    ];
     onActivation.cleanup = "zap";
   };
 
@@ -34,20 +43,6 @@
         NSDocumentSaveNewDocumentsToCloud = false;
         PMPrintingExpandedStateForPrint = true;
       };
-      dock = {
-        autohide = true;
-        expose-animation-duration = 0.15;
-        show-recents = false;
-        showhidden = true;
-        persistent-apps = [
-          "/Applications/Brave Browser.app"
-        ];
-        tilesize = 30;
-        wvous-bl-corner = 1;
-        wvous-br-corner = 1;
-        wvous-tl-corner = 1;
-        wvous-tr-corner = 1;
-      };
     };
     keyboard = {
       enableKeyMapping = true;
@@ -55,7 +50,7 @@
       # Remap §± to ~
       userKeyMapping = [
         {
-          #HIDKeyboardModifierMappingDst = 30064771125;
+          HIDKeyboardModifierMappingDst = 30064771125;
           HIDKeyboardModifierMappingSrc = 30064771172;
         }
       ];

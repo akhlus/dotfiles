@@ -1,18 +1,19 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    machine = "hp"; # one of the options in systems variable below
+    machine = "mba"; # one of the options in systems variable below
 
     settings = rec {
       name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com"; #for git
-      flakePath = "/home/${name}/.dotfiles"; #full path
+      flakePath = "${home}/${name}/.dotfiles"; #full path
       de = systems.${machine}.de;
       hostname = systems.${machine}.hostname;
       system = systems.${machine}.system;
       locale = "en_GB.UTF-8";
       timezone = "Europe/London";
+      home = if de=="apple" then "Users" else "home";
     };
 
     systems = {

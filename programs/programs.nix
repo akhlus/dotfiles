@@ -15,7 +15,7 @@
     alejandra
     brave
     fastfetch
-    firefox
+    #firefox
     gh
     inter
     nano
@@ -24,6 +24,6 @@
     ungit
     unzip
     wget
-    vlc
+    #vlc
   ];
 }
