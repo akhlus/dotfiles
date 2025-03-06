@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./../common/configuration.nix
+    ./../common/darwin.nix
   ];
 }

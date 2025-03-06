@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./../common/configuration.nix
+    ./../common/nixos.nix
     ./hardware-s340.nix
   ];
 }
