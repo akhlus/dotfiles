@@ -21,7 +21,7 @@
     onActivation.cleanup = "zap";
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
     defaults = {
@@ -62,9 +62,8 @@
     };
   };
 
-  nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
-    auto-optimise-store = true;
-  };
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.optimise.automatic = true;
+  system.stateVersion = 6;
   nixpkgs.config.allowUnfree = true;
 }
