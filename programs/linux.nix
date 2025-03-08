@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
+  home.homeDirectory = "/home/${settings.name}";
   #packages that aren't needed on chromeos but are on any other linux system
   home.packages = with pkgs; [
     anki
