@@ -23,6 +23,9 @@ def update(path, sys_type, format, mode):
     elif sys_type == 'nixos':
         command = 'sudo nixos-rebuild'
         name = 'system'
+    elif sys_type == 'darwin':
+        command = 'darwin-rebuild'
+        name = 'apple'
     else:
         print('error with sys_type')
         return
@@ -47,8 +50,8 @@ if __name__ == '__main__':
     try:
         flake_path = os.environ['FLAKE_PATH']
     except:
-        print('Environment Variable FLAKE_PATH not found')
-        flake_path = str(input('Full path to flake '))
+        print('Environment Variable FLAKE_PATH not found - please set')
+        quit()
     curdir = os.getcwd()
     update(flake_path, *sys.argv[1:])
     os.chdir(curdir)

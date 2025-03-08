@@ -7,6 +7,7 @@
     ./vscode.nix
     ./xournalpp.nix
     ./zed.nix
+    ./zsh.nix
   ];
 
   fonts.fontconfig.enable = true;
@@ -18,12 +19,12 @@
     #firefox
     gh
     inter
+    mpv
     nano
     source-code-pro
     tldr
     ungit
     unzip
     wget
-    #vlc
   ];
 }

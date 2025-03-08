@@ -7,13 +7,16 @@
       name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com"; #for git
-      flakePath = "${home}/${name}/.dotfiles"; #full path
+      flakePath = "/${home}/${name}/.dotfiles"; #full path
       de = systems.${machine}.de;
       hostname = systems.${machine}.hostname;
       system = systems.${machine}.system;
       locale = "en_GB.UTF-8";
       timezone = "Europe/London";
-      home = if de=="apple" then "Users" else "home";
+      home =
+        if de == "apple"
+        then "Users"
+        else "home";
     };
 
     systems = {
@@ -76,6 +79,7 @@
       specialArgs = specialArgs;
       system = settings.system;
       modules = [
+        inputs.mac-app-util.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         ./hosts/${settings.hostname}/${settings.hostname}.nix
@@ -92,5 +96,6 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 }

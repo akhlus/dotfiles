@@ -58,6 +58,9 @@
     "working_directory": "current_project_directory"
   },
   "theme": "akhlus",
+  "tab_bar": {
+    "show": false
+  },
   "ui_font_family": "Zed Plex Sans",
   "ui_font_size": 14
 }

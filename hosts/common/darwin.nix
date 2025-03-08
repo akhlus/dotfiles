@@ -57,6 +57,10 @@
     };
   };
 
+  environment.variables = {
+    FLAKE_PATH = "${settings.flakePath}";
+  };
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.optimise.automatic = true;
   system.stateVersion = 6;
