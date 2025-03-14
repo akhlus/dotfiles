@@ -3,7 +3,7 @@
 
   imports = [
     ./../common/home.nix
-    ../../programs/flatpak.nix
+    #../../programs/flatpak.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
