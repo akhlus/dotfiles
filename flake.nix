@@ -1,7 +1,7 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    machine = "mba"; # one of the options in systems variable below
+    machine = "penguin"; # one of the options in systems variable below
 
     settings = rec {
       name = "sam"; #for account
@@ -97,5 +97,6 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     mac-app-util.url = "github:hraban/mac-app-util";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 }

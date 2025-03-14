@@ -5,7 +5,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.username = "${settings.name}";
-  #home.homeDirectory = "/home/${settings.name}";
+  home.homeDirectory = "/${settings.home}/${settings.name}";
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
 

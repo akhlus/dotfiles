@@ -3,6 +3,7 @@
 
   imports = [
     ./../common/home.nix
+    ../../programs/flatpak.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -22,6 +23,6 @@
   home.packages = with pkgs; [
     gnome-text-editor
     kgx
-    dolphin
+    kdePackages.dolphin
   ];
 }
