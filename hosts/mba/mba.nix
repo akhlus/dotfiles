@@ -7,6 +7,8 @@
     ./../common/darwin.nix
   ];
 
+  networking.hostName = settings.hostname;
+
   home-manager = {
     backupFileExtension = "bak";
     users.${settings.name}.imports = [

@@ -11,6 +11,7 @@
     pipx
     python3
     python3Packages.python-lsp-server
+    raycast
     ruff
     speedtest-cli
     wireguard-tools
