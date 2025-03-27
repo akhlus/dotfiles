@@ -4,6 +4,21 @@
     hostname = "mba";
     type = "darwin";
 
+    types = {
+      laptop = {
+        system = "x86_64-linux";
+        de = "gnome";
+      };
+      desktop = {
+        system = "x86_64-linux";
+        de = "gnome";
+      };
+      darwin = {
+        system = "aarch64-darwin";
+        de = "apple";
+      };
+    };
+
     settings = rec {
       inherit hostname;
       inherit type;
@@ -19,21 +34,6 @@
         if de == "apple"
         then "Users"
         else "home";
-    };
-
-    types = {
-      laptop = {
-        system = "x86_64-linux";
-        de = "gnome";
-      };
-      desktop = {
-        system = "x86_64-linux";
-        de = "gnome";
-      };
-      darwin = {
-        system = "aarch64-darwin";
-        de = "apple";
-      };
     };
 
     nixpkgs-de =
@@ -91,6 +91,5 @@
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     #nix-flatpak.url = "github:gmodena/nix-flatpak";
-    #mac-app-util.url = "github:hraban/mac-app-util";
   };
 }

@@ -7,7 +7,7 @@
   imports = [
     ./boot.nix
     ./de/${settings.de}.nix
-    ./../../programs/system.nix
+    ../../programs/nautilus.nix
   ];
 
   home-manager = {
@@ -18,24 +18,83 @@
     extraSpecialArgs = specialArgs;
   };
 
-  # Networking Settings
-  networking.hostName = settings.hostname;
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  users.users.${settings.name} = {
+    isNormalUser = true;
+    description = settings.name;
+    extraGroups = ["networkmanager" "wheel"];
+  };
 
-  # Set your time zone.
+  networking = {
+    hostName = settings.hostname;
+    networkmanager.enable = true;
+  };
+
+  services = {
+    fwupd.enable = true;
+    libinput.enable = true;
+    openssh.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      #jack.enable = true;
+    };
+    printing.enable = true;
+    pulseaudio.enable = false;
+    rtkit.enable = true;
+    xserver = {
+      enable = true;
+      xkb.layout = "gb";
+      xkb.variant = "";
+      excludePackages = [pkgs.xterm];
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    gcc
+    gparted
+    libgcc
+    lm_sensors
+  ];
+
+  programs = {
+    seahorse.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc.lib
+        zlib
+      ];
+    };
+  };
+
+  fonts = {
+    packages = with pkgs; [
+      inter
+      source-code-pro
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Inter Variable"];
+        sansSerif = ["Inter Variable"];
+        monospace = ["Source Code Pro"];
+      };
+    };
+  };
+
+  environment.variables = {
+    FLAKE_PATH = "${settings.flakePath}";
+    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
+  };
+
   time.timeZone = settings.timezone;
-
-  # Configure console keymap
   console.keyMap = "uk";
-  # Select internationalisation properties.
   i18n.defaultLocale = settings.locale;
   i18n.extraLocaleSettings = {
     LC_ADDRESS = settings.locale;
@@ -49,49 +108,8 @@
     LC_TIME = settings.locale;
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    xkb.layout = "gb";
-    xkb.variant = "";
-    excludePackages = [pkgs.xterm];
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
-
-  # Input Settings
-  services.libinput.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${settings.name} = {
-    isNormalUser = true;
-    description = settings.name;
-    extraGroups = ["networkmanager" "wheel"];
-    #packages = with pkgs; [];
-  };
-
-  environment.variables = {
-    FLAKE_PATH = "${settings.flakePath}";
-    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
-  };
-
   system.stateVersion = "24.05";
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.optimise.automatic = true;
   nixpkgs.config.allowUnfree = true;
 }

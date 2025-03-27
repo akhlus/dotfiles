@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./../common/nixos.nix
-    ./../../programs/steam.nix
+    ../common/nixos.nix
+    ../../programs/steam.nix
   ];
 }

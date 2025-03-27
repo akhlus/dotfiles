@@ -32,11 +32,15 @@
     enable = true;
     casks = [
       "anki"
-      "autodesk-fusion"
+      #"autodesk-fusion"
       #"calibre"
       #"kicad"
       "ghostty"
+      "xournal++"
     ];
+    masApps = {
+      "Bitwarden" = 1352778147;
+    };
     onActivation.cleanup = "zap";
   };
 
