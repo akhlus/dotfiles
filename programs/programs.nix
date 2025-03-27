@@ -1,13 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ./bash.nix
     ./btop.nix
     ./ghostty.nix
     ./git.nix
+    ./shell.nix
     ./vscode.nix
     ./xournalpp.nix
     ./zed.nix
-    ./zsh.nix
   ];
 
   fonts.fontconfig.enable = true;
