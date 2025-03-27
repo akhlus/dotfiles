@@ -17,6 +17,7 @@
     brave
     fastfetch
     ffmpeg
+    firefox
     gh
     google-chrome
     home-manager
@@ -37,8 +38,11 @@
     tldr
     ungit
     unzip
+    usbutils
     wget
     wireguard-tools
     wireguard-ui
+    yt-dlp
+    yt-dlg
   ];
 }

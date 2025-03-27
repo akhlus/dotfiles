@@ -1,6 +1,7 @@
 {
   settings,
   specialArgs,
+  pkgs,
   ...
 }: {
   imports = [];
@@ -88,11 +89,10 @@
         mineffect = "scale";
         minimize-to-application = true;
         persistent-apps = [
-          {app = "/System/Applications/Launchpad.app/";}
-          {app = "/Applications/Brave Browser.app";}
-          {app = "/Applications/Zed.app";}
+          {app = "${pkgs.brave}/Applications/Brave Browser.app";}
+          {app = "${pkgs.zed-editor}/Applications/Zed.app";}
           {app = "/Applications/Ghostty.app";}
-          {app = "/Applications/Spotify.app";}
+          {app = "${pkgs.spotify}/Applications/Spotify.app";}
           {app = "/System/Applications/System Settings.app";}
         ];
         show-process-indicators = true;
