@@ -13,7 +13,7 @@
   home-manager = {
     backupFileExtension = "bak";
     users.${settings.name}.imports = [
-      ../${settings.hostname}/${settings.hostname}-home.nix
+      ../${settings.type}/${settings.type}-home.nix
     ];
     extraSpecialArgs = specialArgs;
   };

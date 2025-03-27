@@ -16,15 +16,29 @@
     alejandra
     brave
     fastfetch
-    #firefox
+    ffmpeg
     gh
+    google-chrome
+    home-manager
     inter
+    jdk
     mpv
     nano
+    nix-search-cli
+    nixd
+    pandoc
+    pciutils
+    python3
+    python3Packages.python-lsp-server
+    ruff
     source-code-pro
+    speedtest-cli
+    spotify
     tldr
     ungit
     unzip
     wget
+    wireguard-tools
+    wireguard-ui
   ];
 }

@@ -5,7 +5,7 @@
   };
   programs.ghostty = {
     enable =
-      if settings.hostname == "penguin" || settings.hostname == "mba"
+      if settings.de == "apple"
       then false
       else true;
   };

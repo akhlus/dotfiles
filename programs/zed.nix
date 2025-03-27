@@ -1,6 +1,7 @@
 {
   settings,
   config,
+  pkgs,
   ...
 }: {
   home.file = {
@@ -12,9 +13,7 @@
   };
 
   programs.zed-editor = {
-    enable =
-      if settings.hostname == "penguin"
-      then false
-      else true;
+    enable = true;
+    package = pkgs.zed-editor;
   };
 }

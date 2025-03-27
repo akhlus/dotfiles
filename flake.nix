@@ -1,16 +1,18 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    machine = "hp"; # one of the options in systems variable below
+    hostname = "mba";
+    type = "darwin";
 
     settings = rec {
+      inherit hostname;
+      inherit type;
       name = "sam"; #for account
       username = "akhlus"; #for git
       email = "samuellarcombe@gmail.com"; #for git
-      flakePath = "/${home}/${name}/.dotfiles"; #full path
-      de = systems.${machine}.de;
-      hostname = systems.${machine}.hostname;
-      system = systems.${machine}.system;
+      flakePath = "/${home}/${name}/dotfiles"; #full path
+      de = types.${type}.de;
+      system = types.${type}.system;
       locale = "en_GB.UTF-8";
       timezone = "Europe/London";
       home =
@@ -19,29 +21,16 @@
         else "home";
     };
 
-    systems = {
-      hp = {
-        hostname = "hp";
-        system = "x86_64-linux";
-        de = "gnome";
-      };
-      s340 = {
-        hostname = "s340";
+    types = {
+      laptop = {
         system = "x86_64-linux";
         de = "gnome";
       };
       desktop = {
-        hostname = "desktop";
         system = "x86_64-linux";
         de = "gnome";
       };
-      penguin = {
-        hostname = "penguin";
-        system = "aarch64-linux";
-        de = "chrome";
-      };
-      mba = {
-        hostname = "mba";
+      darwin = {
         system = "aarch64-darwin";
         de = "apple";
       };
@@ -65,13 +54,14 @@
       specialArgs = specialArgs;
       modules = [
         inputs.home-manager.nixosModules.home-manager
-        ./hosts/${settings.hostname}/${settings.hostname}.nix
+        ./hosts/${type}/${type}.nix
+        ./hosts/hardware/hardware-${hostname}.nix
       ];
     };
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        ./hosts/${settings.hostname}/${settings.hostname}-home.nix
+        ./hosts/${type}/${type}-home.nix
       ];
       extraSpecialArgs = specialArgs;
     };
@@ -79,24 +69,28 @@
       specialArgs = specialArgs;
       system = settings.system;
       modules = [
-        inputs.mac-app-util.darwinModules.default
+        #inputs.mac-app-util.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./hosts/${settings.hostname}/${settings.hostname}.nix
+        ./hosts/${type}/${type}.nix
       ];
     };
   };
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    mac-app-util.url = "github:hraban/mac-app-util";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    #nix-flatpak.url = "github:gmodena/nix-flatpak";
+    #mac-app-util.url = "github:hraban/mac-app-util";
   };
 }
