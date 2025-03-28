@@ -29,6 +29,8 @@
     networkmanager.enable = true;
   };
 
+  security.rtkit.enable = true;
+
   services = {
     fwupd.enable = true;
     libinput.enable = true;
@@ -42,7 +44,6 @@
     };
     printing.enable = true;
     pulseaudio.enable = false;
-    rtkit.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "gb";
