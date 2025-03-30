@@ -30,6 +30,7 @@
     spotdl
     ventoy
     vial
+    vlc
   ];
 
   home.pointerCursor = {

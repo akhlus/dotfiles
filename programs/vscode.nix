@@ -1,6 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package =
+      if settings.de == "apple"
+      then pkgs.vscode
+      else pkgs.vscode-fhs;
   };
 }

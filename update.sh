@@ -1,101 +1,76 @@
 #!/usr/bin/env bash
 
-usage() {
-    echo "Usage: $0 [-p <path>] -t <sys_type> [-f] -m <mode>"
-    exit 1
-}
+FLAKE_PATH="${FLAKE_PATH:-.}"
+MODE="switch"
+FORMAT="true"
 
-update() {
-    local path="$1"
-    local sys_type="$2"
-    local format="$3"
-    local mode="$4"
-
-    cd "$path" || { echo "Failed to change directory"; return 1; }
-
-    if git diff --quiet; then
-        read -p "No changes detected - proceed anyway? [y]/n" cont
-        cont=${cont:-y}  # Default to 'y'
-        if [[ "$cont" == "n" ]]; then
-            return
-        fi
-    fi
-
-    if [[ "$format" == "true" ]]; then
-        alejandra . &>/dev/null \
-          || ( alejandra . ; echo "formatting failed!" && exit 1)
-    fi
-
-    git add .
-    git diff --staged -U0
-    echo "Rebuilding..."
-
-    case "$sys_type" in
-        home)
-            name="home"
-            command="home-manager"
-            ;;
-        nixos)
-            name="system"
-            command="sudo nixos-rebuild"
-            ;;
-        darwin)
-            name="apple"
-            command="darwin-rebuild"
-            ;;
-        *)
-            echo "Error with sys_type"
-            return
-            ;;
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -p|--path) FLAKE_PATH="$2"; shift ;;
+        -m|--mode) MODE="$2"; shift ;;
+        -f|--format) FORMAT="$2"; shift ;;
+        -s|--system) SYSTEM="$2"; shift;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
-
-    if ! $command "$mode" --flake "$path#$name" &> nixos-switch.log; then
-        grep --color error nixos-switch.log >&2
-        exit 1
-    fi
-
-    date=$(date '+%Y-%m-%d-%H-%M')
-    read -p "Commit to git? [y]/n" commit
-    commit=${commit:-y}  # Default to 'y'
-    if [[ "$commit" == "n" ]]; then
-        return
-    fi
-
-    read -p "Git commit message: " commit_message
-    git commit -am "$date $commit_message"
-
-    read -p "Push to github? [y]/n" push
-    push=${push:-y}  # Default to 'y'
-    if [[ "$push" == "n" ]]; then
-        return
-    fi
-
-    git push
-}
-
-format="false"
-while getopts "p:t:fm:" opt; do
-    case ${opt} in
-        p ) path=$OPTARG ;;
-        t ) sys_type=$OPTARG ;;
-        f ) format="true" ;;
-        m ) mode=$OPTARG ;;
-        * ) usage ;;
-    esac
+    shift
 done
 
-if [[ -z "$path" ]]; then
-    if [[ -z "$FLAKE_PATH" ]]; then
-        echo "Error: No path provided and FLAKE_PATH is not set."
-        exit 1
+if git -C "$FLAKE_PATH" diff --quiet; then
+    read -p "No changes detected - proceed anyway? [y]/n" cont
+    cont=${cont:-y}  # Default to 'y'
+    if [[ "$cont" == "n" ]]; then
+        exit 0
     fi
-    path="$FLAKE_PATH"
 fi
 
-if [[ -z "$sys_type" || -z "$mode" ]]; then
-    usage
+if [[ "$format" == "true" ]]; then
+    alejandra "$FLAKE_PATH"
 fi
 
-curdir=$(pwd)
-update "$path" "$sys_type" "$format" "$mode"
-cd "$curdir" || exit 1
+git -C "$FLAKE_PATH" add .
+
+git -C "$FLAKE_PATH" diff --staged -U0
+
+read -p "Do you want to update flake inputs? (y/[n]): " flake_update
+if [[ "$flake_update" == "y" ]]; then
+    nix flake update --flake "$FLAKE_PATH"
+fi
+
+case "$SYSTEM" in
+    home)
+        name="home"
+        command="home-manager"
+        ;;
+    nixos)
+        name="system"
+        command="sudo nixos-rebuild"
+        ;;
+    darwin)
+        name="apple"
+        command="darwin-rebuild"
+        ;;
+    *)
+        echo "Error with sys_type"
+        return
+        ;;
+esac
+
+echo "Rebuilding..."
+if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> update.log; then
+    grep --color error update.log >&2
+    exit 1
+fi
+
+date=$(date '+%Y-%m-%d-%H-%M')
+read -p "Do you want to commit the changes? (y/[n]): " commit_choice
+if [[ "$commit_choice" == "y" ]]; then
+    read -p "Enter commit message: " commit_msg
+    git -C "$FLAKE_PATH" commit -am "$date $commit_msg"
+else
+    exit 0
+fi
+
+read -p "Do you want to push the changes? (y/[n]): " push_choice
+if [[ "$push_choice" == "y" ]]; then
+    git -C "$FLAKE_PATH" push
+fi

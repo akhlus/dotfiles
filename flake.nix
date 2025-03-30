@@ -1,8 +1,8 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "a3";
-    type = "desktop";
+    hostname = "mba";
+    type = "darwin";
 
     types = {
       laptop = {

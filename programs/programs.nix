@@ -38,7 +38,6 @@
     ungit
     unzip
     usbutils
-    vlc
     wget
     wireguard-tools
     wireguard-ui
