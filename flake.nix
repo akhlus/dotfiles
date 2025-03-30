@@ -1,8 +1,8 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "mba";
-    type = "darwin";
+    hostname = "a3";
+    type = "desktop";
 
     types = {
       laptop = {
@@ -17,8 +17,8 @@
         system = "aarch64-darwin";
         de = "apple";
       };
-      hm = {
-        system = "";
+      deck = {
+        system = "x86_64-linux";
         de = "";
       };
     };
@@ -26,7 +26,10 @@
     settings = rec {
       inherit hostname;
       inherit type;
-      name = "sam"; #for account
+      name = #for account
+        if type == "deck"
+        then "deck"
+        else "sam";
       username = "akhlus"; #for git
       email = "93236986+akhlus@users.noreply.github.com"; #for git
       flakePath = "/${home}/${name}/dotfiles"; #full path
