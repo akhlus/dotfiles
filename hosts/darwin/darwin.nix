@@ -33,6 +33,7 @@
     casks = [
       "anki"
       #"autodesk-fusion"
+      "bambu-studio"
       #"calibre"
       #"kicad"
       "ghostty"

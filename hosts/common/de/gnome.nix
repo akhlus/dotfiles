@@ -24,8 +24,9 @@
       blur-my-shell
       caffeine
       clipboard-indicator
-      dash-to-panel
+      #hide-top-bar
       dash-to-dock
+      dash-to-panel
     ])
     ++ (with pkgs-stable; [
       gnome-extension-manager
