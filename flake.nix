@@ -17,6 +17,10 @@
         system = "aarch64-darwin";
         de = "apple";
       };
+      hm = {
+        system = "";
+        de = "";
+      };
     };
 
     settings = rec {
