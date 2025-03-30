@@ -24,7 +24,7 @@
       inherit type;
       name = "sam"; #for account
       username = "akhlus"; #for git
-      email = "samuellarcombe@gmail.com"; #for git
+      email = "93236986+akhlus@users.noreply.github.com"; #for git
       flakePath = "/${home}/${name}/dotfiles"; #full path
       de = types.${type}.de;
       system = types.${type}.system;

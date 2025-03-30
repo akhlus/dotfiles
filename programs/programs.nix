@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     alejandra
+    bambu-studio
     brave
     fastfetch
     ffmpeg
