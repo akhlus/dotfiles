@@ -1,5 +1,3 @@
-{...}: {
-  imports = [
-    ../common/home.nix
-  ];
+{...}:{
+  #used for machine specific config
 }

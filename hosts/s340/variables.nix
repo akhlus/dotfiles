@@ -1,13 +1,14 @@
 rec {
-  machine = "s340";
-  gitUsername = "akhlus";
-  gitEmail = "93236986+akhlus@users.noreply.github.com";
   hostname = "s340";
   username = "sam";
-  flakePath = "/home/${username}/dotfiles";
-  de = "gnome";
   system = "x86_64-linux";
+  de = "gnome";
+
+  gitUsername = "akhlus";
+  gitEmail = "93236986+akhlus@users.noreply.github.com";
+  flakePath = "/home/${username}/dotfiles";
   locale = "en_GB.UTF-8";
   timezone = "Europe/London";
-  enableSteam = true;
+
+  enableSteam = false;
 }

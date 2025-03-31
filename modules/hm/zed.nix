@@ -9,7 +9,7 @@
     ".config/zed/settings.json".source =
       if settings.de == "apple"
       then ./files/zed-settings.json
-      else config.lib.file.mkOutOfStoreSymlink "${settings.flakePath}/programs/files/zed-settings.json";
+      else config.lib.file.mkOutOfStoreSymlink "${settings.flakePath}/modules/hm/files/zed-settings.json";
   };
 
   programs.zed-editor = {

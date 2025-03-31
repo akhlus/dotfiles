@@ -1,51 +1,10 @@
-{
-  settings,
-  specialArgs,
-  pkgs,
-  ...
-}: {
-  imports = [];
-
+{pkgs, settings, ...}: {
   networking.hostName = settings.hostname;
-  users.users.${settings.name} = {
-    name = "${settings.name}";
-    home = "/Users/${settings.name}";
-  };
-
-  home-manager = {
-    backupFileExtension = "bak";
-    extraSpecialArgs = specialArgs;
-    users.${settings.name}.imports = [
-      #specialArgs.inputs.mac-app-util.homeManagerModules.default
-      ../${settings.type}/${settings.type}-home.nix
-    ];
-  };
-
-  nix-homebrew = {
-    enable = true;
-    enableRosetta = true;
-    user = "${settings.name}";
-    autoMigrate = true;
-  };
-
-  homebrew = {
-    enable = true;
-    casks = [
-      "anki"
-      #"autodesk-fusion"
-      "bambu-studio"
-      #"calibre"
-      #"kicad"
-      "ghostty"
-      "xournal++"
-    ];
-    masApps = {
-      "Bitwarden" = 1352778147;
-    };
-    onActivation.cleanup = "zap";
-  };
-
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  environment.variables = {
+    FLAKE_PATH = "${settings.flakePath}";
+  };
 
   system = {
     defaults = {
@@ -119,10 +78,6 @@
       enableKeyMapping = true;
       remapCapsLockToEscape = true;
     };
-  };
-
-  environment.variables = {
-    FLAKE_PATH = "${settings.flakePath}";
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

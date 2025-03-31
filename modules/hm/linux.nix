@@ -3,16 +3,8 @@
   settings,
   ...
 }: {
-  imports = [
-    ../../programs
-  ];
-
   home.username = "${settings.username}";
   home.homeDirectory = "/home/${settings.username}";
-
-  home.file = {
-    "Pictures/background.jpg".source = ../../programs/files/tignes.jpg;
-  };
 
   home.packages = with pkgs; [
     anki
@@ -41,10 +33,4 @@
     size = 24;
   };
 
-  home.sessionVariables = {
-    FLAKE_PATH = "${settings.flakePath}";
-  };
-
-  home.stateVersion = "24.11";
-  nixpkgs.config.allowUnfree = true;
 }

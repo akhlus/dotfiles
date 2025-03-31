@@ -1,36 +1,37 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-  machine = "a3";
+    hostname = "a3";
 
-  settings = import ./hosts/${machine}/variables.nix;
+    settings = import ./hosts/${hostname}/variables.nix;
 
-  nixpkgs-de =
-    if settings.de == "cosmic"
-    then inputs.nixpkgs-cosmic
-    else inputs.nixpkgs;
+    nixpkgs-de =
+      if settings.de == "cosmic"
+      then inputs.nixpkgs-cosmic
+      else inputs.nixpkgs;
 
-  pkgs = nixpkgs-de.legacyPackages.${settings.system};
-  pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
+    pkgs = nixpkgs-de.legacyPackages.${settings.system};
+    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
 
-  specialArgs = {
-    inherit pkgs-stable settings inputs;
-  };
+    specialArgs = {
+      inherit pkgs-stable settings inputs;
+    };
   in {
     nixosConfigurations."system" = nixpkgs-de.lib.nixosSystem {
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
         inputs.home-manager.nixosModules.home-manager
-        ./hosts/${machine}/os.nix
-        ./hosts/${machine}/hardware.nix
+        ./modules/nixos
+        ./hosts/${hostname}
       ];
     };
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = specialArgs;
       modules = [
-        ./hosts/${machine}/home.nix
+        ./modules/hm
+        ./hosts/${hostname}/home.nix
       ];
     };
     darwinConfigurations."apple" = inputs.nix-darwin.lib.darwinSystem {
@@ -40,7 +41,8 @@
         #inputs.mac-app-util.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./hosts/darwin/os.nix
+        ./modules/darwin
+        ./hosts/${hostname}
       ];
     };
   };
@@ -58,6 +60,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    #nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 }
