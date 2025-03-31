@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   boot = {
@@ -15,6 +16,8 @@
       theme = lib.mkDefault "bgrt";
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
