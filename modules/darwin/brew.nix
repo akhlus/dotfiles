@@ -2,7 +2,7 @@
   nix-homebrew = {
     enable = true;
     enableRosetta = true;
-    user = "${settings.name}";
+    user = "${settings.username}";
     autoMigrate = true;
   };
 

@@ -1,6 +1,6 @@
 {settings, pkgs, ...}: {
-  home.username = "${settings.name}";
-  home.homeDirectory = "/${settings.home}/${settings.name}";
+  home.username = "${settings.username}";
+  home.homeDirectory = "/Users/${settings.username}";
 
   home.sessionPath = [
     "/opt/homebrew/bin"

@@ -22,7 +22,7 @@
     home-manager
     inter
     jdk
-    mpv
+    #mpv broken in darwin?
     nano
     nix-search-cli
     nixd
