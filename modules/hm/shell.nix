@@ -17,6 +17,9 @@ in {
   programs.zsh = {
     enable = true;
     shellAliases = alias;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    oh-my-zsh.enable = true;
   };
   programs.bash = {
     enable = true;
