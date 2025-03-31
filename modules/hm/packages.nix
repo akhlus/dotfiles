@@ -41,7 +41,6 @@
     wget
     wireguard-tools
     wireguard-ui
-    xournalpp
     yt-dlp
     yt-dlg
   ];

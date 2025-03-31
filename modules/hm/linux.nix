@@ -8,16 +8,13 @@
 
   home.packages = with pkgs; [
     anki
-    #calibre
     chromium
     fwupd
-    #kicad-small
     hwinfo
     libreoffice
     lshw
     powertop
     protonvpn-gui
-    #qbittorrent
     qmk
     spotdl
     ventoy

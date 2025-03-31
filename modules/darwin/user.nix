@@ -1,7 +1,8 @@
-{settings,specialArgs,...}:{
+{pkgs,settings,specialArgs,...}:{
   users.users.${settings.username} = {
     name = "${settings.username}";
     home = "/Users/${settings.username}";
+    shell = pkgs.zsh;
   };
 
 

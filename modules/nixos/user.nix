@@ -1,8 +1,10 @@
-{settings,specialArgs,...}:{
+{pkgs,settings,specialArgs,...}:{
   users.users.${settings.username} = {
     isNormalUser = true;
     description = settings.username;
     extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   home-manager = {

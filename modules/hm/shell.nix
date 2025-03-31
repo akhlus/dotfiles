@@ -22,4 +22,8 @@ in {
     enable = true;
     shellAliases = alias;
   };
+  home.shell = {
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
 }
