@@ -8,19 +8,20 @@
     ./boot.nix
     ./de/${settings.de}.nix
     ../../programs/nautilus.nix
+    ../../programs/steam.nix
   ];
 
   home-manager = {
     backupFileExtension = "bak";
-    users.${settings.name}.imports = [
-      ../${settings.type}/${settings.type}-home.nix
+    users.${settings.username}.imports = [
+      ../${settings.machine}/home.nix
     ];
     extraSpecialArgs = specialArgs;
   };
 
-  users.users.${settings.name} = {
+  users.users.${settings.username} = {
     isNormalUser = true;
-    description = settings.name;
+    description = settings.username;
     extraGroups = ["networkmanager" "wheel"];
   };
 
@@ -40,7 +41,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      #jack.enable = true;
     };
     printing.enable = true;
     pulseaudio.enable = false;

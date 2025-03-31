@@ -1,6 +1,6 @@
-{...}: {
+{settings, ...}: {
   programs.steam = {
-    enable = true;
+    enable = settings.enableSteam;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;

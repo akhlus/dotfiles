@@ -1,11 +1,8 @@
-{...}: {
-  home.file = {
-    ".config/btop/themes/akhlus.theme".source = ./files/btop.theme;
-  };
+{settings, ...}: {
   programs.btop = {
     enable = true;
     settings = {
-      colour_theme = "akhlus";
+      colour_theme = "${settings.flakePath}/programs/files/akhlus.theme";
     };
   };
 }

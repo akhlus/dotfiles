@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../programs/programs.nix
+    ../../programs
   ];
 
   home.username = "${settings.name}";

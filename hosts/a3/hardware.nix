@@ -19,7 +19,13 @@
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [vpl-gpu-rt];
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libvdpau-va-gl
+      vaapiIntel
+      vaapiVdpau
+      vpl-gpu-rt
+    ];
   };
 
   fileSystems."/" = {

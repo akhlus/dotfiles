@@ -14,11 +14,11 @@
 
   home-manager = {
     backupFileExtension = "bak";
+    extraSpecialArgs = specialArgs;
     users.${settings.name}.imports = [
       #specialArgs.inputs.mac-app-util.homeManagerModules.default
       ../${settings.type}/${settings.type}-home.nix
     ];
-    extraSpecialArgs = specialArgs;
   };
 
   nix-homebrew = {

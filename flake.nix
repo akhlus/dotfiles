@@ -1,76 +1,37 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "a3";
-    type = "desktop";
+  machine = "a3";
 
-    types = {
-      laptop = {
-        system = "x86_64-linux";
-        de = "gnome";
-      };
-      desktop = {
-        system = "x86_64-linux";
-        de = "gnome";
-      };
-      darwin = {
-        system = "aarch64-darwin";
-        de = "apple";
-      };
-      deck = {
-        system = "x86_64-linux";
-        de = "";
-      };
-    };
+  settings = import ./hosts/${machine}/variables.nix;
 
-    settings = rec {
-      inherit hostname;
-      inherit type;
-      name = #for account
-        if type == "deck"
-        then "deck"
-        else "sam";
-      username = "akhlus"; #for git
-      email = "93236986+akhlus@users.noreply.github.com"; #for git
-      flakePath = "/${home}/${name}/dotfiles"; #full path
-      de = types.${type}.de;
-      system = types.${type}.system;
-      locale = "en_GB.UTF-8";
-      timezone = "Europe/London";
-      home =
-        if de == "apple"
-        then "Users"
-        else "home";
-    };
+  nixpkgs-de =
+    if settings.de == "cosmic"
+    then inputs.nixpkgs-cosmic
+    else inputs.nixpkgs;
 
-    nixpkgs-de =
-      if settings.de == "cosmic"
-      then inputs.nixpkgs-cosmic
-      else inputs.nixpkgs;
+  pkgs = nixpkgs-de.legacyPackages.${settings.system};
+  pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
 
-    pkgs = nixpkgs-de.legacyPackages.${settings.system};
-
-    pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${settings.system};
-
-    specialArgs = {
-      inherit pkgs-stable settings inputs;
-    };
+  specialArgs = {
+    inherit pkgs-stable settings inputs;
+  };
   in {
     nixosConfigurations."system" = nixpkgs-de.lib.nixosSystem {
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
         inputs.home-manager.nixosModules.home-manager
-        ./hosts/${type}/${type}.nix
-        ./hosts/hardware/hardware-${hostname}.nix
+        ./hosts/${machine}/os.nix
+        ./hosts/${machine}/hardware.nix
       ];
     };
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [
-        ./hosts/${type}/${type}-home.nix
-      ];
       extraSpecialArgs = specialArgs;
+      modules = [
+        ./hosts/${machine}/home.nix
+      ];
     };
     darwinConfigurations."apple" = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = specialArgs;
@@ -79,7 +40,7 @@
         #inputs.mac-app-util.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
-        ./hosts/${type}/${type}.nix
+        ./hosts/darwin/os.nix
       ];
     };
   };

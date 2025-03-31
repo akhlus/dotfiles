@@ -11,7 +11,7 @@
   services.power-profiles-daemon.enable = lib.mkDefault true;
 
   #enable dconf config
-  home-manager.users.${settings.name}.imports = [./dconf.nix];
+  home-manager.users.${settings.username}.imports = [./dconf.nix];
 
   environment.systemPackages =
     (with pkgs; [

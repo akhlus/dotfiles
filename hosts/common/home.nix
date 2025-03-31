@@ -4,11 +4,11 @@
   ...
 }: {
   imports = [
-    ../../programs/programs.nix
+    ../../programs
   ];
 
-  home.username = "${settings.name}";
-  home.homeDirectory = "/${settings.home}/${settings.name}";
+  home.username = "${settings.username}";
+  home.homeDirectory = "/home/${settings.username}";
 
   home.file = {
     "Pictures/background.jpg".source = ../../programs/files/tignes.jpg;

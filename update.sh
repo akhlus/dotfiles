@@ -2,13 +2,13 @@
 
 FLAKE_PATH="${FLAKE_PATH:-.}"
 MODE="switch"
-FORMAT="true"
+FORMAT="false"
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) FLAKE_PATH="$2"; shift ;;
         -m|--mode) MODE="$2"; shift ;;
-        -f|--format) FORMAT="$2"; shift ;;
+        -f|--format) FORMAT="true" ;;
         -s|--system) SYSTEM="$2"; shift;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
