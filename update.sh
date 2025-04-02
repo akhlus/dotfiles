@@ -55,6 +55,8 @@ case "$SYSTEM" in
         ;;
 esac
 
+sed -i "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
+
 echo "Rebuilding..."
 if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> update.log; then
     grep --color error update.log >&2

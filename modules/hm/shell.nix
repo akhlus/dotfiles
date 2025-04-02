@@ -32,6 +32,12 @@ in {
         file = "p10k.zsh";
       }
     ];
+    initExtra = ''
+      if [ -f $HOME/.zshrc-personal ]; then
+        source $HOME/.zshrc-personal
+      fi
+    '';
+
   };
   programs.bash = {
     enable = true;
