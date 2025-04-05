@@ -7,9 +7,46 @@
     "rainbow-csv": true,
     "toml": true
   },
+
   "base_keymap": "VSCode",
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 14,
+  "ui_font_family": "Zed Plex Sans",
+  "ui_font_size": 14,
+  "theme": "poimandres",
+
+  "notification_panel": {
+    "dock": "left"
+  },
+  "assistant": {
+    "dock": "left",
+    "version": "2"
+  },
+  "project_panel": {
+    "dock": "right",
+    "button": true
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "code_actions": true,
+    "runnables": true,
+    "breakpoints": true,
+    "folds": true
+  },
+  "terminal": {
+    "dock": "bottom",
+    "env": {
+      "TERM": "ghostty"
+    },
+    "working_directory": "current_project_directory"
+  },
+  "tab_bar": {
+    "show": false
+  },
+
   "languages": {
     "Nix": {
       "format_on_save": "off",
@@ -49,18 +86,5 @@
         }
       }
     }
-  },
-  "terminal": {
-    "dock": "bottom",
-    "env": {
-      "TERM": "ghostty"
-    },
-    "working_directory": "current_project_directory"
-  },
-  "theme": "akhlus",
-  "tab_bar": {
-    "show": false
-  },
-  "ui_font_family": "Zed Plex Sans",
-  "ui_font_size": 14
+  }
 }

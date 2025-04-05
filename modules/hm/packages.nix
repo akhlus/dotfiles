@@ -39,8 +39,8 @@
     unzip
     usbutils
     wget
-    wireguard-tools
-    wireguard-ui
+    #wireguard-tools
+    #wireguard-ui
     yt-dlp
     yt-dlg
   ];
