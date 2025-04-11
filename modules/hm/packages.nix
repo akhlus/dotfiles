@@ -22,7 +22,7 @@
     home-manager
     inter
     jdk
-    #mpv broken in darwin?
+    mpv
     nano
     nix-search-cli
     nixd
@@ -39,8 +39,6 @@
     unzip
     usbutils
     wget
-    #wireguard-tools
-    #wireguard-ui
     yt-dlp
     yt-dlg
   ];

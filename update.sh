@@ -59,7 +59,7 @@ sed -i '' "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flak
 
 echo "Rebuilding..."
 if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> $FLAKE_PATH/update.log; then
-    grep --color error update.log >&2
+    grep --color error $FLAKE_PATH/update.log >&2
     exit 1
 fi
 

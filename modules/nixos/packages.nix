@@ -25,5 +25,7 @@
     libgcc
     lm_sensors
     v4l-utils
+    wireguard-tools
+    wireguard-ui
   ];
 }
