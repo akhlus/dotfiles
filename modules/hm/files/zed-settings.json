@@ -13,7 +13,7 @@
   "buffer_font_size": 14,
   "ui_font_family": "Zed Plex Sans",
   "ui_font_size": 14,
-  "theme": "poimandres",
+  "theme": "test2",
 
   "notification_panel": {
     "dock": "left"
