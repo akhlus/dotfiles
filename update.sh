@@ -54,8 +54,11 @@ case "$SYSTEM" in
         return
         ;;
 esac
-
-sed -i '' "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
+if [[ "$(hostname)" == "mba" ]]; then
+    sed -i '' "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
+else
+    sed -i "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
+fi
 
 echo "Rebuilding..."
 if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> $FLAKE_PATH/update.log; then
