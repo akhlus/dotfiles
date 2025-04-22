@@ -1,7 +1,7 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "a3";
+    hostname = "s340";
 
     settings = import ./hosts/${hostname}/variables.nix;
 
