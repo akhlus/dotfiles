@@ -1,4 +1,4 @@
 $$\langle M \rangle = \begin{cases}
-   a &\text{if } T < T_c \\
-   0 &\text{if } T \leq T_c
+   \pm (1-\sinh(2)) &\text{if } T < T_c \\
+   0 &\text{if } T \geq T_c
 \end{cases}$$
