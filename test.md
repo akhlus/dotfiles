@@ -1,4 +1,4 @@
-x = \begin{cases}
+$$x = \begin{cases}
    a &\text{if } b \\
    c &\text{if } d
-\end{cases}
+\end{cases}$$
