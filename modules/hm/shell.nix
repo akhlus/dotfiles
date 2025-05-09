@@ -32,7 +32,7 @@ in {
         file = "p10k.zsh";
       }
     ];
-    initExtra = ''
+    initContent = ''
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi

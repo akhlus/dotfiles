@@ -4,6 +4,7 @@
     ./ghostty.nix
     ./git.nix
     ./shell.nix
+    ./tmux.nix
     ./vscode.nix
     ./xournalpp.nix
     ./zed.nix
