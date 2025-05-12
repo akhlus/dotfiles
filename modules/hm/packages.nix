@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     alejandra
     brave
+    code-cursor
     fastfetch
     ffmpeg
     firefox
