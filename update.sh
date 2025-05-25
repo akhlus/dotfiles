@@ -47,7 +47,7 @@ case "$SYSTEM" in
         ;;
     darwin)
         name="apple"
-        command="darwin-rebuild"
+        command="sudo darwin-rebuild"
         ;;
     *)
         echo "Error with sys_type"
