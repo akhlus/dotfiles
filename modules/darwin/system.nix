@@ -7,6 +7,7 @@
   };
 
   system = {
+    primaryUser = "sam";
     defaults = {
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";
