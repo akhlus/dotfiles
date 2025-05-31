@@ -16,6 +16,7 @@
     alejandra
     brave
     code-cursor
+    discord
     fastfetch
     ffmpeg
     firefox
