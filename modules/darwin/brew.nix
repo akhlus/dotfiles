@@ -15,6 +15,7 @@
       #"calibre"
       #"kicad"
       "ghostty"
+      "vivaldi"
       "xournal++"
     ];
     masApps = {
