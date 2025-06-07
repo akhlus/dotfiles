@@ -10,14 +10,12 @@
     "rainbow-csv": true,
     "toml": true
   },
-
   "base_keymap": "VSCode",
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 14,
   "ui_font_family": "Zed Plex Sans",
   "ui_font_size": 14,
   "theme": "test2",
-
   "notification_panel": {
     "dock": "left"
   },
@@ -49,11 +47,13 @@
   "tab_bar": {
     "show": false
   },
-
   "languages": {
     "Nix": {
       "format_on_save": "off",
-      "language_servers": ["nixd", "!nil"],
+      "language_servers": [
+        "nixd",
+        "!nil"
+      ],
       "tab_size": 2
     },
     "Python": {
@@ -70,14 +70,21 @@
           }
         }
       ],
-      "language_servers": ["pylsp", "!pyright", "ruff"]
+      "language_servers": [
+        "pylsp",
+        "!pyright",
+        "ruff"
+      ]
     }
   },
   "lsp": {
     "nixd": {
       "settings": {
         "formatting": {
-          "command": ["alejandra", "--quiet"]
+          "command": [
+            "alejandra",
+            "--quiet"
+          ]
         },
         "options": {
           "home-manager": {
