@@ -1,4 +1,6 @@
 {
+  "show_edit_predictions": false,
+  "icon_theme": "Zed (Default)",
   "features": {
     "edit_prediction_provider": "zed"
   },
@@ -19,7 +21,7 @@
   "notification_panel": {
     "dock": "left"
   },
-  "assistant": {
+  "agent": {
     "dock": "left",
     "version": "2"
   },
