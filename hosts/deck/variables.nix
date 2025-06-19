@@ -1,8 +1,8 @@
 rec {
   hostname = "deck";
-  username = "deck";
+  username = "sam";
   system = "x86_64-linux";
-  de = "";
+  de = "kde";
 
   gitUsername = "akhlus";
   gitEmail = "93236986+akhlus@users.noreply.github.com";

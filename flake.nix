@@ -26,6 +26,17 @@
         ./hosts/${hostname}
       ];
     };
+    nixosConfigurations."deck" = nixpkgs-de.lib.nixosSystem {
+      system = settings.system;
+      specialArgs = specialArgs;
+      modules = [
+        inputs.jovian.default
+        inputs.home-manager.nixosModules.home-manager
+        ./modules/nixos
+        ./modules/nixos/jovian.nix
+        ./hosts/${hostname}
+      ];
+    };
     homeConfigurations."home" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = specialArgs;
@@ -38,7 +49,6 @@
       specialArgs = specialArgs;
       system = settings.system;
       modules = [
-        #inputs.mac-app-util.darwinModules.default
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         ./modules/darwin
@@ -47,6 +57,10 @@
     };
   };
   inputs = {
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";

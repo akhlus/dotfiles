@@ -13,7 +13,6 @@
       #"autodesk-fusion"
       "bambu-studio"
       #"calibre"
-      "chromium"
       #"kicad"
       "ghostty"
       "vivaldi"
