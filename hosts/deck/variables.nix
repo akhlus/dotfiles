@@ -2,7 +2,7 @@ rec {
   hostname = "deck";
   username = "sam";
   system = "x86_64-linux";
-  de = "kde";
+  de = "jovian";
 
   gitUsername = "akhlus";
   gitEmail = "93236986+akhlus@users.noreply.github.com";
@@ -10,5 +10,5 @@ rec {
   locale = "en_GB.UTF-8";
   timezone = "Europe/London";
 
-  enableSteam = false;
+  enableSteam = true;
 }

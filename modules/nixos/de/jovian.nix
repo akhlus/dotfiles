@@ -1,4 +1,4 @@
-{lib, ...}: {
+{...}: {
   jovian = {
     decky-loader.enable = true;
     decky-loader.user = "sam";
@@ -6,9 +6,8 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = "plasma6";
+      desktopSession = "gnome";
     };
     hardware.has.amd.gpu = true;
   };
-  services.displayManager.sddm.enable = lib.mkForce false;
 }
