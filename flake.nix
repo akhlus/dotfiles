@@ -1,7 +1,7 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "mba";
+    hostname = "deck";
 
     settings = import ./hosts/${hostname}/variables.nix;
 
@@ -30,10 +30,8 @@
       system = settings.system;
       specialArgs = specialArgs;
       modules = [
-        inputs.jovian.default
         inputs.home-manager.nixosModules.home-manager
         ./modules/nixos
-        ./modules/nixos/jovian.nix
         ./hosts/${hostname}
       ];
     };

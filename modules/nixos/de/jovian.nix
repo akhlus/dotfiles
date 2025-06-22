@@ -1,6 +1,7 @@
-{...}: {
+{inputs, lib, ...}: {
+  imports = [ inputs.jovian.nixosModules.default ];
   jovian = {
-    decky-loader.enable = true;
+    decky-loader.enable = false;
     decky-loader.user = "sam";
     devices.steamdeck.enable = true;
     steam = {
@@ -10,4 +11,5 @@
     };
     hardware.has.amd.gpu = true;
   };
+  services.displayManager.sddm.enable = lib.mkForce false;
 }

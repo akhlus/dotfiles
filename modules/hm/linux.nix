@@ -17,7 +17,6 @@
     protonvpn-gui
     qmk
     spotdl
-    ventoy
     vial
     vlc
   ];
