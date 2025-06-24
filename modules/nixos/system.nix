@@ -31,7 +31,7 @@ in {
       nix.settings.experimental-features = ["nix-command" "flakes"];
       nix.optimise.automatic = true;
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.pkgs = pkgs
+      nixpkgs.pkgs = pkgs;
     }
     (lib.mkIf cfg.enable {
       time.timeZone = cfg.timezone;
