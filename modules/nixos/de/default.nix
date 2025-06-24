@@ -12,7 +12,11 @@ in {
       default = "gnome";
       description = "Environment choice";
     };
-    enableJovian = lib.mkEnableOption "Enable Jovian" // {default = false;};
+    enableJovian = lib.mkOption {
+      type = lib.types.boolean;
+      default = false;
+      description = "Enable Jovian";
+    };
   };
   config = lib.mkIf cfg.enable {
     imports = [
