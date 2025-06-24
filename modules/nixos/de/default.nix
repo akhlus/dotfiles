@@ -25,4 +25,5 @@ in {
       else ./${cfg.environment}.nix
     )
   ];
+  config = {};
 }
