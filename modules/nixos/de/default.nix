@@ -18,13 +18,11 @@ in {
       description = "Enable Jovian";
     };
   };
-  config = lib.mkIf cfg.enable {
-    imports = [
-      (
-        if cfg.enableJovian
-        then ./jovian.nix
-        else ./${cfg.environment}.nix
-      )
-    ];
-  };
+  imports = lib.mkIf cfg.enable [
+    (
+      if cfg.enableJovian
+      then ./jovian.nix
+      else ./${cfg.environment}.nix
+    )
+  ];
 }
