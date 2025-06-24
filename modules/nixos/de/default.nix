@@ -6,9 +6,9 @@
   ...
 }: let
   cfg = config.customModules.de;
-  gnome = import ./gnome.nix {inherit lib pkgs userName;};
-  kde = import ./kde.nix {};
-  cosmic = import ./cosmic.nix {};
+  gnome = import ./gnome.nix {inherit config lib pkgs userName;};
+  kde = import ./kde.nix {inherit config;};
+  cosmic = import ./cosmic.nix {inherit config;};
   jovian = import ./jovian.nix {inherit config;};
 in {
   options.customModules.de = {
