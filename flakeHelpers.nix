@@ -30,6 +30,7 @@ inputs: {
       };
       modules = [
         inputs.home-manager.nixosModules.home-manager
+        inputs.jovian.nixosModules.default
         ./modules/nixos
         ./hosts/${machineHostname}
       ];

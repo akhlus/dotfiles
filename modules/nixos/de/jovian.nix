@@ -1,9 +1,7 @@
 {
   config,
-  inputs,
   ...
 }: {
-  imports = [inputs.jovian.nixosModules.default];
   jovian = {
     decky-loader.enable = false;
     decky-loader.user = "sam";
