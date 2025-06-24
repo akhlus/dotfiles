@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
   ];
-  options.customModules = {
+  customModules = {
     steam.enable = true;
   };
 }
