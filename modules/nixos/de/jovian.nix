@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   jovian = {
     decky-loader.enable = false;
     decky-loader.user = "sam";
@@ -9,7 +6,7 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = config.customModules.de.environment;
+      desktopSession = "gnome";
       enable = true;
       updater.splash = "vendor";
     };

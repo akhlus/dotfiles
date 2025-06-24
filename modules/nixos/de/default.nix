@@ -24,7 +24,7 @@ in {
       description = "Enable Jovian";
     };
   };
-  config = lib.mkIf cfg.enable (lib.mkMerge[
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     (lib.mkIf cfg.enableJovian jovian)
     (lib.mkIf (!cfg.enableJovian && cfg.environment == "gnome") gnome)
     (lib.mkIf (!cfg.enableJovian && cfg.environment == "kde") kde)
