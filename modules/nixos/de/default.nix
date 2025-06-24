@@ -19,7 +19,7 @@ in {
       description = "Environment choice - for jovian";
     };
     enableJovian = lib.mkOption {
-      type = lib.types.boolean;
+      type = lib.types.bool;
       default = false;
       description = "Enable Jovian";
     };
