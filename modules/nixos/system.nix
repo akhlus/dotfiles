@@ -7,7 +7,7 @@
   cfg = config.customModules.system;
 in {
   options.customModules.system = {
-    enable = lib.mkOption "Enable System config" // {default = true;};
+    enable = lib.mkEnableOption "Enable System config" // {default = true;};
     timezone = lib.mkOption {
       type = lib.type.string;
       default = "Europe/London";
