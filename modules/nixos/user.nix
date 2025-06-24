@@ -16,6 +16,7 @@
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
+    useUserPackages = true;
     users.${userName}.imports = [
       ../hm
       ../../hosts/${hostName}/home.nix

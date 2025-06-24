@@ -2,6 +2,7 @@
   config,
   flakePath,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.customModules.system;
@@ -9,12 +10,12 @@ in {
   options.customModules.system = {
     enable = lib.mkEnableOption "Enable System config" // {default = true;};
     timezone = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "Europe/London";
       description = "Timezone";
     };
     locale = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "en_GB.UTF-8";
       description = "Locale to use";
     };
@@ -30,6 +31,7 @@ in {
       nix.settings.experimental-features = ["nix-command" "flakes"];
       nix.optimise.automatic = true;
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.pkgs = pkgs
     }
     (lib.mkIf cfg.enable {
       time.timeZone = cfg.timezone;
