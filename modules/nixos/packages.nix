@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./steam.nix
-    ./nautilus.nix
-  ];
   programs = {
     adb.enable = true;
     gnupg.agent = {

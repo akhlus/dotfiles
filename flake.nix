@@ -1,13 +1,15 @@
 {
   description = "NixOS configuration";
   outputs = inputs @ {self, ...}: let
-    hostname = "deck";
+    hostname = "mba";
 
     settings = import ./hosts/${hostname}/variables.nix;
 
     nixpkgs-de =
       if settings.de == "cosmic"
       then inputs.nixpkgs-cosmic
+      else if settings.de == "apple"
+      then inputs.nixpkgs-darwin
       else inputs.nixpkgs;
 
     pkgs = nixpkgs-de.legacyPackages.${settings.system};
@@ -65,7 +67,8 @@
     };
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-cosmic.follows = "nixos-cosmic/nixpkgs";
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";

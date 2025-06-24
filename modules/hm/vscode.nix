@@ -1,12 +1,8 @@
-{
-  pkgs,
-  settings,
-  ...
-}: {
+{pkgs,...}: {
   programs.vscode = {
     enable = true;
     package =
-      if settings.de == "apple"
+      if pkgs.stdenv.isDarwin
       then pkgs.vscode
       else pkgs.vscode-fhs;
   };

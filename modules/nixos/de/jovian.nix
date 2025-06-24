@@ -8,8 +8,13 @@
       autoStart = true;
       user = "sam";
       desktopSession = "gnome";
+      enable = true;
+      updater.splash = "vendor";
     };
     hardware.has.amd.gpu = true;
+    steamos = {
+      useSteamOSConfig = true;
+    };
   };
   services.displayManager.sddm.enable = lib.mkForce false;
 }

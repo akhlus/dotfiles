@@ -1,8 +1,8 @@
-{settings, ...}: {
+{...}: {
   programs.git = {
     enable = true;
-    userName = settings.gitUsername;
-    userEmail = settings.gitEmail;
+    userName = "akhlus";
+    userEmail = "93236986+akhlus@users.noreply.github.com";
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = "true";

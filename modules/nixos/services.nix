@@ -17,7 +17,7 @@
       enable = true;
       xkb.layout = "gb";
       xkb.variant = "";
-      excludePackages = [ pkgs.xterm ];
+      excludePackages = [pkgs.xterm];
     };
   };
 }
