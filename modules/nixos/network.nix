@@ -1,6 +1,6 @@
-{hostname, ...}: {
+{hostName, ...}: {
   networking = {
-    hostName = hostname;
+    hostName = hostName;
     networkmanager.enable = true;
   };
 }
