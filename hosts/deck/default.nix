@@ -6,7 +6,7 @@
     steam.enable = true;
     de = {
       enable = true;
-      environment = "gnome";
+      environment = "plasma6";
       enableJovian = true;
     };
   };

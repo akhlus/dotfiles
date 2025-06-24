@@ -14,7 +14,7 @@ in {
   options.customModules.de = {
     enable = lib.mkEnableOption "Enable graphics" // {default = true;};
     environment = lib.mkOption {
-      type = lib.types.enum ["gnome" "kde" "cosmic"];
+      type = lib.types.enum ["gnome" "plasma6" "cosmic"];
       default = "gnome";
       description = "Environment choice - for jovian";
     };
