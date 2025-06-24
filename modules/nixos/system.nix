@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfg = config.nixosModules.system;
+  cfg = config.customModules.system;
 in {
-  options.nixosModules.system = {
+  options.customModules.system = {
     enable = lib.mkOption "Enable System config" // {default = true;};
     timezone = lib.mkOption {
       type = lib.type.string;
