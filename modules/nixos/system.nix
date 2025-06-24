@@ -1,6 +1,5 @@
 {
   config,
-  flakePath,
   lib,
   ...
 }: let
@@ -35,14 +34,4 @@ in {
       LC_TIME = cfg.locale;
     };
   };
-
-  environment.variables = {
-    FLAKE_PATH = "${flakePath}";
-    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
-  };
-
-  system.stateVersion = "24.05";
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.optimise.automatic = true;
-  nixpkgs.config.allowUnfree = true;
 }
