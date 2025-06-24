@@ -7,7 +7,7 @@
 }: let
   cfg = config.customModules.de;
   gnome = import ./gnome.nix {inherit config lib pkgs userName;};
-  kde = import ./kde.nix {inherit config;};
+  plasma6 = import ./plasma6.nix {inherit config;};
   cosmic = import ./cosmic.nix {inherit config;};
   jovian = import ./jovian.nix {inherit config;};
 in {
@@ -27,7 +27,7 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     (lib.mkIf cfg.enableJovian jovian)
     (lib.mkIf (cfg.environment == "gnome") gnome)
-    (lib.mkIf (cfg.environment == "kde") kde)
+    (lib.mkIf (cfg.environment == "plasma6") plasma6)
     (lib.mkIf (cfg.environment == "cosmic") cosmic)
   ]);
 }
