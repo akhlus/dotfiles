@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  lib,
   ...
 }: {
   imports = [inputs.jovian.nixosModules.default];
@@ -21,5 +20,4 @@
       useSteamOSConfig = true;
     };
   };
-  services.displayManager.sddm.enable = lib.mkForce false;
 }
