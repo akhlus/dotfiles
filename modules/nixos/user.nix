@@ -1,5 +1,6 @@
 {
   hostName,
+  inputs,
   pkgs,
   specialArgs,
   userName,
@@ -16,6 +17,7 @@
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
+    pkgs = import inputs.nixpkgs {};
     useUserPackages = true;
     users.${userName}.imports = [
       ../hm
