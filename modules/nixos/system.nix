@@ -1,5 +1,6 @@
 {
   config,
+  flakePath,
   lib,
   ...
 }: let
@@ -17,17 +18,8 @@ in {
       default = "en_GB.UTF-8";
       description = "Locale to use";
     };
-    flakePath = lib.mkOption {
-      type = lib.type.path;
-      description = "Full path of the flake";
-    };
   };
   config = lib.mkIf cfg.enable {
-    environment.variables = {
-      FLAKE_PATH = "${cfg.flakePath}";
-      LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
-    };
-
     time.timeZone = cfg.timezone;
     console.keyMap = "uk";
     i18n.defaultLocale = cfg.locale;
@@ -42,6 +34,11 @@ in {
       LC_TELEPHONE = cfg.locale;
       LC_TIME = cfg.locale;
     };
+  };
+
+  environment.variables = {
+    FLAKE_PATH = "${flakePath}";
+    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
   };
 
   system.stateVersion = "24.05";
