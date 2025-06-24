@@ -1,12 +1,13 @@
 {
+  hostName,
   pkgs,
-  settings,
   specialArgs,
+  userName,
   ...
 }: {
-  users.users.${settings.username} = {
+  users.users.${userName} = {
     isNormalUser = true;
-    description = settings.username;
+    description = userName;
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
@@ -15,9 +16,9 @@
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
-    users.${settings.username}.imports = [
+    users.${userName}.imports = [
       ../hm
-      ../../hosts/${settings.hostname}/home.nix
+      ../../hosts/${hostName}/home.nix
     ];
   };
 }

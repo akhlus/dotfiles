@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  username,
+  userName,
   ...
 }: {
   # Enable the GNOME Desktop Environment.
@@ -10,7 +10,7 @@
   services.power-profiles-daemon.enable = lib.mkDefault true;
 
   #enable dconf config
-  home-manager.users.${username}.imports = [./dconf.nix];
+  home-manager.users.${userName}.imports = [./dconf.nix];
 
   environment.systemPackages =
     (with pkgs; [

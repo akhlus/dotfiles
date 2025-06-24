@@ -1,13 +1,16 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
+  userName,
   ...
 }: let
   cfg = config.customModules.de;
-  gnome = import ./gnome.nix;
-  kde = import ./kde.nix;
-  cosmic = import ./cosmic.nix;
-  jovian = import ./jovian.nix;
+  gnome = import ./gnome.nix {inherit lib pkgs userName;};
+  kde = import ./kde.nix {};
+  cosmic = import ./cosmic.nix {};
+  jovian = import ./jovian.nix {inherit config inputs;};
 in {
   options.customModules.de = {
     enable = lib.mkEnableOption "Enable graphics" // {default = true;};
