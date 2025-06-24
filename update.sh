@@ -42,11 +42,11 @@ case "$SYSTEM" in
         command="home-manager"
         ;;
     nixos)
-        name="system"
+        name="$(hostname)"
         command="sudo nixos-rebuild"
         ;;
     darwin)
-        name="apple"
+        name="$(hostname)"
         command="sudo darwin-rebuild"
         ;;
     *)

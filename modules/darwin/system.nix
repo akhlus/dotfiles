@@ -1,13 +1,19 @@
-{pkgs, settings, ...}: {
-  networking.hostName = settings.hostname;
+{
+  flakePath,
+  hostName,
+  pkgs,
+  userName,
+  ...
+}: {
+  networking.hostName = hostName;
   security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.variables = {
-    FLAKE_PATH = "${settings.flakePath}";
+    FLAKE_PATH = "${flakePath}";
   };
 
   system = {
-    primaryUser = "${settings.username}";
+    primaryUser = "${userName}";
     defaults = {
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";

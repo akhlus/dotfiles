@@ -1,5 +1,10 @@
-{inputs, lib, ...}: {
-  imports = [ inputs.jovian.nixosModules.default ];
+{
+  config,
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [inputs.jovian.nixosModules.default];
   jovian = {
     decky-loader.enable = false;
     decky-loader.user = "sam";
@@ -7,7 +12,7 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = "gnome";
+      desktopSession = config.nixosModules.de.environment;
       enable = true;
       updater.splash = "vendor";
     };

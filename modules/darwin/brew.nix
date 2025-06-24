@@ -1,8 +1,8 @@
-{settings,...}:{
+{userName, ...}: {
   nix-homebrew = {
     enable = true;
     enableRosetta = true;
-    user = "${settings.username}";
+    user = userName;
     autoMigrate = true;
   };
 
@@ -17,6 +17,7 @@
       "ghostty"
       "vivaldi"
       "xournal++"
+      "zen"
     ];
     masApps = {
       "Bitwarden" = 1352778147;

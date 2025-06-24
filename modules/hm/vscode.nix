@@ -1,8 +1,12 @@
-{pkgs,...}: {
+{
+  isDarwin,
+  pkgs,
+  ...
+}: {
   programs.vscode = {
     enable = true;
     package =
-      if pkgs.stdenv.isDarwin
+      if isDarwin
       then pkgs.vscode
       else pkgs.vscode-fhs;
   };

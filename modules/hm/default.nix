@@ -1,8 +1,14 @@
-{settings,...}:{
+{
+  flakePath,
+  isDarwin,
+  ...
+}: {
   imports = [
-    (if settings.de == "apple"
+    (
+      if isDarwin
       then ./darwin.nix
-      else ./linux.nix)
+      else ./linux.nix
+    )
     ./packages.nix
   ];
 
@@ -11,7 +17,7 @@
   };
 
   home.sessionVariables = {
-    FLAKE_PATH = "${settings.flakePath}";
+    FLAKE_PATH = "${flakePath}";
   };
 
   home.stateVersion = "24.11";

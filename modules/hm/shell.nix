@@ -1,4 +1,9 @@
-{settings, lib, pkgs, ...}: let
+{
+  flakePath,
+  lib,
+  pkgs,
+  ...
+}: let
   alias = {
     "l" = "ls -a";
     "ll" = "ls -l";
@@ -6,12 +11,12 @@
     "lla" = "ls -la";
     "python" = "python3";
     "py" = "python3";
-    "nrb" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s nixos -f";
-    "ns" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s nixos -f -m switch";
-    "home" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s home -f";
-    "hs" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s home -f -m switch";
-    "darwin" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s darwin -f";
-    "ds" = "sh ${settings.flakePath}/update.sh -p ${settings.flakePath} -s darwin -f -m switch";
+    "nrb" = "sh ${flakePath}/update.sh -p ${flakePath} -s nixos -f";
+    "ns" = "sh ${flakePath}/update.sh -p ${flakePath} -s nixos -f -m switch";
+    "home" = "sh ${flakePath}/update.sh -p ${flakePath} -s home -f";
+    "hs" = "sh ${flakePath}/update.sh -p ${flakePath} -s home -f -m switch";
+    "darwin" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -f";
+    "ds" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -f -m switch";
   };
 in {
   programs.zsh = {
@@ -37,7 +42,6 @@ in {
         source $HOME/.zshrc-personal
       fi
     '';
-
   };
   programs.bash = {
     enable = true;

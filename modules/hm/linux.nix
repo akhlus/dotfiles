@@ -1,10 +1,10 @@
 {
   pkgs,
-  settings,
+  username,
   ...
 }: {
-  home.username = "${settings.username}";
-  home.homeDirectory = "/home/${settings.username}";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
     anki
@@ -28,5 +28,4 @@
     name = "Afterglow-Recolored-Catppuccin-Macchiato";
     size = 24;
   };
-
 }
