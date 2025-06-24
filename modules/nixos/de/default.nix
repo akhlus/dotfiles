@@ -1,18 +1,33 @@
-{config, ...}: {
-  jovian = {
-    decky-loader.enable = true;
-    decky-loader.user = "sam";
-    devices.steamdeck.enable = true;
-    steam = {
-      autoStart = true;
-      user = "sam";
-      desktopSession = "gnome";
-      enable = true;
-      updater.splash = "vendor";
+{
+  config,
+  lib,
+  pkgs,
+  userName,
+  ...
+}: let
+  cfg = config.customModules.de;
+  gnome = import ./gnome.nix {inherit lib pkgs userName;};
+  kde = import ./kde.nix {};
+  cosmic = import ./cosmic.nix {};
+  jovian = import ./jovian.nix {inherit config;};
+in {
+  options.customModules.de = {
+    enable = lib.mkEnableOption "Enable graphics" // {default = true;};
+    environment = lib.mkOption {
+      type = lib.types.enum ["gnome" "kde" "cosmic"];
+      default = "gnome";
+      description = "Environment choice - for jovian";
     };
-    hardware.has.amd.gpu = true;
-    steamos = {
-      useSteamOSConfig = true;
+    enableJovian = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Jovian";
     };
   };
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    (lib.mkIf cfg.enableJovian jovian)
+    (lib.mkIf (!cfg.enableJovian && cfg.environment == "gnome") gnome)
+    (lib.mkIf (!cfg.enableJovian && cfg.environment == "kde") kde)
+    (lib.mkIf (!cfg.enableJovian && cfg.environment == "cosmic") cosmic)
+  ]);
 }

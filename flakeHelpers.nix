@@ -18,12 +18,11 @@ inputs: {
     };
   };
   mkNixos = machineHostname: {
-    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
-      specialArgs = {
+      specialArgs = rec{
         inherit inputs;
-        flakePath = "/home/sam/dotfiles";
+        flakePath = "/home/${userName}/dotfiles";
         hostName = machineHostname;
         isDarwin = false;
         userName = "sam";
