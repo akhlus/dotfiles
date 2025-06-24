@@ -9,7 +9,7 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = config.nixosModules.de.environment;
+      desktopSession = config.customModules.de.environment;
       enable = true;
       updater.splash = "vendor";
     };
