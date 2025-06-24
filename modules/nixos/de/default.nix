@@ -26,8 +26,8 @@ in {
   };
   config = lib.mkIf cfg.enable (lib.mkMerge [
     (lib.mkIf cfg.enableJovian jovian)
-    (lib.mkIf (!cfg.enableJovian && cfg.environment == "gnome") gnome)
-    (lib.mkIf (!cfg.enableJovian && cfg.environment == "kde") kde)
-    (lib.mkIf (!cfg.enableJovian && cfg.environment == "cosmic") cosmic)
+    (lib.mkIf (cfg.environment == "gnome") gnome)
+    (lib.mkIf (cfg.environment == "kde") kde)
+    (lib.mkIf (cfg.environment == "cosmic") cosmic)
   ]);
 }

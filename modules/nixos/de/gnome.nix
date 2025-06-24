@@ -1,11 +1,12 @@
 {
+  config,
   lib,
   pkgs,
   userName,
   ...
 }: {
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = !config.customModules.enableJovian;
   services.desktopManager.gnome.enable = true;
   services.power-profiles-daemon.enable = lib.mkDefault true;
 

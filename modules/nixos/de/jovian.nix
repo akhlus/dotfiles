@@ -6,7 +6,7 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = "plasma";#config.customModules.de.environment;
+      desktopSession = "plasma"; #config.customModules.de.environment;
       enable = true;
       updater.splash = "vendor";
     };

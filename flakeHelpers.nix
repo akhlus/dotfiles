@@ -20,7 +20,7 @@ inputs: {
   mkNixos = machineHostname: {
     nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = rec{
+      specialArgs = rec {
         inherit inputs;
         flakePath = "/home/${userName}/dotfiles";
         hostName = machineHostname;
