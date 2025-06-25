@@ -6,7 +6,7 @@
     steam = {
       autoStart = true;
       user = "sam";
-      desktopSession = config.customModules.de.environment;
+      desktopSession = config.nMods.de.environment;
       enable = true;
       updater.splash = "vendor";
     };

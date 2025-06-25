@@ -3,5 +3,5 @@
     enable = true;
     xwayland.enable = true;
   };
-  services.displayManager.cosmic-greeter.enable = !config.customModules.de.enableJovian;
+  services.displayManager.cosmic-greeter.enable = !config.nMods.de.enableJovian;
 }

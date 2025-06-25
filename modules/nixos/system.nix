@@ -2,12 +2,11 @@
   config,
   flakePath,
   lib,
-  pkgs,
   ...
 }: let
-  cfg = config.customModules.system;
+  cfg = config.nMods.system;
 in {
-  options.customModules.system = {
+  options.nMods.system = {
     enable = lib.mkEnableOption "Enable System config" // {default = true;};
     timezone = lib.mkOption {
       type = lib.types.str;

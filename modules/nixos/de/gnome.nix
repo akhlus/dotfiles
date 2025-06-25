@@ -6,7 +6,7 @@
   ...
 }: {
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = !config.customModules.de.enableJovian;
+  services.displayManager.gdm.enable = !config.nMods.de.enableJovian;
   services.desktopManager.gnome.enable = true;
   services.power-profiles-daemon.enable = lib.mkDefault true;
 

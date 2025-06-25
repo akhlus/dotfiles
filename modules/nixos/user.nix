@@ -1,6 +1,5 @@
 {
   hostName,
-  inputs,
   pkgs,
   specialArgs,
   userName,

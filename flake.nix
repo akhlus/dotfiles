@@ -1,16 +1,5 @@
 {
   description = "NixOS configuration";
-  outputs = inputs @ {self, ...}: let
-    helpers = import ./flakeHelpers.nix inputs;
-    inherit (helpers) mkDarwin mkNixos mkMerge;
-  in
-    mkMerge [
-      (mkDarwin "mba")
-      (mkNixos "a3")
-      (mkNixos "s340")
-      (mkNixos "deck")
-      (mkNixos "hp")
-    ];
   inputs = {
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
@@ -26,6 +15,19 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
+  outputs = inputs @ {self, ...}: let
+    helpers = import ./flakeHelpers.nix inputs;
+    inherit (helpers) mkDarwin mkNixos mkHome mkMerge;
+  in
+    mkMerge [
+      (mkDarwin "mba")
+      (mkNixos "a3")
+      (mkNixos "s340")
+      (mkNixos "deck")
+      (mkNixos "hp")
+      (mkHome "deck" "x86-64_linux" "home-deck")
+    ];
 }

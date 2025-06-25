@@ -35,6 +35,21 @@ inputs: {
       ];
     };
   };
+  mkHome = userName: system: device: {
+    homeConfigurations.${userName} = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = {
+        inherit inputs;
+        flakePath = "/home/${userName}/dotfiles";
+        isDarwin = false;
+        inherit userName;
+      };
+      modules = [
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
+        ./hosts/${device}
+      ];
+    };
+  };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) {};

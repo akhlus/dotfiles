@@ -12,7 +12,6 @@
         zlib
       ];
     };
-    seahorse.enable = true;
   };
   environment.systemPackages = with pkgs; [
     gcc

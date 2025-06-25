@@ -3,9 +3,9 @@
   lib,
   ...
 }: let
-  cfg = config.customModules.steam;
+  cfg = config.nMods.steam;
 in {
-  options.customModules.steam = {
+  options.nMods.steam = {
     enable = lib.mkEnableOption "Enable Steam" // {default = false;};
   };
   config = lib.mkIf cfg.enable {
@@ -14,6 +14,6 @@ in {
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-    };
+      };
   };
 }

@@ -3,9 +3,9 @@
   lib,
   ...
 }: let
-  cfg = config.customModules.nvidia;
+  cfg = config.nMods.nvidia;
 in {
-  options.customModules.nvidia = {
+  options.nMods.nvidia = {
     enable = lib.mkEnableOption "Use nvidia graphics" // {default = false;};
     package = lib.mkOption {
       type = lib.types.enum ["stable" "latest" "beta"];

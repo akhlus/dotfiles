@@ -5,13 +5,13 @@
   userName,
   ...
 }: let
-  cfg = config.customModules.de;
+  cfg = config.nMods.de;
   gnome = import ./gnome.nix {inherit config lib pkgs userName;};
   plasma = import ./plasma.nix {inherit config;};
   cosmic = import ./cosmic.nix {inherit config;};
   jovian = import ./jovian.nix {inherit config;};
 in {
-  options.customModules.de = {
+  options.nMods.de = {
     enable = lib.mkEnableOption "Enable graphics" // {default = true;};
     environment = lib.mkOption {
       type = lib.types.enum ["gnome" "plasma" "cosmic"];

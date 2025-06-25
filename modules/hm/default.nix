@@ -1,25 +1,16 @@
-{
-  flakePath,
-  isDarwin,
-  ...
-}: {
+{...}: {
   imports = [
-    (
-      if isDarwin
-      then ./darwin.nix
-      else ./linux.nix
-    )
+    ./btop.nix
+    ./ghostty.nix
+    ./git.nix
+    ./home.nix
     ./packages.nix
+    ./shell.nix
+    ./tmux.nix
+    ./vscode.nix
+    ./xournalpp.nix
+    ./zed.nix
   ];
-
-  home.file = {
-    "Pictures/background.jpg".source = ./files/tignes.jpg;
-  };
-
-  home.sessionVariables = {
-    FLAKE_PATH = "${flakePath}";
-  };
-
-  home.stateVersion = "24.11";
+  fonts.fontconfig.enable = true;
   nixpkgs.config.allowUnfree = true;
 }
