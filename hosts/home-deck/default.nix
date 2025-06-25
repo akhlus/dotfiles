@@ -1,5 +1,5 @@
 {config, inputs, pkgs, ...}: {
-  nixGL.packages = inputs.nix-gl.packages;
+  nixGL.packages = inputs.nixgl.packages;
   nixGL.defaultWrapper = "mesa";
   nixGL.installScripts = [ "mesa" ];
 

@@ -29,6 +29,6 @@
       (mkNixos "s340")
       (mkNixos "deck")
       (mkNixos "hp")
-      (mkHome "deck" "x86-64_linux" "home-deck")
+      (mkHome "deck" "x86_64-linux" "home-deck")
     ];
 }
