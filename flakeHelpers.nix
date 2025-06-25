@@ -47,6 +47,7 @@ inputs: {
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./hosts/${device}
+        ./modules/hm
       ];
     };
   };

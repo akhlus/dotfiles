@@ -16,6 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nixgl.url = "github:nix-community/nixGL";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
   outputs = inputs @ {self, ...}: let
