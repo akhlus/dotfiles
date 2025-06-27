@@ -22,6 +22,7 @@
       nano
       nix-search-cli
       nixd
+      nodejs
       pandoc
       pciutils
       python3
