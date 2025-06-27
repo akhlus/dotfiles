@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./btop.nix
+    ./direnv.nix
     ./ghostty.nix
     ./git.nix
     ./home.nix
