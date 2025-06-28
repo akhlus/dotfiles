@@ -17,7 +17,7 @@
   "buffer_font_size": 14,
   "ui_font_family": "Zed Plex Sans",
   "ui_font_size": 14,
-  "theme": "test2",
+  "theme": "akhlus",
   "notification_panel": {
     "dock": "left"
   },
@@ -52,10 +52,7 @@
   "languages": {
     "Nix": {
       "format_on_save": "off",
-      "language_servers": [
-        "nixd",
-        "!nil"
-      ],
+      "language_servers": ["nixd", "!nil"],
       "tab_size": 2
     },
     "Python": {
@@ -72,28 +69,24 @@
           }
         }
       ],
-      "language_servers": [
-        "pylsp",
-        "!pyright",
-        "ruff"
-      ]
+      "language_servers": ["pylsp", "!pyright", "ruff"]
     }
   },
   "lsp": {
     "nixd": {
       "settings": {
         "formatting": {
-          "command": [
-            "alejandra",
-            "--quiet"
-          ]
+          "command": ["alejandra", "--quiet"]
         },
         "options": {
           "home-manager": {
-            "expr": "(builtins.getFlake \"/home/sam/.dotfiles\").homeConfigurations.home.options"
+            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").homeConfigurations.deck.options"
           },
           "nixos": {
-            "expr": "(builtins.getFlake \"/home/sam/.dotfiles\").nixosConfigurations.system.options"
+            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").nixosConfigurations.a3.options"
+          },
+          "darwin": {
+            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").darwinConfigurations.mba.options"
           }
         }
       }
