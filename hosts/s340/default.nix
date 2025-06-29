@@ -3,6 +3,6 @@
     ./hardware.nix
   ];
   nMods = {
-    de.environment = "gnome";
+    de.environment = "cosmic";
   };
 }
