@@ -64,19 +64,25 @@
   "lsp": {
     "nixd": {
       "settings": {
+        "nixpkgs": {
+          "expr": "import <nixpkgs> { }"
+        },
         "formatting": {
-          "command": ["alejandra", "--quiet"]
+          "command": ["alejandra"]
         },
         "options": {
           "home-manager": {
-            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").homeConfigurations.deck.options"
+            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).homeConfigurations.deck.options"
           },
           "nixos": {
-            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").nixosConfigurations.a3.options"
+            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).nixosConfigurations.a3.options"
           },
           "darwin": {
-            "expr": "(builtins.getFlake \"/home/sam/dotfiles\").darwinConfigurations.mba.options"
+            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).darwinConfigurations.mba.options"
           }
+        },
+        "diagnostic": {
+          "suppress": ["sema-extra-width"]
         }
       }
     }

@@ -1,6 +1,7 @@
 {
   config,
   flakePath,
+  inputs,
   lib,
   userName,
   ...
@@ -29,8 +30,11 @@ in {
       };
 
       system.stateVersion = "24.05";
-      nix.settings.experimental-features = ["nix-command" "flakes"];
-      nix.optimise.automatic = true;
+      nix = {
+        settings.experimental-features = ["nix-command" "flakes"];
+        optimise.automatic = true;
+        nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+      };
       nixpkgs.config.allowUnfree = true;
     }
     (lib.mkIf cfg.enable {
