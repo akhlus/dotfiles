@@ -15,7 +15,7 @@
       defaultFonts = {
         serif = ["Inter Variable"];
         sansSerif = ["Inter Variable"];
-        monospace = ["Source Code Pro"];
+        monospace = ["BlexMono Nerd Font"];
       };
     };
   };

@@ -1,6 +1,6 @@
 background-opacity = 0.95
 config-file = "?user-config"
-font-family = "Source Code Pro"
+font-family = "BlexMono Nerd Font"
 font-size = 12
 theme = "akhlus"
 window-theme = "ghostty"

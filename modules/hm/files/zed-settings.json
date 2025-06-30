@@ -1,4 +1,13 @@
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
   "show_edit_predictions": false,
   "icon_theme": "Zed (Default)",
   "features": {
@@ -41,8 +50,10 @@
   },
   "terminal": {
     "dock": "bottom",
+    "font_family": "BlexMono Nerd Font",
     "env": {
-      "TERM": "ghostty"
+      "TERM": "ghostty",
+      "EDITOR": "zeditor --wait"
     },
     "working_directory": "current_project_directory"
   },

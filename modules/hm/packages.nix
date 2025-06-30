@@ -13,6 +13,7 @@
       fastfetch
       ffmpeg
       firefox
+      gemini-cli
       gh
       google-chrome
       home-manager
@@ -20,6 +21,7 @@
       jdk
       mpv
       nano
+      nerd-fonts.blex-mono
       nix-search-cli
       nixd
       nodejs

@@ -1,5 +1,6 @@
 {
   config,
+  flakePath,
   lib,
   pkgs,
   ...
@@ -15,7 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.file = {
       ".config/ghostty/themes/akhlus".source = ./files/ghostty.theme;
-      ".config/ghostty/config".source = ./files/ghostty-config;
+      ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/hm/files/ghostty-config";
     };
     programs.ghostty = {
       enable = cfg.enable;
