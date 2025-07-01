@@ -17,15 +17,22 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      libvdpau-va-gl
-      vaapiIntel
-      vaapiVdpau
-      vpl-gpu-rt
-    ];
+  hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+        vaapiVdpau
+        vpl-gpu-rt
+      ];
+    };
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   fileSystems."/" = {
