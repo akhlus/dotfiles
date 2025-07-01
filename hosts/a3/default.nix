@@ -3,7 +3,7 @@
     ./hardware.nix
   ];
   nMods = {
-    de.environment = "gnome";
+    de.environment = "plasma";
     steam.enable = true;
   };
   programs.npm.enable = true;

@@ -16,7 +16,7 @@ in {
     environment = lib.mkOption {
       type = lib.types.enum ["gnome" "plasma" "cosmic"];
       default = "gnome";
-      description = "Environment choice - for jovian";
+      description = "Environment choice";
     };
     enableJovian = lib.mkOption {
       type = lib.types.bool;

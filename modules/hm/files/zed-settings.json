@@ -60,6 +60,9 @@
   "tab_bar": {
     "show": false
   },
+  "file_types": {
+    "Markdown": ["qmd"]
+  },
   "languages": {
     "Nix": {
       "format_on_save": "off",
