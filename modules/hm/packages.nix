@@ -44,11 +44,9 @@
     ++ lib.optional isDarwin pkgs.raycast
     ++ lib.optionals (!isDarwin) (with pkgs; [
       anki
+      bitwarden
       chromium
-      fwupd
-      hwinfo
       libreoffice
-      lshw
       powertop
       protonvpn-gui
       qmk
