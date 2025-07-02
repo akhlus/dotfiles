@@ -4,5 +4,6 @@
     bambu-studio
     calibre
     kicad-small
+    openscad
   ];
 }

@@ -1,10 +1,6 @@
 {pkgs, ...}: {
   programs = {
-    adb.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    adb.enable = false;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
