@@ -1,17 +1,7 @@
 {
-  "edit_predictions": {
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null,
-      "enterprise_uri": null
-    },
-    "enabled_in_text_threads": false
-  },
-  "show_edit_predictions": false,
-  "icon_theme": "Zed (Default)",
-  "features": {
-    "edit_prediction_provider": "zed"
+  "agent": {
+    "dock": "left",
+    "version": "2"
   },
   "auto_install_extensions": {
     "html": true,
@@ -24,22 +14,20 @@
   "base_keymap": "VSCode",
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 14,
-  "ui_font_family": "Zed Plex Sans",
-  "ui_font_size": 14,
-  "theme": "akhlus",
-  "notification_panel": {
-    "dock": "left"
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
   },
-  "agent": {
-    "dock": "left",
-    "version": "2"
+  "features": {
+    "edit_prediction_provider": "zed"
   },
-  "project_panel": {
-    "dock": "right",
-    "button": true
-  },
-  "outline_panel": {
-    "button": false
+  "file_types": {
+    "Markdown": ["qmd"]
   },
   "gutter": {
     "line_numbers": true,
@@ -48,21 +36,7 @@
     "breakpoints": true,
     "folds": true
   },
-  "terminal": {
-    "dock": "bottom",
-    "font_family": "BlexMono Nerd Font",
-    "env": {
-      "TERM": "ghostty",
-      "EDITOR": "zeditor --wait"
-    },
-    "working_directory": "current_project_directory"
-  },
-  "tab_bar": {
-    "show": false
-  },
-  "file_types": {
-    "Markdown": ["qmd"]
-  },
+  "icon_theme": "Zed (Default)",
   "languages": {
     "Nix": {
       "format_on_save": "off",
@@ -86,6 +60,7 @@
       "language_servers": ["pylsp", "!pyright", "ruff"]
     }
   },
+  "load_direnv": "shell_hook",
   "lsp": {
     "nixd": {
       "settings": {
@@ -105,5 +80,34 @@
         }
       }
     }
-  }
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "dock": "right",
+    "button": true
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "show_edit_predictions": false,
+  "tab_bar": {
+    "show": false
+  },
+  "terminal": {
+    "dock": "bottom",
+    "font_family": "BlexMono Nerd Font",
+    "env": {
+      "TERM": "ghostty",
+      "EDITOR": "zeditor --wait"
+    },
+    "working_directory": "current_project_directory"
+  },
+  "theme": "akhlus",
+  "ui_font_family": "Zed Plex Sans",
+  "ui_font_size": 14
 }

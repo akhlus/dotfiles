@@ -3,5 +3,6 @@
     enable = true;
     terminal = "ghostty";
   };
+  services.gnome.sushi.enable = true;
   environment.systemPackages = [pkgs.nautilus];
 }
