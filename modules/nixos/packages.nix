@@ -8,8 +8,10 @@
         zlib
       ];
     };
+    gnome-disks.enable = true;
   };
   environment.systemPackages = with pkgs; [
+    baobab
     gcc
     gparted
     fwupd

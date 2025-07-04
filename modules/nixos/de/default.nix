@@ -19,6 +19,7 @@ in {
       description = "Environment choice";
     };
     enableJovian = lib.mkEnableOption "Enable Jovian - SteamOS equivalent" // {default = false;};
+    autoStartJovian = lib.mkEnableOption "Enable Autostart for Jovian" // {default = config.nMods.de.enableJovian;};
   };
   config = lib.mkIf cfg.enable (lib.mkMerge [
     (lib.mkIf cfg.enableJovian jovian)
