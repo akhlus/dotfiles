@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs = {
     adb.enable = false;
+    gnome-disks.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -8,10 +9,10 @@
         zlib
       ];
     };
-    gnome-disks.enable = true;
   };
   environment.systemPackages = with pkgs; [
     baobab
+    bitwarden
     gcc
     gparted
     fwupd

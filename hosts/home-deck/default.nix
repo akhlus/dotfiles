@@ -1,7 +1,12 @@
-{config, inputs, pkgs, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   nixGL.packages = inputs.nixgl.packages;
   nixGL.defaultWrapper = "mesa";
-  nixGL.installScripts = [ "mesa" ];
+  nixGL.installScripts = ["mesa"];
 
   hMods = {
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;

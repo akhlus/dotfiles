@@ -4,7 +4,7 @@
     decky-loader.user = "sam";
     devices.steamdeck.enable = true;
     steam = {
-      autoStart = true;
+      autoStart = config.nMods.de.autoStartJovian;
       user = "sam";
       desktopSession = config.nMods.de.environment;
       enable = true;
