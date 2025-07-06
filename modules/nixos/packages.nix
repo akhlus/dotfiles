@@ -21,6 +21,7 @@
     libgcc
     lm_sensors
     lshw
+    nvtopPackages.full
     v4l-utils
     wireguard-tools
     wireguard-ui
