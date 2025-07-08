@@ -13,7 +13,7 @@
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = ["i915"];
+  boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
@@ -21,10 +21,8 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
+        intel-compute-runtime
         intel-media-driver
-        libvdpau-va-gl
-        vaapiIntel
-        vaapiVdpau
         vpl-gpu-rt
       ];
     };
