@@ -2,6 +2,11 @@
   security.rtkit.enable = true;
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     fwupd.enable = true;
     libinput.enable = true;
     openssh.enable = true;
