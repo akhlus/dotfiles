@@ -17,8 +17,8 @@ inputs: {
       ];
     };
   };
-  mkNixos = machineHostname: {
-    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
+  mkNixos = machineHostname: {nixpkgs ? inputs.nixpkgs, home-manager ? inputs.home-manager}: {
+    nixosConfigurations.${machineHostname} = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = rec {
         inherit inputs;
@@ -28,7 +28,7 @@ inputs: {
         userName = "sam";
       };
       modules = [
-        inputs.home-manager.nixosModules.home-manager
+        home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./modules/nixos
         ./hosts/${machineHostname}

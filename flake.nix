@@ -9,7 +9,12 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -25,10 +30,10 @@
   in
     mkMerge [
       (mkDarwin "mba")
-      (mkNixos "a3")
-      (mkNixos "s340")
-      (mkNixos "deck")
-      (mkNixos "hp")
+      (mkNixos "a3" {})
+      (mkNixos "s340" {})
+      (mkNixos "deck" {})
+      (mkNixos "hp" {})
       (mkHome "deck" "x86_64-linux" "home-deck")
     ];
 }
