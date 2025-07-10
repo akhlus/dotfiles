@@ -30,10 +30,10 @@
   in
     mkMerge [
       (mkDarwin "mba")
-      (mkNixos "a3" {})
-      (mkNixos "s340" {})
-      (mkNixos "deck" {})
-      (mkNixos "hp" {})
+      (mkNixos {machineHostname = "a3";})
+      (mkNixos {machineHostname = "s340";})
+      (mkNixos {machineHostname = "deck";})
+      (mkNixos {machineHostname = "hp";})
       (mkHome "deck" "x86_64-linux" "home-deck")
     ];
 }
