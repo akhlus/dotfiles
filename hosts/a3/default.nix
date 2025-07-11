@@ -1,4 +1,4 @@
-{...}: {
+{userName, ...}: {
   imports = [
     ./hardware.nix
   ];
@@ -8,5 +8,8 @@
     };
     steam.enable = true;
   };
-  programs.npm.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = userName;
+  };
 }
