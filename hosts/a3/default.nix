@@ -8,8 +8,11 @@
     };
     steam.enable = true;
   };
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = userName;
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = userName;
+    };
+    sddm.autoLogin.relogin = true;
   };
 }

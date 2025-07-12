@@ -17,7 +17,11 @@ inputs: {
       ];
     };
   };
-  mkNixos = {machineHostname, nixpkgs ? inputs.nixpkgs, home-manager ? inputs.home-manager}: {
+  mkNixos = {
+    machineHostname,
+    nixpkgs ? inputs.nixpkgs,
+    home-manager ? inputs.home-manager,
+  }: {
     nixosConfigurations.${machineHostname} = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = rec {
