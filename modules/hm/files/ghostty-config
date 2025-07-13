@@ -6,3 +6,5 @@ minimum-contrast = 5
 theme = "akhlus"
 window-decoration = "auto"
 window-theme = "ghostty"
+keybind = ctrl+shift+w=close_surface
+keybind = cmd+shift+w=close_surface

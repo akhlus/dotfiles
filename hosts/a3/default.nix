@@ -1,18 +1,11 @@
-{userName, ...}: {
+{...}: {
   imports = [
     ./hardware.nix
   ];
   nMods = {
     de = {
-      environment = "plasma";
+      environment = "cosmic";
     };
     steam.enable = true;
-  };
-  services.displayManager = {
-    autoLogin = {
-      enable = true;
-      user = userName;
-    };
-    sddm.autoLogin.relogin = true;
   };
 }
