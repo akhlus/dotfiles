@@ -1,4 +1,8 @@
-{config, userName, ...}: let
+{
+  config,
+  userName,
+  ...
+}: let
   cfg = config.nMods.de;
 in {
   jovian = {

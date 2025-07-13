@@ -25,6 +25,7 @@
       extraPackages = with pkgs; [
         intel-compute-runtime
         intel-media-driver
+        intel-ocl
         libvdpau-va-gl
         vaapiIntel
         vaapiVdpau

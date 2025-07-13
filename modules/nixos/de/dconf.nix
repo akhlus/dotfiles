@@ -16,7 +16,7 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/desktop/app-folders/folders/60d6a2f8-7774-4125-8d28-b157ec04dee7" = {
-      apps = ["onlyoffice-desktopeditors.desktop" "calibre-gui.desktop" "google-chrome.desktop" "com.mattjakeman.ExtensionManager.desktop" "code.desktop" "vlc.desktop" "org.gnome.TextEditor.desktop" "org.kicad.kicad.desktop" "chromium-browser.desktop" "firefox.desktop" "protonvpn-app.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" "codium.desktop" "yt-dlg.desktop" "Vial.desktop" "startcenter.desktop" "mpv.desktop"];
+      apps = ["onlyoffice-desktopeditors.desktop" "calibre-gui.desktop" "google-chrome.desktop" "com.mattjakeman.ExtensionManager.desktop" "code.desktop" "vlc.desktop" "org.gnome.TextEditor.desktop" "org.kicad.kicad.desktop" "chromium-browser.desktop" "firefox.desktop" "protonvpn-app.desktop" "anki.desktop" "org.kiwix.desktop.desktop" "org.qbittorrent.qBittorrent.desktop" "codium.desktop" "yt-dlg.desktop" "Vial.desktop" "startcenter.desktop" "mpv.desktop" "cursor.desktop" "bitwarden.desktop" "discord.desktop"];
       name = "Apps";
       translate = false;
     };
@@ -27,8 +27,14 @@ with lib.hm.gvariant; {
       translate = true;
     };
 
+    "org/gnome/desktop/app-folders/folders/System" = {
+      apps = ["org.gnome.baobab.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Logs.desktop" "org.gnome.SystemMonitor.desktop"];
+      name = "X-GNOME-Shell-System.directory";
+      translate = true;
+    };
+
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = ["gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.Loupe.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" "org.gnome.Contacts.desktop" "org.gnome.Snapshot.desktop" "org.gnome.Tour.desktop" "yelp.desktop" "xterm.desktop" "cups.desktop" "org.gnome.Weather.desktop" "org.gnome.clocks.desktop" "org.gnome.Maps.desktop" "simple-scan.desktop" "org.gnome.SystemMonitor.desktop" "org.gnome.Calculator.desktop" "org.gnome.Totem.desktop" "org.gnome.Extensions.desktop" "org.gnome.Epiphany.desktop" "org.gnome.Geary.desktop" "org.gnome.Calendar.desktop" "org.gnome.Music.desktop" "gparted.desktop" "htop.desktop" "calibre-lrfviewer.desktop" "org.kicad.gerbview.desktop" "org.kicad.bitmap2component.desktop" "org.kicad.pcbcalculator.desktop" "org.kicad.pcbnew.desktop" "org.kicad.eeschema.desktop" "calibre-ebook-edit.desktop" "calibre-ebook-viewer.desktop" "ca.desrt.dconf-editor.desktop" "btop.desktop" "nixos-manual.desktop" "org.gnome.Console.desktop"];
+      apps = ["gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.Loupe.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" "org.gnome.Contacts.desktop" "org.gnome.Snapshot.desktop" "org.gnome.Tour.desktop" "yelp.desktop" "xterm.desktop" "cups.desktop" "org.gnome.Weather.desktop" "org.gnome.clocks.desktop" "org.gnome.Maps.desktop" "simple-scan.desktop" "org.gnome.SystemMonitor.desktop" "org.gnome.Calculator.desktop" "org.gnome.Totem.desktop" "org.gnome.Extensions.desktop" "org.gnome.Epiphany.desktop" "org.gnome.Geary.desktop" "org.gnome.Calendar.desktop" "org.gnome.Music.desktop" "gparted.desktop" "htop.desktop" "calibre-lrfviewer.desktop" "org.kicad.gerbview.desktop" "org.kicad.bitmap2component.desktop" "org.kicad.pcbcalculator.desktop" "org.kicad.pcbnew.desktop" "org.kicad.eeschema.desktop" "calibre-ebook-edit.desktop" "calibre-ebook-viewer.desktop" "ca.desrt.dconf-editor.desktop" "btop.desktop" "nixos-manual.desktop" "org.gnome.Console.desktop" "solaar.desktop" "qv4l2.desktop" "qvidcap.desktop" "nvtop.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Characters.desktop" "org.gnome.Decibels.desktop"];
       categories = ["X-GNOME-Utilities"];
       excluded-apps = [];
       name = "X-GNOME-Utilities.directory";

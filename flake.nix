@@ -34,6 +34,7 @@
       (mkNixos {machineHostname = "s340";})
       (mkNixos {machineHostname = "deck";})
       (mkNixos {machineHostname = "hp";})
+      (mkNixos {machineHostname = "duet3i";})
       (mkHome "deck" "x86_64-linux" "home-deck")
     ];
 }
