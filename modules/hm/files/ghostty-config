@@ -2,6 +2,7 @@ background-opacity = 0.95
 config-file = "?user-config"
 font-family = "BlexMono Nerd Font"
 font-size = 12
+font-family = "Source Code Pro"
 minimum-contrast = 5
 theme = "akhlus"
 window-decoration = "auto"
