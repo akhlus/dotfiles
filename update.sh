@@ -15,14 +15,6 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-if git -C "$FLAKE_PATH" diff --quiet; then
-    read -p "No changes detected - proceed anyway? [y]/n" cont
-    cont=${cont:-y}  # Default to 'y'
-    if [[ "$cont" == "n" ]]; then
-        exit 0
-    fi
-fi
-
 if [[ "$format" == "true" ]]; then
     alejandra "$FLAKE_PATH"
 fi
