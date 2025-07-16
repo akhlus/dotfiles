@@ -12,10 +12,10 @@
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "rtsx_pci_sdmmc"];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.kernelParams = [ "amd_pstate=guided" ];
+  boot.kernelParams = ["amd_pstate=guided"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/ec5a3fc7-145f-4135-bc8b-989d2a2f4cf9";
