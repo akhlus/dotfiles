@@ -12,6 +12,7 @@ inputs: {
       modules = [
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
+        ./overlays
         ./modules/darwin
         ./hosts/${machineHostname}
       ];
@@ -34,6 +35,7 @@ inputs: {
       modules = [
         home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
+        ./overlays
         ./modules/nixos
         ./hosts/${machineHostname}
       ];
@@ -50,6 +52,7 @@ inputs: {
       };
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
+        ./overlays
         ./hosts/${device}
         ./modules/hm
       ];
