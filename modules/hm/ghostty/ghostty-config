@@ -4,7 +4,7 @@ font-family = "BlexMono Nerd Font"
 font-size = 12
 font-family = "Source Code Pro"
 minimum-contrast = 5
-theme = "akhlus"
+theme = "custom"
 window-decoration = "auto"
 window-theme = "ghostty"
 keybind = ctrl+shift+w=close_surface
