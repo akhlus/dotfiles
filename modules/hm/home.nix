@@ -12,7 +12,7 @@
       if isDarwin
       then "/Users/${userName}"
       else "/home/${userName}";
-    file = {"Pictures/background.jpg".source = ./files/tignes.jpg;};
+    file = {"Pictures/tignes.jpg".source = ./cosmetic/tignes.jpg;};
     sessionVariables = {FLAKE_PATH = "${flakePath}";};
     stateVersion = "24.11";
     sessionPath = lib.mkIf isDarwin ["/opt/homebrew/bin"];
