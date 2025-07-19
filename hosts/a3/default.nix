@@ -2,10 +2,9 @@
   imports = [
     ./hardware.nix
   ];
-  nix.settings.trusted-users = ["root" "sam"];
   nMods = {
     de = {
-      environment = "cosmic";
+      environment = "gnome";
       enableAutoLogin = true;
     };
     steam.enable = true;

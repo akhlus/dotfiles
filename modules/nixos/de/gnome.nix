@@ -27,6 +27,7 @@
       clipboard-indicator
       dash-to-dock
       dash-to-panel
+      tiling-shell
     ]);
 
   environment.gnome.excludePackages = with pkgs; [

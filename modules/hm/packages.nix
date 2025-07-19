@@ -27,8 +27,12 @@
       nodejs
       pandoc
       pciutils
-      python3
-      python3Packages.python-lsp-server
+      (python3.withPackages (ps: [
+        ps.numpy
+        ps.python-language-server
+        ps.matplotlib
+        ps.toml
+      ]))
       ruff
       source-code-pro
       speedtest-cli
