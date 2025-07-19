@@ -29,7 +29,7 @@
       pciutils
       (python3.withPackages (ps: [
         ps.numpy
-        ps.python-language-server
+        ps.python-lsp-server
         ps.matplotlib
         ps.toml
       ]))
