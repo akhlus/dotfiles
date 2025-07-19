@@ -21,7 +21,7 @@ def render_colours(colours: list, output_file: str="theme.png"):
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_frame_on(False)
-    plt.savefig(output_file, bbox_inches='tight')
+    plt.savefig("theme", bbox_inches='tight', pad_inches=0)
     ax.clear()
     fig.clear()
 
