@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.hMods.ghostty;
-  theme = builtins.fromTOML (builtins.readFile ../../cosmetic/theme.toml);
+  theme = builtins.fromTOML (builtins.readFile ../cosmetic/theme.toml);
   removeHash = colour: lib.removePrefix "#" colour;
 in {
   options.hMods.ghostty = {
@@ -19,6 +19,7 @@ in {
     home.file = {
       ".config/ghostty/themes/${theme.name}".text = ''
         background = ${removeHash theme.base00}
+        background-opacity = ${theme.opacity_dec}
         foreground = ${removeHash theme.base05}
         cursor-color = ${removeHash theme.base05}
         selection-background = ${removeHash theme.base02}
@@ -40,7 +41,7 @@ in {
         palette = 14=${theme.base0C}
         palette = 15=${theme.base07}
       '';
-      ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/hm/files/ghostty-config";
+      ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/modules/hm/ghostty/ghostty-config";
     };
     programs.ghostty = {
       enable = cfg.enable;
