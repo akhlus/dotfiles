@@ -4,16 +4,13 @@
       "host": "u410",
       "projects": [
         {
-          "paths": [
-            "/home/u410/Code"
-          ]
+          "paths": ["/home/u410/Code"]
         }
       ]
     }
   ],
   "agent": {
-    "dock": "left",
-    "version": "2"
+    "dock": "left"
   },
   "auto_install_extensions": {
     "html": true,
