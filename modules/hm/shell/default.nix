@@ -17,6 +17,7 @@
     "hs" = "sh ${flakePath}/update.sh -p ${flakePath} -s home -f -m switch";
     "darwin" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -f";
     "ds" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -f -m switch";
+    "theme-render" = "python3 ${flakePath}/modules/hm/cosmetic/render.py";
   };
 in {
   programs.zsh = {
