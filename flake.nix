@@ -26,15 +26,16 @@
   };
   outputs = inputs @ {self, ...}: let
     helpers = import ./flakeHelpers.nix inputs;
-    inherit (helpers) mkDarwin mkNixos mkHome mkMerge;
+    inherit (helpers) mkDarwin mkNixos mkStable mkHome mkMerge;
   in
     mkMerge [
       (mkDarwin "mba")
-      (mkNixos {machineHostname = "a3";})
-      (mkNixos {machineHostname = "s340";})
-      (mkNixos {machineHostname = "deck";})
-      (mkNixos {machineHostname = "hp";})
-      (mkNixos {machineHostname = "duet3i";})
+      (mkNixos "a3")
+      (mkNixos "s340")
+      (mkNixos "deck")
+      (mkNixos "hp")
+      (mkNixos "duet3i")
       (mkHome "deck" "x86_64-linux" "home-deck")
+      (mkHome "sam" "aarch64-linux" "penguin")
     ];
 }

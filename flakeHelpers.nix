@@ -13,17 +13,13 @@ inputs: {
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         ./overlays
-        ./modules/darwin
+        ./darwin
         ./hosts/${machineHostname}
       ];
     };
   };
-  mkNixos = {
-    machineHostname,
-    nixpkgs ? inputs.nixpkgs,
-    home-manager ? inputs.home-manager,
-  }: {
-    nixosConfigurations.${machineHostname} = nixpkgs.lib.nixosSystem {
+  mkNixos = machineHostname: {
+    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = rec {
         inherit inputs;
@@ -33,10 +29,29 @@ inputs: {
         userName = "sam";
       };
       modules = [
-        home-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
-        ./modules/nixos
+        ./nixos
+        ./hosts/${machineHostname}
+      ];
+    };
+  };
+  mkStable = machineHostname: {
+    nixosConfigurations.${machineHostname} = inputs.nixpkgs-stable.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = rec {
+        inherit inputs;
+        flakePath = "/home/${userName}/dotfiles";
+        hostName = machineHostname;
+        isDarwin = false;
+        userName = "sam";
+      };
+      modules = [
+        inputs.home-manager-stable.nixosModules.home-manager
+        inputs.jovian.nixosModules.default
+        ./overlays
+        ./nixos
         ./hosts/${machineHostname}
       ];
     };
@@ -54,7 +69,7 @@ inputs: {
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./overlays
         ./hosts/${device}
-        ./modules/hm
+        ./hm
       ];
     };
   };

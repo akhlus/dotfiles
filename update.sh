@@ -2,26 +2,21 @@
 
 FLAKE_PATH="${FLAKE_PATH:-.}"
 MODE="switch"
-FORMAT="false"
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) FLAKE_PATH="$2"; shift ;;
         -m|--mode) MODE="$2"; shift ;;
-        -f|--format) FORMAT="true" ;;
         -s|--system) SYSTEM="$2"; shift;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
 done
 
-if [[ "$format" == "true" ]]; then
-    alejandra "$FLAKE_PATH"
-fi
+
+alejandra --quiet $FLAKE_PATH
 
 git -C "$FLAKE_PATH" add .
-
-git -C "$FLAKE_PATH" diff --staged -U0
 
 read -p "Do you want to update flake inputs? (y/[n]): " flake_update
 if [[ "$flake_update" == "y" ]]; then
@@ -42,17 +37,13 @@ case "$SYSTEM" in
         command="sudo darwin-rebuild"
         ;;
     *)
-        echo "Error with sys_type"
+        echo "Error with rebuild type - use one of [ home nixos darwin ]"
         return
         ;;
 esac
-if [[ "$(hostname)" == "mba" ]]; then
-    sed -i '' "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
-else
-    sed -i "s/hostname = \".*\";/hostname = \"$(hostname)\";/g" "$FLAKE_PATH/flake.nix"
-fi
 
 echo "Rebuilding..."
+
 if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> $FLAKE_PATH/update.log; then
     grep --color error $FLAKE_PATH/update.log >&2
     exit 1

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  hMods = {
+  hMods.packages = {
+    enableLinuxExtra = true;
     vscode.package = pkgs.vscode-fhs;
   };
   #used for machine specific config
