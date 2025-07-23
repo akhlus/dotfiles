@@ -25,7 +25,6 @@ inputs: {
         inherit inputs;
         flakePath = "/home/${userName}/dotfiles";
         hostName = machineHostname;
-        isDarwin = false;
         userName = "sam";
       };
       modules = [
@@ -44,7 +43,6 @@ inputs: {
         inherit inputs;
         flakePath = "/home/${userName}/dotfiles";
         hostName = machineHostname;
-        isDarwin = false;
         userName = "sam";
       };
       modules = [
@@ -62,13 +60,12 @@ inputs: {
       extraSpecialArgs = {
         inherit inputs;
         flakePath = "/home/${userName}/dotfiles";
-        isDarwin = false;
         inherit userName;
       };
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./overlays
-        ./hosts/${device}
+        ./hosts/${device}/home.nix
         ./hm
       ];
     };

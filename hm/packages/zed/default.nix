@@ -9,7 +9,7 @@
   theme = (import ./theme.nix {inherit config lib;}).themeOut;
 in {
   options.hMods.packages.zed = {
-    enable = lib.mkEnableOption "Enable Zed" // {default = true;};
+    enable = lib.mkEnableOption "Enable Zed" // {default = config.hMods.enableMinimal;};
     package = lib.mkPackageOption pkgs "zed-editor" {
       nullable = false;
     };
