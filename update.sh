@@ -25,15 +25,12 @@ fi
 
 case "$SYSTEM" in
     home)
-        name="home"
         command="home-manager"
         ;;
     nixos)
-        name="$(hostname)"
         command="sudo nixos-rebuild"
         ;;
     darwin)
-        name="$(hostname)"
         command="sudo darwin-rebuild"
         ;;
     *)
@@ -44,7 +41,7 @@ esac
 
 echo "Rebuilding..."
 
-if ! $command "$MODE" --flake "$FLAKE_PATH#$name" &> $FLAKE_PATH/update.log; then
+if ! $command "$MODE" --flake "$FLAKE_PATH" &> $FLAKE_PATH/update.log; then
     grep --color error $FLAKE_PATH/update.log >&2
     exit 1
 fi
