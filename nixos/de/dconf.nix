@@ -231,6 +231,18 @@ with lib.hm.gvariant; {
       show-trash = false;
     };
 
+    "org/gnome/shell/extensions/dash-to-panel" = {
+      animate-app-switch = false;
+      animate-window-launch = false;
+      appicon-margin = 4;
+      dot-position = "BOTTOM";
+      intellihide = true;
+      intellihide-behaviour = "ALL_WINDOWS";
+      intellihide-hide-from-windows = true;
+      prefs-opened = false;
+      stockgs-keep-dash = true;
+    };
+
     "org/gnome/shell/extensions/tilingshell" = {
       enable-window-border = false;
       inner-gaps = mkUint32 2;
