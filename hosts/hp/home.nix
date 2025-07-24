@@ -1,3 +1,7 @@
-{...}: {
-  #used for machine specific config
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    chromium
+    gemini-cli
+    libreoffice
+  ];
 }
