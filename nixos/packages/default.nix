@@ -17,6 +17,8 @@
     inxi
     lm_sensors
     lshw
+    pciutils
+    usbutils
     v4l-utils
     wireguard-tools
   ];

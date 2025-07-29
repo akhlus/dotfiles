@@ -46,7 +46,6 @@ in {
         source-code-pro
         speedtest-cli
         tldr
-        toybox
       ]
       ++ (lib.optionals cfg.enableMinimal [
         bitwarden
