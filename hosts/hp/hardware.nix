@@ -17,30 +17,31 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-vaapi-driver
+      intel-ocl
+      intel-media-driver
+      intel-compute-runtime
+      vpl-gpu-rt
+    ];
+  };
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/66e4c953-cb1a-41c4-a972-4fc7fc7e3091";
+    device = "/dev/disk/by-uuid/8f7c1a90-670d-4b08-bdf8-baaad7582377";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-5d915fed-d143-4502-8f9e-d11d33c3a5af".device = "/dev/disk/by-uuid/5d915fed-d143-4502-8f9e-d11d33c3a5af";
-  boot.initrd.luks.devices."luks-ff0b491d-80f2-4264-9b6e-85dc74f2ad83".device = "/dev/disk/by-uuid/ff0b491d-80f2-4264-9b6e-85dc74f2ad83";
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5D0D-D7D5";
+    device = "/dev/disk/by-uuid/8D7E-7DEA";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/bf3fa086-66ef-4d84-a72c-08563b7ffd9f";}
+    {device = "/dev/disk/by-uuid/f7946047-52d8-440e-9a5c-0ad0978a3c78";}
   ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
