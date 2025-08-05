@@ -6,7 +6,7 @@
   #used for machine specific config
   home.packages = with pkgs; [
     calibre
+    freecad-wayland
     kicad-small
-    openscad
   ];
 }
