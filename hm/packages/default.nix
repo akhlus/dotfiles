@@ -11,6 +11,7 @@ in {
     ./direnv
     ./ghostty
     ./git
+    ./neovim
     ./shell
     ./tmux
     ./vscode
