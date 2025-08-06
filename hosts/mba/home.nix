@@ -1,3 +1,6 @@
 {...}: {
-  hMods.ghostty.package = null;
+  hMods.packages = {
+    ghostty.package = null;
+    enableExtra = true;
+  };
 }

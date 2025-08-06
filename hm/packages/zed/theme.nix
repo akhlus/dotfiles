@@ -20,7 +20,7 @@
     }
     {
       from = "$OPACITY";
-      to = theme.opacity_hex;
+      to = theme.opacity_zed;
     }
     {
       from = "$COLOUR0_";

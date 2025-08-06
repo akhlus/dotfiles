@@ -21,7 +21,7 @@ in {
     home.file = {
       ".config/ghostty/themes/${theme.name}".text = ''
         background = ${removeHash theme.base00}
-        background-opacity = ${theme.opacity_dec}
+        background-opacity = ${theme.opacity_ghostty}
         foreground = ${removeHash theme.base05}
         cursor-color = ${removeHash theme.base05}
         selection-background = ${removeHash theme.base02}

@@ -19,7 +19,7 @@
       home = {
         sessionPath = ["/opt/homebrew/bin"];
         homeDirectory = lib.mkForce "/Users/${userName}";
-        packages = pkgs.raycast;
+        packages = [pkgs.raycast];
       };
       imports = [
         ../hm
