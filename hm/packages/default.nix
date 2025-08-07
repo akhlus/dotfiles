@@ -68,6 +68,7 @@ in {
         chromium
         gparted
         libreoffice
+        protonvpn-gui
         vlc
       ]);
   };
