@@ -27,6 +27,6 @@ def render_colours(colours: list, output_file: str="theme.png"):
     fig.clear()
 
 if __name__=="__main__":
-    base_path = "/home/sam/dotfiles/modules/hm/cosmetic/"
+    base_path = "/home/sam/dotfiles/hm/cosmetic/"
     colours = read_colours(base_path+"theme.toml")
     render_colours(colours, base_path+"theme.png")
