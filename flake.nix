@@ -25,8 +25,7 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
   outputs = inputs @ {self, ...}: let
-    helpers = import ./flakeHelpers.nix inputs;
-    inherit (helpers) mkDarwin mkNixos mkStable mkHome mkMerge;
+    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMerge;
   in
     mkMerge [
       (mkDarwin "mba")
