@@ -6,7 +6,6 @@ inputs: {
         inherit inputs;
         flakePath = "/Users/${userName}/dotfiles";
         hostName = machineHostname;
-        isDarwin = true;
         userName = "sam";
       };
       modules = [
