@@ -23,6 +23,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nixgl.url = "github:nix-community/nixGL";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    render-go.url = "github:akhlus/render-go";
   };
   outputs = inputs @ {self, ...}: let
     inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMerge;

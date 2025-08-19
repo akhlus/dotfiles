@@ -1,10 +1,12 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }: let
   cfg = config.hMods.packages;
+  render-go = inputs.render-go.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   imports = [
     ./btop
@@ -36,6 +38,8 @@ in {
         fastfetch
         gh
         git
+        go
+        gopls
         home-manager
         inter
         lazygit
@@ -44,6 +48,7 @@ in {
         nix-search-cli
         nixd
         python3
+        render-go
         source-code-pro
         speedtest-cli
         tldr

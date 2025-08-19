@@ -65,7 +65,6 @@
           {app = "${pkgs.zed-editor}/Applications/Zed.app";}
           {app = "/Applications/Ghostty.app";}
           {app = "${pkgs.spotify}/Applications/Spotify.app";}
-          {app = "/System/Applications/System Settings.app";}
         ];
         show-process-indicators = true;
         show-recents = false;
