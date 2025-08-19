@@ -45,6 +45,7 @@ in {
         lazygit
         nano
         nerd-fonts.blex-mono
+        nil
         nix-search-cli
         nixd
         python3

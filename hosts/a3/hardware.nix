@@ -49,6 +49,11 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/home/sam/Disks" = {
+    device = "/dev/disk/by-uuid/61410c09-7289-4d7d-aff7-b9053bb5224a";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/eddfdb40-e87f-452c-b55c-12790846692f";}
   ];
