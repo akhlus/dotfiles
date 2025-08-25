@@ -92,7 +92,12 @@
     settings.trusted-users = [userName];
     optimise.automatic = true;
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "-d";
+    };
   };
-  system.stateVersion = 6;
   nixpkgs.config.allowUnfree = true;
+  system.stateVersion = 6;
 }

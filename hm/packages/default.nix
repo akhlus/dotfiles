@@ -30,6 +30,9 @@ in {
     enableLinuxExtra =
       lib.mkEnableOption "Enable linux extra apps - disk stuff and office suite. Must be false on darwin systems"
       // {default = false;};
+    enableServer =
+    lib.mkEnableOption "Enable homelab apps - calibre, cockpit, etc"
+    // {default = false;};
   };
   config = {
     home.packages = with pkgs;
