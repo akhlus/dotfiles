@@ -31,8 +31,8 @@ in {
       lib.mkEnableOption "Enable linux extra apps - disk stuff and office suite. Must be false on darwin systems"
       // {default = false;};
     enableServer =
-    lib.mkEnableOption "Enable homelab apps - calibre, cockpit, etc"
-    // {default = false;};
+      lib.mkEnableOption "Enable homelab apps - calibre, cockpit, etc"
+      // {default = false;};
   };
   config = {
     home.packages = with pkgs;
@@ -45,15 +45,15 @@ in {
         gopls
         home-manager
         inter
+        ibm-plex
         lazygit
         nano
-        nerd-fonts.blex-mono
+        nerd-fonts.lilex
         nil
         nix-search-cli
         nixd
         python3
         render-go
-        source-code-pro
         speedtest-cli
         tldr
       ]

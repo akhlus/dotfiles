@@ -21,7 +21,7 @@
     "toml": true
   },
   "base_keymap": "VSCode",
-  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_family": "Lilex Nerd Font Propo",
   "buffer_font_size": 14,
   "edit_predictions": {
     "mode": "subtle",
@@ -40,7 +40,6 @@
   },
   "gutter": {
     "line_numbers": true,
-    "code_actions": true,
     "runnables": true,
     "breakpoints": true,
     "folds": true
@@ -48,7 +47,7 @@
   "icon_theme": "Zed (Default)",
   "languages": {
     "Nix": {
-      "format_on_save": "off",
+      "format_on_save": "on",
       "language_servers": ["nixd", "!nil"],
       "tab_size": 2
     },
@@ -87,7 +86,7 @@
             "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).nixosConfigurations.a3.options"
           },
           "darwin": {
-            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).darwinConfigurations.mba.options"
+            "expr": "(builtins.getFlake (builtins.toString /Users/sam/dotfiles)).darwinConfigurations.mba.options"
           }
         },
         "diagnostic": {
@@ -115,11 +114,7 @@
   },
   "terminal": {
     "dock": "bottom",
-    "font_family": "BlexMono Nerd Font",
-    "env": {
-      "TERM": "ghostty",
-      "EDITOR": "zeditor --wait"
-    },
+    "font_family": "Lilex Nerd Font Propo",
     "working_directory": "current_project_directory"
   },
   "theme": "akhlus",

@@ -2,17 +2,16 @@
   fonts = {
     packages = with pkgs; [
       inter
-      material-icons
-      nerd-fonts.blex-mono
+      ibm-plex
+      nerd-fonts.lilex
       noto-fonts-emoji
-      source-code-pro
     ];
     fontconfig = {
       enable = true;
       defaultFonts = {
         serif = ["Inter Variable"];
         sansSerif = ["Inter Variable"];
-        monospace = ["BlexMono Nerd Font"];
+        monospace = ["Lilex Nerd Font"];
       };
     };
   };
