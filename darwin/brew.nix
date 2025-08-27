@@ -14,6 +14,7 @@
       "bambu-studio"
       #"calibre"
       #"kicad"
+      "kiwix"
       "ghostty"
       "zen"
     ];

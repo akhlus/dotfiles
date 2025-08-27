@@ -10,7 +10,11 @@
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     gc = {
       automatic = true;
-      dates = "weekly";
+      interval = {
+        Hour = 3;
+        Minute = 15;
+        Weekday = 7;
+      };
       options = "-d";
     };
   };
