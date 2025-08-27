@@ -2,7 +2,6 @@
   config,
   flakePath,
   lib,
-  pkgs,
   ...
 }: let
   cfg = config.hMods.packages.shell;
