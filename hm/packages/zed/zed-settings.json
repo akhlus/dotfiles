@@ -21,7 +21,7 @@
     "toml": true
   },
   "base_keymap": "VSCode",
-  "buffer_font_family": "Lilex Nerd Font Propo",
+  "buffer_font_family": "Lilex Nerd Font Mono",
   "buffer_font_size": 14,
   "edit_predictions": {
     "mode": "subtle",
@@ -114,10 +114,10 @@
   },
   "terminal": {
     "dock": "bottom",
-    "font_family": "Lilex Nerd Font Propo",
+    "font_family": "Lilex Nerd Font Mono",
     "working_directory": "current_project_directory"
   },
   "theme": "akhlus",
-  "ui_font_family": "Zed Plex Sans",
+  "ui_font_family": "IBM Plex Sans",
   "ui_font_size": 14
 }

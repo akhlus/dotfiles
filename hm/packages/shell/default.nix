@@ -6,10 +6,9 @@
 }: let
   cfg = config.hMods.packages.shell;
   alias = {
-    "l" = "ls -a";
-    "ll" = "ls -l";
-    ".." = "cd ..";
-    "lla" = "ls -la";
+    "la" = "ls -a";
+    "lt" = "eza --tree --level=2 --long --git";
+    "lta" = "lt -a";
     "python" = "python3";
     "py" = "python3";
     "nrb" = "sh ${flakePath}/update.sh -p ${flakePath} -s nixos ";
@@ -18,8 +17,6 @@
     "hs" = "sh ${flakePath}/update.sh -p ${flakePath} -s home -m switch";
     "darwin" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin";
     "ds" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -m switch";
-    "theme-render" = "python3 ${flakePath}/modules/hm/cosmetic/render.py";
-    "update" = "sudo apt update && sudo apt upgrade -y";
   };
 in {
   options.hMods.packages.shell = {

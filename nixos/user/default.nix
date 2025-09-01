@@ -13,6 +13,11 @@
     ignoreShellProgramCheck = true;
   };
 
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = ["ghostty.desktop"];
+  };
+
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;

@@ -11,7 +11,7 @@
       defaultFonts = {
         serif = ["Inter Variable"];
         sansSerif = ["Inter Variable"];
-        monospace = ["Lilex Nerd Font"];
+        monospace = ["Lilex Nerd Font Mono"];
       };
     };
   };

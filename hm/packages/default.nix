@@ -11,6 +11,8 @@ in {
   imports = [
     ./btop
     ./direnv
+    ./eza
+    ./fzf
     ./ghostty
     ./git
     ./neovim
@@ -19,6 +21,7 @@ in {
     ./vscode
     ./xournalpp
     ./zed
+    ./zoxide
   ];
   options.hMods.packages = {
     enableMinimal =
@@ -38,6 +41,8 @@ in {
     home.packages = with pkgs;
       [
         alejandra
+        bat
+        dust
         fastfetch
         gh
         git
@@ -49,11 +54,11 @@ in {
         lazygit
         nano
         nerd-fonts.lilex
-        nil
         nix-search-cli
         nixd
         python3
         render-go
+        ripgrep
         speedtest-cli
         tldr
       ]
