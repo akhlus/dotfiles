@@ -1,9 +1,15 @@
 {
+  config,
   lib,
   pkgs,
-  config,
   ...
-}: {
+}: let
+  cfg = config.nMods.boot;
+in {
+  options.nMods.boot = {
+    enable = lib.mkEnableOption "Enable Boot Options" // {default = true;};
+  };
+  config = lib.mkIf cfg.enable {
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -28,5 +34,6 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
+  };
   };
 }

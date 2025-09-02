@@ -1,6 +1,9 @@
 {...}: {
-  nMods.de = {
-    environment = "gnome";
-    enableAutoLogin = true;
+  nMods = {
+    de = {
+      environment = "gnome";
+      enableAutoLogin = true;
+    };
+    boot.enable = false;
   };
 }

@@ -66,14 +66,14 @@ in {
         bitwarden
         brave
         firefox
-        google-chrome
-        spotify
       ])
       ++ (lib.optionals cfg.enableExtra [
         code-cursor
         discord
         gemini-cli
+        google-chrome
         spotdl
+        spotify
         yt-dlg
       ])
       ++ (lib.optionals cfg.enableLinuxExtra [
