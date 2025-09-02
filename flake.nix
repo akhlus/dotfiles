@@ -42,5 +42,6 @@
       (mkHome "deck" "x86_64-linux" "home-deck")
       (mkHome "sam" "aarch64-linux" "penguin")
       (mkMobile "duet" "lenovo-krane")
+      (mkMobile "duet3" "lenovo-wormdingler")
     ];
 }
