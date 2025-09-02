@@ -69,6 +69,25 @@ inputs: {
       ];
     };
   };
+  mkMobile = machineHostname: device: {
+    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = rec {
+        inherit inputs;
+        userName = "sam";
+        flakePath = "/home/${userName}/dotfiles";
+        hostName = machineHostname;
+      };
+      modules = [
+        (import "${inputs.mobile-nixos}/lib/configuration.nix" {inherit device;})
+        inputs.home-manager.nixosModules.home-manager
+        inputs.jovian.nixosModules.default
+        ./overlays
+        ./nixos
+        ./hosts/${machineHostname}
+      ];
+    };
+  };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) {};

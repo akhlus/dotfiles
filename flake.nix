@@ -13,6 +13,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    mobile-nixos = {
+      url = "github:mobile-nixos/mobile-nixos";
+      flake = false;
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -26,7 +30,7 @@
     render-go.url = "github:akhlus/render-go";
   };
   outputs = inputs @ {self, ...}: let
-    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMerge;
+    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMobile mkMerge;
   in
     mkMerge [
       (mkDarwin "mba")
@@ -37,5 +41,6 @@
       (mkNixos "duet3i")
       (mkHome "deck" "x86_64-linux" "home-deck")
       (mkHome "sam" "aarch64-linux" "penguin")
+      (mkMobile "duet" "lenovo-krane")
     ];
 }
