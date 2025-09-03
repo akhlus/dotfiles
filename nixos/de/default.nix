@@ -15,8 +15,8 @@ in {
   options.nMods.de = {
     enable = lib.mkEnableOption "Enable graphics" // {default = true;};
     environment = lib.mkOption {
-      type = lib.types.enum ["gnome" "plasma" "cosmic"];
-      default = "gnome";
+      type = lib.types.enum ["gnome" "plasma" "cosmic" ""];
+      default = "";
       description = "Environment choice";
     };
     enableJovian = lib.mkEnableOption "Enable Jovian - SteamOS equivalent" // {default = false;};
