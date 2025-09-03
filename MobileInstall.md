@@ -4,6 +4,7 @@
 3. Add a local.nix file with the following code with the values in caps replaced:
 <details>
     <summary> local.nix </summary>
+
     ```nix
     {
     config,
