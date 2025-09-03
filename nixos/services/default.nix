@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [./ssh.nix];
+
   security.rtkit.enable = true;
 
   services = {
@@ -13,7 +15,6 @@
     };
     fwupd.enable = true;
     libinput.enable = true;
-    openssh.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
