@@ -16,12 +16,12 @@ in {
       description = "Which port to open";
     };
     publicKey = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "";
       description = "Public key of the machine";
     };
     sshAuthSock = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "/home/${userName}/.bitwarden-ssh-agent.sock";
       description = "Environment Variable SSH_AUTH_SOCK";
     };

@@ -16,10 +16,10 @@
   <property name="displayDpi" value="158"/>
   <property name="mainWndWidth" value="1680"/>
   <property name="mainWndHeight" value="1022"/>
-  <property name="maximized" value="true"/>
+  <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
-  <property name="sidebarWidth" value="141"/>
+  <property name="sidebarWidth" value="50"/>
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
@@ -185,6 +185,10 @@
     <data name="Wayland Touch">
       <attribute name="deviceClass" type="int" value="4"/>
       <attribute name="deviceSource" type="int" value="5"/>
+    </data>
+    <data name="hid-over-i2c 0603:604A Stylus">
+      <attribute name="deviceClass" type="int" value="2"/>
+      <attribute name="deviceSource" type="int" value="1"/>
     </data>
   </data>
   <data name="tools">
