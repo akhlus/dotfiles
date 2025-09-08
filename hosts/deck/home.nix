@@ -13,14 +13,4 @@
     zed.package = config.lib.nixGL.wrap pkgs.zed-editor;
     vscode.package = pkgs.vscode-fhs;
   };
-
-  services.flatpak = {
-    update.auto.enable = true;
-    uninstallUnmanaged = true;
-    packages = [
-      "com.brave.Browser"
-      "com.spotify.Client"
-      "com.discordapp.Discord"
-    ];
-  };
 }

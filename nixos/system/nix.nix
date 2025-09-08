@@ -4,14 +4,17 @@
   ...
 }: {
   nix = {
-    settings.experimental-features = ["nix-command" "flakes"];
-    settings.trusted-users = [userName];
-    optimise.automatic = true;
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     gc = {
       automatic = true;
       dates = "weekly";
       options = "-d";
+    };
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    optimise.automatic = true;
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = [userName];
     };
   };
   nixpkgs.config.allowUnfree = true;

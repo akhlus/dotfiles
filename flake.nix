@@ -36,7 +36,6 @@
       (mkDarwin "mba")
       (mkNixos "a3")
       (mkNixos "s340")
-      (mkNixos "deck")
       (mkNixos "hp")
       (mkNixos "duet3i")
       (mkHome "deck" "x86_64-linux" "home-deck")
