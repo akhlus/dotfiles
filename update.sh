@@ -7,7 +7,6 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--path) FLAKE_PATH="$2"; shift ;;
         -m|--mode) MODE="$2"; shift ;;
-        -s|--system) SYSTEM="$2"; shift;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
@@ -23,6 +22,20 @@ if [[ "$flake_update" == "y" ]]; then
     nix flake update --flake "$FLAKE_PATH"
 fi
 
+SYSTEM=""
+if [[ "$(uname)" == "Darwin" ]]; then
+    SYSTEM="darwin"
+elif [[ "$(uname)" == "Linux" ]]; then
+    if [ -f /etc/os-release ] && grep -q 'ID=nixos' /etc/os-release; then
+        SYSTEM="nixos"
+    fi
+fi
+
+# Fallback to home-manager
+if [ -z "$SYSTEM" ]; then
+    SYSTEM="home"
+fi
+
 case "$SYSTEM" in
     home)
         command="home-manager"
@@ -34,12 +47,12 @@ case "$SYSTEM" in
         command="sudo darwin-rebuild"
         ;;
     *)
-        echo "Error with rebuild type - use one of [ home nixos darwin ]"
-        return
+        echo "Error: could not determine system type"
+        exit 1
         ;;
 esac
 
-echo "Rebuilding..."
+echo "Rebuilding with $SYSTEM configuration..."
 
 if ! $command "$MODE" --flake "$FLAKE_PATH" &> $FLAKE_PATH/update.log; then
     grep --color error $FLAKE_PATH/update.log >&2

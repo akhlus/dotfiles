@@ -1,7 +1,7 @@
-{config, ...}: {
-  programs.btop = let
-    theme = config.hMods.cosmetic.theme;
-  in {
+{config, ...}: let
+  theme = config.hMods.cosmetic.theme;
+in {
+  programs.btop = {
     enable = true; #always enabled as cli tool
     settings = {
       color_theme = "akhlus";

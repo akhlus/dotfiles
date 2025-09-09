@@ -9,14 +9,8 @@
     "la" = "ls -a";
     "lt" = "eza --tree --level=2 --long --git";
     "lta" = "lt -a";
-    "python" = "python3";
     "py" = "python3";
-    "nrb" = "sh ${flakePath}/update.sh -p ${flakePath} -s nixos ";
-    "ns" = "sh ${flakePath}/update.sh -p ${flakePath} -s nixos -m switch";
-    "home" = "sh ${flakePath}/update.sh -p ${flakePath} -s home";
-    "hs" = "sh ${flakePath}/update.sh -p ${flakePath} -s home -m switch";
-    "darwin" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin";
-    "ds" = "sh ${flakePath}/update.sh -p ${flakePath} -s darwin -m switch";
+    "nrb" = "sh ${flakePath}/update.sh -p ${flakePath}";
   };
 in {
   options.hMods.packages.shell = {
