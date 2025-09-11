@@ -11,6 +11,20 @@ in {
   };
   config = lib.mkIf cfg.enable {
     boot = {
+      binfmt.emulatedSystems = ["aarch64-linux"];
+      consoleLogLevel = 0;
+      extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+      initrd.verbose = false;
+      kernelModules = ["v4l2loopback"];
+      kernelPackages = pkgs.linuxPackages_latest;
+      kernelParams = [
+        "splash"
+        "quiet"
+        "boot.shell_on_fail"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
+      ];
       loader = {
         systemd-boot.enable = true;
         systemd-boot.configurationLimit = 5;
@@ -21,19 +35,6 @@ in {
         enable = true;
         theme = lib.mkDefault "bgrt";
       };
-      kernelPackages = pkgs.linuxPackages_latest;
-      kernelModules = ["v4l2loopback"];
-      extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
-      consoleLogLevel = 0;
-      initrd.verbose = false;
-      kernelParams = [
-        "splash"
-        "quiet"
-        "boot.shell_on_fail"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
-        "udev.log_priority=3"
-      ];
     };
   };
 }
