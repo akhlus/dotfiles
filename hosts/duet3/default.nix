@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  mobile.boot.boot-control.enable = false;
-  mobile.beautification.splash = true;
   hardware.firmware = [
     pkgs.chromeos-sc7180-unredistributable-firmware
   ];
