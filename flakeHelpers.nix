@@ -88,6 +88,16 @@ inputs: {
       ];
     };
   };
+  mkIso = system: rec{
+    nixosConfigurations.iso = inputs.nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        ./hosts/iso
+      ];
+    };
+    packages.${system}.iso = nixosConfigurations.iso.config.system.build.isoImage;
+  };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) {};

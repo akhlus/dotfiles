@@ -3,6 +3,14 @@
     pkgs.chromeos-sc7180-unredistributable-firmware
   ];
 
+  mobile = {
+    beautification = {
+      silentBoot = false;
+      splash = false;
+    };
+    boot.boot-control.enable = false;
+  };
+
   nMods = {
     de = {
       environment = "plasma";
