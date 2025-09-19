@@ -54,7 +54,7 @@
         autohide = true;
         autohide-delay = 0.0;
         autohide-time-modifier = 0.0;
-        expose-animation-duration = 0.15;
+        expose-animation-duration = 0.0;
         largesize = 16;
         launchanim = false;
         magnification = false;
@@ -87,22 +87,5 @@
     };
   };
 
-  nix = {
-    gc = {
-      automatic = true;
-      interval = {
-        Hour = 3;
-        Minute = 15;
-        Weekday = 7;
-      };
-      options = "-d";
-    };
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-    optimise.automatic = true;
-    registry.nixpkgs.flake = inputs.nixpkgs-darwin;
-    settings.experimental-features = ["nix-command" "flakes"];
-    settings.trusted-users = [userName];
-  };
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = 6;
 }

@@ -88,7 +88,7 @@ inputs: {
       ];
     };
   };
-  mkIso = system: rec{
+  mkIso = system: rec {
     nixosConfigurations.iso = inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [

@@ -18,7 +18,7 @@ in {
     };
     background = lib.mkOption {
       type = lib.types.path;
-      default = ./bg.jpg;
+      default = ./cassiopeia.jpg;
       description = "Path to the file to use as background";
     };
   };
