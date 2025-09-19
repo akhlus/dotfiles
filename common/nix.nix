@@ -1,15 +1,18 @@
-{inputs, userName, ...}: {
+{
+  inputs,
+  username,
+  ...
+}: {
   nix = {
     gc = {
       automatic = true;
       options = "-d";
     };
-    nixPath = ["nixpkgs=${inputs.nixpkgs-darwin}"];
     optimise.automatic = true;
-    registry.nixpkgs.flake = inputs.nixpkgs-darwin;
-    settings= {
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    settings = {
       experimental-features = ["nix-command" "flakes"];
-      trusted-users = [userName];
+      trusted-users = [username];
     };
   };
   nixpkgs.config.allowUnfree = true;

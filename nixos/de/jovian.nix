@@ -1,13 +1,13 @@
 {
   config,
-  userName,
+  username,
   ...
 }: let
   cfg = config.nMods.de;
 in {
   jovian = {
     decky-loader.enable = true;
-    decky-loader.user = userName;
+    decky-loader.user = username;
     devices.steamdeck.enable = true;
     steam = {
       autoStart = cfg.autoStartJovian;

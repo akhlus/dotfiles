@@ -1,90 +1,75 @@
-inputs: {
-  mkDarwin = machineHostname: {
-    darwinConfigurations.${machineHostname} = inputs.nix-darwin.lib.darwinSystem {
+inputs: let
+  args = hostname: username: home: {
+    inherit hostname username inputs;
+    flakePath = "/${home}/${username}/dotfiles";
+  };
+in {
+  mkDarwin = hostname: {
+    darwinConfigurations.${hostname} = inputs.nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = rec {
-        inherit inputs;
-        flakePath = "/Users/${userName}/dotfiles";
-        hostName = machineHostname;
-        userName = "sam";
-      };
+      specialArgs = args hostname "sam" "Users";
       modules = [
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         ./overlays
+        ./common
         ./darwin
-        ./hosts/${machineHostname}
+        ./hosts/${hostname}
       ];
     };
   };
-  mkNixos = machineHostname: {
-    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
+  mkNixos = hostname: {
+    nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = rec {
-        inherit inputs;
-        flakePath = "/home/${userName}/dotfiles";
-        hostName = machineHostname;
-        userName = "sam";
-      };
+      specialArgs = args hostname "sam" "home";
       modules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
+        ./common
         ./nixos
-        ./hosts/${machineHostname}
+        ./hosts/${hostname}
       ];
     };
   };
-  mkStable = machineHostname: {
-    nixosConfigurations.${machineHostname} = inputs.nixpkgs-stable.lib.nixosSystem {
+  mkStable = hostname: {
+    nixosConfigurations.${hostname} = inputs.nixpkgs-stable.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = rec {
-        inherit inputs;
-        flakePath = "/home/${userName}/dotfiles";
-        hostName = machineHostname;
-        userName = "sam";
-      };
+      specialArgs = args hostname "sam" "home";
       modules = [
         inputs.home-manager-stable.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
+        ./common
         ./nixos
-        ./hosts/${machineHostname}
+        ./hosts/${hostname}
       ];
     };
   };
-  mkHome = userName: system: device: {
-    homeConfigurations.${userName} = inputs.home-manager.lib.homeManagerConfiguration {
+  mkHome = username: system: hostname: {
+    homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {
-        inherit inputs;
-        flakePath = "/home/${userName}/dotfiles";
-        inherit userName;
-      };
+      extraSpecialArgs = args hostname username "home";
       modules = [
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ./overlays
-        ./hosts/${device}/home.nix
+        ./hosts/${hostname}/home.nix
         ./hm
       ];
     };
   };
-  mkMobile = machineHostname: device: {
-    nixosConfigurations.${machineHostname} = inputs.nixpkgs.lib.nixosSystem {
+  mkMobile = hostname: device: {
+    nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = rec {
-        inherit inputs;
-        userName = "sam";
-        flakePath = "/home/${userName}/dotfiles";
-        hostName = machineHostname;
-      };
+      specialArgs = args hostname "sam" "home";
       modules = [
         (import "${inputs.mobile-nixos}/lib/configuration.nix" {inherit device;})
         inputs.home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
+        ./common
         ./nixos
-        ./hosts/${machineHostname}
+        ./hosts/${hostname}
       ];
     };
   };

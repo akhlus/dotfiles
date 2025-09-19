@@ -1,12 +1,17 @@
 {
   flakePath,
   lib,
-  userName,
+  pkgs,
+  username,
   ...
 }: {
   home = {
-    username = userName;
-    homeDirectory = lib.mkDefault "/home/${userName}"; #overwritten for Darwin systems;
+    username = username;
+    homeDirectory =
+      if pkgs.stdenv.isDarwin
+      then "/Users/${username}"
+      else "/home/${username}";
+    sessionPath = lib.optionals pkgs.stdenv.isDarwin ["/opt/homebrew/bin"];
     sessionVariables = {FLAKE_PATH = "${flakePath}";};
     stateVersion = "24.11";
   };

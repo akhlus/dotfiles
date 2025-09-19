@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  userName,
+  username,
   ...
 }: let
   cfg = config.nMods.ssh;
@@ -22,13 +22,13 @@ in {
     };
     sshAuthSock = lib.mkOption {
       type = lib.types.str;
-      default = "/home/${userName}/.bitwarden-ssh-agent.sock";
+      default = "/home/${username}/.bitwarden-ssh-agent.sock";
       description = "Environment Variable SSH_AUTH_SOCK";
     };
   };
   config = {
     environment.variables = {SSH_AUTH_SOCK = cfg.sshAuthSock;};
-    users.users.${userName}.openssh.authorizedKeys.keys = [cfg.publicKey];
+    users.users.${username}.openssh.authorizedKeys.keys = [cfg.publicKey];
     services = {
       openssh = {
         enable = cfg.enableOpenSSH;

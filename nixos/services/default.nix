@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   imports = [./ssh.nix];
-
   security.rtkit.enable = true;
-
   services = {
     avahi = {
       enable = true;

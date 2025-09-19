@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.hMods.cosmetic;
@@ -18,11 +19,30 @@ in {
     };
     background = lib.mkOption {
       type = lib.types.path;
-      default = ./cassiopeia.jpg;
+      default = ./cassiopeia.png;
       description = "Path to the file to use as background";
+    };
+    enableCursor = lib.mkEnableOption "cursor management" // {default = true;};
+    cursorPackage = lib.mkPackageOption pkgs "afterglow-cursors-recolored" {};
+    cursorName = lib.mkOption {
+      description = "Name of cursor";
+      type = lib.types.str;
+      default = "Afterglow-Recolored-Catppuccin-Macchiato";
+    };
+    cursorSize = lib.mkOption {
+      description = "Size of cursor to use";
+      type = lib.types.int;
+      default = 24;
     };
   };
   config = {
-    home.file = {"Pictures/bg.jpg".source = cfg.background;};
+    home.file = {"Pictures/bg.png".source = cfg.background;};
+    home.pointerCursor = lib.mkIf cfg.enableCursor {
+      gtk.enable = true;
+      x11.enable = true;
+      package = cfg.cursorPackage;
+      name = cfg.cursorName;
+      size = cfg.cursorSize;
+    };
   };
 }

@@ -20,6 +20,5 @@
     pciutils
     usbutils
     v4l-utils
-    wireguard-tools
   ];
 }

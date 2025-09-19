@@ -1,6 +1,6 @@
 {
   config,
-  userName,
+  username,
   ...
 }: let
   cfg = config.nMods.de;
@@ -8,7 +8,7 @@
 in {
   services.displayManager.autoLogin = {
     enable = cfg.enableAutoLogin;
-    user = userName;
+    user = username;
   };
   systemd.services = {
     "getty@tty1".enable = isGnome;

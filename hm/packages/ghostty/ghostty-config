@@ -3,7 +3,7 @@ font-size = 14
 
 window-decoration = "auto"
 window-theme = "ghostty"
-theme = "akhlus"
+theme = akhlus
 background-blur = 20
 unfocused-split-opacity = 0.75
 

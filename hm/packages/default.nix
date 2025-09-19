@@ -17,6 +17,7 @@ in {
     ./git
     ./neovim
     ./shell
+    ./ssh
     ./tmux
     ./vscode
     ./xournalpp
@@ -62,6 +63,9 @@ in {
         speedtest-cli
         tldr
       ]
+      ++ (lib.optionals pkgs.stdenv.isDarwin [
+        raycast
+      ])
       ++ (lib.optionals cfg.enableMinimal [
         bitwarden
         brave

@@ -2,14 +2,14 @@
   config,
   lib,
   pkgs,
-  userName,
+  username,
   ...
 }: let
-  auto = import ./autologin.nix {inherit config userName;};
+  auto = import ./autologin.nix {inherit config username;};
   cfg = config.nMods.de;
   cosmic = import ./cosmic.nix {inherit config;};
-  gnome = import ./gnome.nix {inherit config lib pkgs userName;};
-  jovian = import ./jovian.nix {inherit config userName;};
+  gnome = import ./gnome.nix {inherit config lib pkgs username;};
+  jovian = import ./jovian.nix {inherit config username;};
   plasma = import ./plasma.nix {inherit config pkgs;};
 in {
   options.nMods.de = {
