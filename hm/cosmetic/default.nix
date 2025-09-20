@@ -22,7 +22,7 @@ in {
       default = ./cassiopeia.png;
       description = "Path to the file to use as background";
     };
-    enableCursor = lib.mkEnableOption "cursor management" // {default = true;};
+    enableCursor = lib.mkEnableOption "cursor management" // {default = !pkgs.stdenv.isDarwin;};
     cursorPackage = lib.mkPackageOption pkgs "afterglow-cursors-recolored" {};
     cursorName = lib.mkOption {
       description = "Name of cursor";

@@ -5,6 +5,7 @@
   };
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "u410" = {
         hostname = "192.168.10.10";
