@@ -8,8 +8,9 @@
       Port 2222
       AddressFamily any
       PermitRootLogin no
-      StrictModes yes
       UsePAM yes
+      AcceptEnv LANG LC_* TERM EDITOR
+      Include /etc/ssh/crypto.conf
     '';
   };
 }

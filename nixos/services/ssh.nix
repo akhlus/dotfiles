@@ -38,6 +38,9 @@ in {
           PasswordAuthentication = cfg.onlySSH;
           PermitRootLogin = "no";
         };
+        extraConfig = ''
+          AcceptEnv LANG LC_* TERM EDITOR
+        '';
       };
       fail2ban.enable = cfg.enableFail2Ban;
     };

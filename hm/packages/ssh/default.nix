@@ -6,6 +6,9 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    extraConfig = ''
+      SendEnv EDITOR TERM LANG LC_*
+    '';
     matchBlocks = {
       "u410" = {
         hostname = "192.168.10.10";
@@ -31,6 +34,7 @@
         port = 2222;
         identityFile = "~/.ssh/pubKeys/mba.pub";
       };
+      "*" = {};
     };
   };
 }
