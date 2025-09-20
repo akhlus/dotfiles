@@ -80,20 +80,20 @@
     "nixd": {
       "settings": {
         "nixpkgs": {
-          "expr": "import <nixpkgs> {}"
+          "expr": "import <nixpkgs> { }"
         },
         "formatting": {
           "command": ["alejandra"]
         },
         "options": {
           "home-manager": {
-            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).homeConfigurations.deck.options"
+            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).homeConfigurations.deck.options"
           },
           "nixos": {
-            "expr": "(builtins.getFlake (builtins.toString /home/sam/dotfiles)).nixosConfigurations.a3.options"
+            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).nixosConfigurations.a3.options"
           },
           "darwin": {
-            "expr": "(builtins.getFlake (builtins.toString /Users/sam/dotfiles)).darwinConfigurations.mba.options"
+            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).darwinConfigurations.mba.options"
           }
         },
         "diagnostic": {
