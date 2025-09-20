@@ -31,7 +31,7 @@
       "mba" = {
         hostname = "192.168.10.14";
         user = "sam";
-        port = 2222;
+        port = 22;
         identityFile = "~/.ssh/pubKeys/mba.pub";
       };
       "*" = {};
