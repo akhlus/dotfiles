@@ -67,15 +67,9 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
-      cursor-theme = "Afterglow-Recolored-Catppuccin-Macchiato";
       color-scheme = "prefer-dark";
-      document-font-name = "Inter Variable 12";
       enable-animations = false;
       enable-hot-corners = false;
-      font-name = "Inter Variable 12";
-      gtk-theme = "Adwaita";
-      icon-theme = "Adwaita";
-      monospace-font-name = "BlexMono Nerd Font 12";
     };
 
     "org/gnome/desktop/peripherals/mouse" = {

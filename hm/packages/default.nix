@@ -64,6 +64,7 @@ in {
         tldr
       ]
       ++ (lib.optionals pkgs.stdenv.isDarwin [
+        mas
         raycast
       ])
       ++ (lib.optionals cfg.enableMinimal [
