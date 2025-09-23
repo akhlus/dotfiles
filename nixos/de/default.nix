@@ -10,6 +10,7 @@
   cosmic = import ./cosmic.nix {inherit config;};
   gnome = import ./gnome.nix {inherit config lib pkgs username;};
   jovian = import ./jovian.nix {inherit config username;};
+  none = import ./none.nix {};
   plasma = import ./plasma.nix {inherit config pkgs;};
 in {
   options.nMods.de = {
@@ -28,7 +29,7 @@ in {
     (lib.mkIf (cfg.environment == "gnome") gnome)
     (lib.mkIf (cfg.environment == "plasma") plasma)
     (lib.mkIf (cfg.environment == "cosmic") cosmic)
+    (lib.mkIf (cfg.environment == "") none)
     (lib.mkIf cfg.enableAutoLogin auto)
-    {services.gnome.gnome-keyring.enable = lib.mkForce true;}
   ]);
 }

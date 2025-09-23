@@ -6,9 +6,6 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    extraConfig = ''
-      SendEnv EDITOR TERM LANG LC_*
-    '';
     matchBlocks = {
       "u410" = {
         hostname = "192.168.10.10";
@@ -36,5 +33,8 @@
       };
       "*" = {};
     };
+    extraConfig = ''
+      SendEnv EDITOR TERM LANG LC_*
+    '';
   };
 }

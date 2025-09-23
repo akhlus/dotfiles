@@ -2,7 +2,7 @@
   theme = config.hMods.cosmetic.theme;
 in {
   programs.btop = {
-    enable = true; #always enabled as cli tool
+    enable = true;
     settings = {
       color_theme = "akhlus";
       theme_background = false;

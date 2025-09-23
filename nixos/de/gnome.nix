@@ -9,6 +9,7 @@
   services.displayManager.gdm.enable = !config.nMods.de.enableJovian;
   services.desktopManager.gnome.enable = true;
   services.power-profiles-daemon.enable = lib.mkDefault true;
+  services.gnome.gnome-keyring.enable = true;
 
   #enable dconf config
   home-manager.users.${username}.imports = [./dconf.nix];

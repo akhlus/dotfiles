@@ -9,20 +9,12 @@
   render-go = inputs.render-go.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   imports = [
-    ./btop
-    ./direnv
-    ./eza
-    ./fzf
+    ./cli
     ./ghostty
-    ./git
     ./neovim
-    ./shell
-    ./ssh
-    ./tmux
     ./vscode
     ./xournalpp
     ./zed
-    ./zoxide
   ];
   options.hMods.packages = {
     enableMinimal =
@@ -33,9 +25,6 @@ in {
       // {default = cfg.enableLinuxExtra;};
     enableLinuxExtra =
       lib.mkEnableOption "Enable linux extra apps - disk stuff and office suite. Must be false on darwin systems"
-      // {default = false;};
-    enableServer =
-      lib.mkEnableOption "Enable homelab apps - calibre, cockpit, etc"
       // {default = false;};
   };
   config = {
@@ -64,7 +53,6 @@ in {
         tldr
       ]
       ++ (lib.optionals pkgs.stdenv.isDarwin [
-        mas
         raycast
       ])
       ++ (lib.optionals cfg.enableMinimal [

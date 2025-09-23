@@ -34,6 +34,9 @@ in {
         enable = true;
         settings = builtins.fromTOML (builtins.readFile ./starship.toml);
       };
+      tmux = {
+        enable = true;
+      };
     };
     home.shell = {
       enableBashIntegration = cfg.enableBash;
