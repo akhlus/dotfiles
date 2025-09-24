@@ -12,7 +12,6 @@ in {
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         ./overlays
-        ./common
         ./darwin
         ./hosts/${hostname}
       ];
@@ -26,7 +25,6 @@ in {
         inputs.home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
-        ./common
         ./nixos
         ./hosts/${hostname}
       ];
@@ -40,7 +38,6 @@ in {
         inputs.home-manager-stable.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
-        ./common
         ./nixos
         ./hosts/${hostname}
       ];
@@ -67,7 +64,6 @@ in {
         inputs.home-manager.nixosModules.home-manager
         inputs.jovian.nixosModules.default
         ./overlays
-        ./common
         ./nixos
         ./hosts/${hostname}
       ];
@@ -82,6 +78,11 @@ in {
       ];
     };
     packages.${system}.iso = nixosConfigurations.iso.config.system.build.isoImage;
+  };
+  modules = {
+    nixosModules = {default = ./nixos;};
+    darwinModules = {default = ./darwin;};
+    homeManagerModules = {default = ./hm;};
   };
   mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b

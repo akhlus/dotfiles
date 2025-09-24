@@ -30,7 +30,7 @@
     render-go.url = "github:akhlus/render-go";
   };
   outputs = inputs @ {self, ...}: let
-    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMobile mkMerge;
+    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMobile mkMerge modules;
   in
     mkMerge [
       (mkDarwin "mba")
@@ -42,5 +42,6 @@
       (mkHome "sam" "aarch64-linux" "penguin")
       (mkMobile "duet" "lenovo-krane")
       (mkMobile "duet3" "lenovo-wormdingler")
+      modules
     ];
 }

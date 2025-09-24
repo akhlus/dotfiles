@@ -16,7 +16,6 @@ in {
   };
   config = lib.mkIf cfg.enable {
     home.file = {
-      ".config/zed/themes/akhlus.json".text = theme;
       ".config/zed/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/hm/packages/zed/zed-settings.json";
     };
     programs.zed-editor = {
