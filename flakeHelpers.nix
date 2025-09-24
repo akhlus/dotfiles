@@ -5,7 +5,7 @@ inputs: let
   };
 in {
   mkDarwin = hostname: {
-    darwinConfigurations.${hostname} = inputs.nix-darwin.lib.darwinSystem {
+    ${hostname} = inputs.nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = args hostname "sam" "Users";
       modules = [
@@ -18,7 +18,7 @@ in {
     };
   };
   mkNixos = hostname: {
-    nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
+    ${hostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = args hostname "sam" "home";
       modules = [
@@ -31,7 +31,7 @@ in {
     };
   };
   mkStable = hostname: {
-    nixosConfigurations.${hostname} = inputs.nixpkgs-stable.lib.nixosSystem {
+    ${hostname} = inputs.nixpkgs-stable.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = args hostname "sam" "home";
       modules = [
@@ -43,8 +43,8 @@ in {
       ];
     };
   };
-  mkHome = username: system: hostname: {
-    homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
+  mkHome = hostname: system: username: {
+    ${hostname} = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       extraSpecialArgs = args hostname username "home";
       modules = [
@@ -56,7 +56,7 @@ in {
     };
   };
   mkMobile = hostname: device: {
-    nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
+    ${hostname} = inputs.nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = args hostname "sam" "home";
       modules = [
@@ -69,22 +69,4 @@ in {
       ];
     };
   };
-  mkIso = system: rec {
-    nixosConfigurations.iso = inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-        ./hosts/iso
-      ];
-    };
-    packages.${system}.iso = nixosConfigurations.iso.config.system.build.isoImage;
-  };
-  modules = {
-    nixosModules = {default = ./nixos;};
-    darwinModules = {default = ./darwin;};
-    homeManagerModules = {default = ./hm;};
-  };
-  mkMerge = inputs.nixpkgs.lib.lists.foldl' (
-    a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
-  ) {};
 }

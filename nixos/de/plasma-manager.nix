@@ -1,16 +1,5 @@
 {...}: {
   programs = {
-    kate = {
-      enable = true;
-      editor = {
-        brackets.automaticallyAddClosing = true;
-        font = {
-          family = "Lilex Nerd Font Mono";
-          pointSize = 12;
-        };
-      };
-      lsp.customServers = {};
-    };
     okular = {
       enable = true;
       general = {
@@ -21,6 +10,32 @@
     };
     plasma = {
       enable = true;
+      fonts = {
+        fixedWidth = {
+          family = "Lilex Nerd Font Mono";
+          pointSize = 12;
+        };
+        general = {
+          family = "IBM Plex Sans";
+          pointSize = 12;
+        };
+        menu = {
+          family = "IBM Plex Sans";
+          pointSize = 12;
+        };
+        small = {
+          family = "IBM Plex Sans";
+          pointSize = 9;
+        };
+        toolbar = {
+          family = "IBM Plex Sans";
+          pointSize = 12;
+        };
+        windowTitle = {
+          family = "IBM Plex Sans";
+          pointSize = 12;
+        };
+      };
       workspace = {
       };
     };

@@ -30,18 +30,14 @@
     render-go.url = "github:akhlus/render-go";
   };
   outputs = inputs @ {self, ...}: let
-    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkStable mkHome mkMobile mkMerge modules;
-  in
-    mkMerge [
-      (mkDarwin "mba")
+    inherit (import ./flakeHelpers.nix inputs) mkDarwin mkNixos mkHome mkMobile;
+  in {
+    darwinConfigurations = mkDarwin "mba";
+    nixosConfigurations =
       (mkNixos "a3")
-      (mkNixos "s340")
-      (mkNixos "hp")
-      (mkNixos "duet3i")
-      (mkHome "deck" "x86_64-linux" "home-deck")
-      (mkHome "sam" "aarch64-linux" "penguin")
-      (mkMobile "duet" "lenovo-krane")
-      (mkMobile "duet3" "lenovo-wormdingler")
-      modules
-    ];
+      // (mkNixos "s340")
+      // (mkMobile "duet" "lenovo-krane")
+      // (mkMobile "duet3" "lenovo-wormdingler");
+    homeConfigurations = mkHome "deck" "x86_64-linux" "sam";
+  };
 }
