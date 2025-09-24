@@ -8,10 +8,21 @@
 in {
   options.nMods.boot = {
     enable = lib.mkEnableOption "Enable Boot Options" // {default = true;};
+    emulatedSystems = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = ["aarch64-linux"];
+      description = "List of systems to emulate";
+    };
+    enablePlymouth = lib.mkEnableOption "Enable Plymouth" // {default = true;};
+    plymouthTheme = lib.mkOption {
+      type = lib.types.str;
+      default = "bgrt";
+      description = "Theme name for plymouth";
+    };
   };
   config = lib.mkIf cfg.enable {
     boot = {
-      binfmt.emulatedSystems = ["aarch64-linux"];
+      binfmt.emulatedSystems = cfg.emulatedSystems;
       consoleLogLevel = 0;
       extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
       initrd.verbose = false;
@@ -32,8 +43,8 @@ in {
         timeout = 1;
       };
       plymouth = {
-        enable = true;
-        theme = lib.mkDefault "bgrt";
+        enable = cfg.enablePlymouth;
+        theme = cfg.plymouthTheme;
       };
     };
   };

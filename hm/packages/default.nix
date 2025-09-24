@@ -31,24 +31,19 @@ in {
     home.packages = with pkgs;
       [
         alejandra
-        bat
         dust
         fastfetch
-        gh
-        git
         go
         gopls
         home-manager
         inter
         ibm-plex
-        lazygit
         nano
         nerd-fonts.lilex
         nix-search-cli
         nixd
         python3
         render-go
-        ripgrep
         speedtest-cli
         tldr
       ]

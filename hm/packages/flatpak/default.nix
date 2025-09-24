@@ -3,11 +3,11 @@
   lib,
   ...
 }: let
-  cfg = config.hMods.packages.flatpak;
+  cfg = config.hMods.flatpak;
 in {
-  options.hMods.packages.flatpak = {
+  options.hMods.flatpak = {
     enable = lib.mkEnableOption "flatpak";
-    enableDefaultApps = lib.mkEnableOption "default apps for flatpak (brave, discord, spotify)";
+    enableDefaultApps = lib.mkEnableOption "default apps for flatpak (bitwarden, brave, discord, spotify)";
     extraApps = lib.mkOption {
       default = [];
       example = ["com.brave.Browser"];
@@ -21,6 +21,7 @@ in {
       uninstallUnmanaged = true;
       packages =
         (lib.optionals cfg.enableDefaultApps [
+          "com.bitwarden.desktop"
           "com.brave.Browser"
           "com.discordapp.Discord"
           "com.spotify.Client"

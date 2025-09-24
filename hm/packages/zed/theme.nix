@@ -1,9 +1,9 @@
 {
   config,
   lib,
+  theme ? config.hMods.cosmetic.theme,
   ...
 }: let
-  theme = config.hMods.cosmetic.theme;
   template = builtins.readFile ./template.json;
   replacements = [
     {

@@ -30,13 +30,6 @@ in {
         enable = cfg.enableBash;
         shellAliases = alias;
       };
-      starship = {
-        enable = true;
-        settings = builtins.fromTOML (builtins.readFile ./starship.toml);
-      };
-      tmux = {
-        enable = true;
-      };
     };
     home.shell = {
       enableBashIntegration = cfg.enableBash;

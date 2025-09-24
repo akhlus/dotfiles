@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [./ssh.nix];
   security.rtkit.enable = true;
   services = {
@@ -21,11 +21,9 @@
     };
     printing.enable = true;
     pulseaudio.enable = false;
-    xserver = {
-      enable = true;
-      xkb.layout = "gb";
-      xkb.variant = "";
-      excludePackages = [pkgs.xterm];
+    xserver.xkb = {
+      layout = "gb";
+      variant = "";
     };
   };
 }

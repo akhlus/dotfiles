@@ -5,6 +5,7 @@
   "auto_install_extensions": {
     "html": true,
     "latex": true,
+    "log": true,
     "nix": true,
     "pylsp": true,
     "rainbow-csv": true,
@@ -84,20 +85,6 @@
         },
         "formatting": {
           "command": ["alejandra"]
-        },
-        "options": {
-          "home-manager": {
-            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).homeConfigurations.deck.options"
-          },
-          "nixos": {
-            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).nixosConfigurations.a3.options"
-          },
-          "darwin": {
-            "expr": "(builtins.getFlake (builtins.toString ~/dotfiles)).darwinConfigurations.mba.options"
-          }
-        },
-        "diagnostic": {
-          "suppress": ["sema-extra-width"]
         }
       }
     }

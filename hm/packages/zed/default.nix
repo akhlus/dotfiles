@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.hMods.packages.zed;
-  theme = (import ./theme.nix {inherit config lib;}).themeOut;
+  akhlusTheme = (import ./theme.nix {inherit config lib;}).themeOut;
 in {
   options.hMods.packages.zed = {
     enable = lib.mkEnableOption "Enable Zed" // {default = config.hMods.packages.enableMinimal;};
@@ -21,7 +21,19 @@ in {
     };
     programs.zed-editor = {
       enable = cfg.enable;
+      extensions = [
+        "html"
+        "latex"
+        "log"
+        "nix"
+        "pylsp"
+        "rainbow-lsp"
+        "toml"
+      ];
+      extraPackages = [pkgs.nixd];
+      installRemoteServer = true;
       package = cfg.package;
+      theme = {akhlus = akhlusTheme;};
     };
   };
 }

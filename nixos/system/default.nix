@@ -17,9 +17,6 @@
     enable = true;
     settings.default = ["ghostty.desktop"];
   };
-  networking = {
-    networkmanager.enable = true;
-    useDHCP = true;
-  };
+  networking.networkmanager.enable = true;
   system.stateVersion = "24.05";
 }
