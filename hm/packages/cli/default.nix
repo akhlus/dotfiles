@@ -11,6 +11,7 @@
       settings = {
         dialect = "uk";
         search_mode = "prefix";
+        flags = ["--disable-up-arrow"];
       };
     };
     bat.enable = true;

@@ -1,5 +1,6 @@
 {
   hostname,
+  inputs,
   pkgs,
   specialArgs,
   username,
@@ -13,6 +14,11 @@
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
+    sharedModules = [
+      inputs.plasma-manager.homeModules.plasma-manager
+    ];
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users.${username}.imports = [
       ../hm
       ../hosts/${hostname}/home.nix

@@ -27,6 +27,13 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nixgl.url = "github:nix-community/nixGL";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     render-go.url = "github:akhlus/render-go";
   };
   outputs = inputs @ {self, ...}: let

@@ -26,13 +26,13 @@ in {
         "log"
         "nix"
         "pylsp"
-        "rainbow-lsp"
+        "rainbow-csv"
         "toml"
       ];
       extraPackages = [pkgs.nixd];
       installRemoteServer = true;
       package = cfg.package;
-      theme = {akhlus = akhlusTheme;};
+      themes = {akhlus = akhlusTheme;};
     };
   };
 }

@@ -2,17 +2,31 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }: let
   cfg = config.nMods.de;
 in {
   config = lib.mkIf (cfg.environment == "plasma") {
-    services.displayManager.sddm.enable = !cfg.enableJovian;
-    services.displayManager.sddm.wayland.enable = true;
-    services.desktopManager.plasma6.enable = true;
-    environment.systemPackages = with pkgs; [
-      kdePackages.partitionmanager
-      maliit-keyboard
-    ];
+    environment = {
+      systemPackages = with pkgs; [
+        kdePackages.partitionmanager
+        maliit-keyboard
+      ];
+      plasma6.excludePackages = with pkgs.kdePackages; [
+        elisa
+        kate
+        konsole
+        plasma-browser-integration
+      ];
+    };
+    home-manager.users.${username}.imports = [./pm.nix];
+    services = {
+      displayManager.sddm = {
+        enable = !cfg.enableJovian;
+        wayland.enable = true;
+      };
+      desktopManager.plasma6.enable = true;
+    };
   };
 }

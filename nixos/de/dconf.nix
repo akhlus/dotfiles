@@ -1,5 +1,9 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{lib, username, ...}:
+{
+  lib,
+  username,
+  ...
+}:
 with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/TextEditor" = {
@@ -55,7 +59,7 @@ with lib.hm.gvariant; {
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = false;
-      experimental-features = ["scale-monitor-framebuffer"];
+      experimental-features = ["scale-monitor-framebuffer" "variable-refresh-rate" "xwayland-native-scaling"];
       workspaces-only-on-primary = true;
     };
 
