@@ -20,15 +20,6 @@ in {
     };
     programs.zed-editor = {
       enable = cfg.enable;
-      extensions = [
-        "html"
-        "latex"
-        "log"
-        "nix"
-        "pylsp"
-        "rainbow-csv"
-        "toml"
-      ];
       extraPackages = [pkgs.nixd];
       installRemoteServer = true;
       package = cfg.package;

@@ -22,6 +22,11 @@ in {
       default = ./cassiopeia.png;
       description = "Path to the file to use as background";
     };
+    backgroundFile = lib.mkOption {
+      type = lib.types.str;
+      default = "Pictures/bg.png";
+      description = "Where the background should be located with in the home folder";
+    };
     enableCursor = lib.mkEnableOption "cursor management" // {default = !pkgs.stdenv.isDarwin;};
     cursorPackage = lib.mkPackageOption pkgs "afterglow-cursors-recolored" {};
     cursorName = lib.mkOption {
@@ -36,7 +41,7 @@ in {
     };
   };
   config = {
-    home.file = {"Pictures/bg.png".source = cfg.background;};
+    home.file = {${cfg.backgroundFile}.source = cfg.background;};
     home.pointerCursor = lib.mkIf cfg.enableCursor {
       gtk.enable = true;
       x11.enable = true;

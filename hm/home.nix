@@ -16,6 +16,4 @@
     sessionVariables = {FLAKE_PATH = "${flakePath}";};
     stateVersion = "24.11";
   };
-  fonts.fontconfig.enable = true;
-  nixpkgs.config.allowUnfree = true;
 }
