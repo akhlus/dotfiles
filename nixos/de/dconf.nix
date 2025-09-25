@@ -1,5 +1,5 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{lib, ...}:
+{lib, username, ...}:
 with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/TextEditor" = {
@@ -9,8 +9,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/Pictures/bg.png";
-      picture-uri-dark = "file:///home/sam/Pictures/bg.png";
+      picture-uri = "file:///home/${username}/Pictures/bg.png";
+      picture-uri-dark = "file:///home/${username}/Pictures/bg.png";
     };
 
     "org/gnome/desktop/interface" = {
@@ -32,8 +32,8 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/sam/Pictures/bg.png";
-      picture-uri-dark = "file:///home/sam/Pictures/bg.png";
+      picture-uri = "file:///home/${username}/Pictures/bg.png";
+      picture-uri-dark = "file:///home/${username}/Pictures/bg.png";
     };
 
     "org/gnome/desktop/search-providers" = {
