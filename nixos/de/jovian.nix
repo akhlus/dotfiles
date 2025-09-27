@@ -12,7 +12,7 @@ in {
       decky-loader.user = username;
       devices.steamdeck.enable = true;
       steam = {
-        autoStart = cfg.autoStartJovian;
+        autoStart = cfg.enableAutoStartJovian;
         user = "sam";
         desktopSession = cfg.environment;
         enable = true;
