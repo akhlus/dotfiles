@@ -48,7 +48,7 @@
           };
           desktopSwitching = {
             animation = "off";
-            navigationWrapping = false;
+            navigationWrapping = true;
           };
           minimization.animation = "off";
           shakeCursor.enable = true;
@@ -69,6 +69,12 @@
           location = "top";
           opacity = "translucent";
           widgets = [
+            {
+              kickoff = {
+                sortAlphabetically = true;
+                icon = "nix-snowflake-white";
+              };
+            }
             "org.kde.plasma.digitalclock"
             "org.kde.plasma.systemtray"
           ];

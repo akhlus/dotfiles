@@ -8,6 +8,15 @@
 in {
   options.nMods.boot = {
     enable = lib.mkEnableOption "Enable Boot Options" // {default = true;};
+    loader = lib.mkOption {
+      type = lib.types.enum ["systemd" "grub"];
+      description = "Which bootloader to use in the config";
+      default = "systemd";
+    };
+    grubDevice = lib.mkOption {
+      type = lib.types.str;
+      description = "Device that has GRUB loader on it";
+    };
     emulatedSystems = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = ["aarch64-linux"];
@@ -37,8 +46,16 @@ in {
         "udev.log_priority=3"
       ];
       loader = {
-        systemd-boot.enable = true;
-        systemd-boot.configurationLimit = 5;
+        systemd-boot = lib.mkIf (cfg.loader == "systemd") {
+          enable = cfg.loader == "systemd";
+          configurationLimit = 5;
+        };
+        grub = lib.mkIf (cfg.loader == "grub") {
+          enable = cfg.loader == "grub";
+          device = cfg.grubDevice;
+          useOSProber = cfg.loader == "grub";
+          configurationLimit = 5;
+        };
         efi.canTouchEfiVariables = true;
         timeout = 1;
       };
