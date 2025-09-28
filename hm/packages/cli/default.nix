@@ -10,6 +10,7 @@
       enable = true;
       flags = ["--disable-up-arrow"];
       settings = {
+        auto_sync = true;
         dialect = "uk";
         search_mode = "prefix";
       };
