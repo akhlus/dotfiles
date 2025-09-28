@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   username,
@@ -20,7 +21,10 @@ in {
         plasma-browser-integration
       ];
     };
-    home-manager.users.${username}.imports = [./pm.nix];
+    home-manager = {
+      sharedModules = [inputs.plasma-manager.homeModules.plasma-manager];
+      users.${username}.imports = [./pm.nix];
+    };
     services = {
       displayManager.sddm = {
         enable = !cfg.enableJovian;

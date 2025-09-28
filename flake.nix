@@ -45,6 +45,8 @@
       // (mkNixos "s340")
       // (mkMobile "duet" "lenovo-krane")
       // (mkMobile "duet3" "lenovo-wormdingler");
-    homeConfigurations = mkHome "deck" "x86_64-linux" "sam";
+    homeConfigurations =
+      (mkHome "deck" "x86_64-linux" "sam")
+      // (mkHome "duet3" "aarch64-linux" "sam");
   };
 }
