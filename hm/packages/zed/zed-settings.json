@@ -80,11 +80,19 @@
   "lsp": {
     "nixd": {
       "settings": {
-        "nixpkgs": {
-          "expr": "import <nixpkgs> { }"
-        },
         "formatting": {
           "command": ["alejandra"]
+        },
+        "options": {
+          "nixos": {
+            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).nixosConfigurations.a3.options"
+          },
+          "darwin": {
+            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).darwinConfigurations.mba.options"
+          },
+          "home": {
+            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).homeManagerConfigurations.deck.options"
+          }
         }
       }
     }

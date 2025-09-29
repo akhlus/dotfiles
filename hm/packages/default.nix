@@ -10,6 +10,7 @@
 in {
   imports = [
     ./cli
+    ./flatpak
     ./ghostty
     ./neovim
     ./vscode
@@ -49,7 +50,6 @@ in {
       ]
       ++ (lib.optionals pkgs.stdenv.isDarwin [
         raycast
-        scroll-reverser
       ])
       ++ (lib.optionals cfg.enableMinimal [
         bitwarden
