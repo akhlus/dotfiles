@@ -9,7 +9,7 @@
   akhlusTheme = (import ./theme.nix {inherit config lib;}).themeOut;
 in {
   options.hMods.packages.zed = {
-    enable = lib.mkEnableOption "Enable Zed" // {default = config.hMods.packages.enableMinimal;};
+    enable = lib.mkEnableOption "Zed" // {default = config.hMods.packages.enableMinimal;};
     package = lib.mkPackageOption pkgs "zed-editor" {
       nullable = false;
     };

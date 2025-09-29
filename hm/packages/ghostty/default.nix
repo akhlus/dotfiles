@@ -11,7 +11,7 @@
 in {
   options.hMods.packages.ghostty = {
     enable =
-      lib.mkEnableOption "Enable Ghostty"
+      lib.mkEnableOption "Ghostty"
       // {default = config.hMods.packages.enableMinimal;};
     package = lib.mkPackageOption pkgs "ghostty" {
       nullable = true;

@@ -6,7 +6,7 @@
   cfg = config.nMods.nvidia;
 in {
   options.nMods.nvidia = {
-    enable = lib.mkEnableOption "Use nvidia graphics" // {default = false;};
+    enable = lib.mkEnableOption "nvidia graphics" // {default = false;};
     package = lib.mkOption {
       type = lib.types.enum ["stable" "latest" "beta"];
       default = "latest";

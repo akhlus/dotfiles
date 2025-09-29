@@ -91,7 +91,7 @@
             "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).darwinConfigurations.mba.options"
           },
           "home": {
-            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).homeManagerConfigurations.deck.options"
+            "expr": "(builtins.getFlake (builtins.getEnv \"FLAKE_PATH\")).homeConfigurations.deck.options"
           }
         }
       }

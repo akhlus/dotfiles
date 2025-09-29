@@ -27,7 +27,7 @@ in {
         ]);
       gnome.excludePackages = with pkgs; [
         gnome-backgrounds
-        totem #video player
+        totem
       ];
     };
     home-manager.users.${username}.imports = [./dconf.nix];

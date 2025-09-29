@@ -14,8 +14,8 @@ in {
     };
     theme = lib.mkOption {
       type = lib.types.attrs;
-      default = builtins.fromTOML (builtins.readFile ./theme.toml);
-      description = "Path to a toml theme file";
+      default = builtins.fromTOML (builtins.readFile cfg.themeFile);
+      description = "Attr set of theme variables automatically read from the themeFile provided";
     };
     background = lib.mkOption {
       type = lib.types.path;
@@ -28,7 +28,11 @@ in {
       description = "Where the background should be located with in the home folder";
     };
     enableCursor = lib.mkEnableOption "cursor management" // {default = !pkgs.stdenv.isDarwin;};
-    cursorPackage = lib.mkPackageOption pkgs "afterglow-cursors-recolored" {};
+    cursorPackage = lib.mkOption {
+      type = lib.types.pkgs;
+      default = pkgs.afterglow-cursors-recolored;
+      description = "Which package to use for the cursor";
+    };
     cursorName = lib.mkOption {
       description = "Name of cursor";
       type = lib.types.str;

@@ -13,15 +13,15 @@ in {
     ./plasma.nix
   ];
   options.nMods.de = {
-    enable = lib.mkEnableOption "Enable graphics" // {default = true;};
+    enable = lib.mkEnableOption "graphics" // {default = true;};
     environment = lib.mkOption {
       type = lib.types.nullOr (lib.types.enum ["gnome" "plasma" "cosmic"]);
       description = "Environment choice";
       default = null;
     };
-    enableJovian = lib.mkEnableOption "Enable Jovian - SteamOS equivalent" // {default = false;};
-    enableAutoStartJovian = lib.mkEnableOption "Enable Autostart for Jovian" // {default = config.nMods.de.enableJovian;};
-    enableAutoLogin = lib.mkEnableOption "Enable Auto Login";
+    enableJovian = lib.mkEnableOption "Jovian - SteamOS equivalent" // {default = false;};
+    enableAutoStartJovian = lib.mkEnableOption "Autostart for Jovian" // {default = config.nMods.de.enableJovian;};
+    enableAutoLogin = lib.mkEnableOption "Auto Login";
   };
   config = {
     services.displayManager = {

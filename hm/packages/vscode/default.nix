@@ -8,7 +8,7 @@
 in {
   options.hMods.packages.vscode = {
     enable =
-      lib.mkEnableOption "Enable VSCode"
+      lib.mkEnableOption "VSCode"
       // {default = config.hMods.packages.enableExtra;};
     package = lib.mkPackageOption pkgs "vscode" {
       nullable = false;

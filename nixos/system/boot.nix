@@ -7,7 +7,7 @@
   cfg = config.nMods.boot;
 in {
   options.nMods.boot = {
-    enable = lib.mkEnableOption "Enable Boot Options" // {default = true;};
+    enable = lib.mkEnableOption "Boot Options" // {default = true;};
     loader = lib.mkOption {
       type = lib.types.enum ["systemd" "grub"];
       description = "Which bootloader to use in the config";

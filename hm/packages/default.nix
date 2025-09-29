@@ -10,7 +10,6 @@
 in {
   imports = [
     ./cli
-    ./flatpak
     ./ghostty
     ./neovim
     ./vscode
@@ -19,13 +18,13 @@ in {
   ];
   options.hMods.packages = {
     enableMinimal =
-      lib.mkEnableOption "Enable minimal apps: browser, editor, terminal. Auto Enabled by default"
+      lib.mkEnableOption "minimal apps: browser, editor, terminal. Auto Enabled by default"
       // {default = true;};
     enableExtra =
-      lib.mkEnableOption "Enable extra apps - AI CLI and extra editors. Auto Enabled if linux apss are enabled"
+      lib.mkEnableOption "extra apps - AI CLI and extra editors. Auto Enabled if linux apss are enabled"
       // {default = cfg.enableLinuxExtra;};
     enableLinuxExtra =
-      lib.mkEnableOption "Enable linux extra apps - disk stuff and office suite. Must be false on darwin systems"
+      lib.mkEnableOption "linux extra apps - disk stuff and office suite. Must be false on darwin systems"
       // {default = false;};
   };
   config = {
