@@ -10,7 +10,7 @@
   };
 
   hMods = {
-    flatpak.enable = true;
+    #flatpak.enable = true;
     packages = {
       enableMinimal = false;
       ghostty = {
